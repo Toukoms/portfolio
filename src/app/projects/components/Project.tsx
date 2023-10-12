@@ -1,41 +1,38 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import { FiArrowUpRight } from "react-icons/fi";
+import { BsArrowUpRightSquare } from "react-icons/bs";
+import ImageWithErrorHandler from "../../../components/ImageWithErrorHandler";
+import { Project } from "@/types/project";
 
-type Props = {
-  imageSrc: string;
-  title: string;
-  description: string;
-  linkDemo?: string;
-  linkSource: string;
-};
+type Props = Project
 
 const Project = (props: Props) => {
   return (
-    <div className="w-full h-80 border-2 border-cyan-200 p-8 rounded-xl flex flex-col justify-between gap-2 md:gap-4">
-      <div className="overflow-hidden w-full h-38 rounded-sm">
-        <Image
-          src={props.imageSrc}
-          alt={props.title}
-          width={1000}
-          height={1000}
-          loading="eager"
-          className="object-scale-down object-center duration-1000 ease-out hover:scale-110"
-        />
+    <div className="
+    w-full
+    h-80
+    overflow-hidden
+    rounded-sm
+    text-black
+    flex
+    flex-col
+    group">
+      <div className="w-full h-52 group">
+        <ImageWithErrorHandler src={props.imageSrc} alt={props.title} className="object-cover object-center w-full h-full transition-transform duration-1000 scale-105 ease-in-out group-hover:scale-110" loading="eager"/>
       </div>
-      <div className="flex justify-between items-end">
+      
+      <div className="flex justify-between h-max flex-grow items-end p-4 bg-slate-200">
         <div>
           <h1 className="font-bold text-lg whitespace-nowrap">{props.title}</h1>
-          <p className="text-sm text-gray-400">{props.description}</p>
+          <p className="text-sm text-gray-800">{props.description}</p>
         </div>
         <div className="flex gap-2">
-          <Link href={props.linkSource}>
+          <Link href={props.linkSource} target="_blank">
             <FaGithub size={24} />
           </Link>
           {props.linkDemo && (
-            <Link href={props.linkDemo}>
-              <FiArrowUpRight size={24} />
+            <Link href={props.linkDemo} target="_blank">
+              <BsArrowUpRightSquare size={24} />
             </Link>
           )}
         </div>

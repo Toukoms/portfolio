@@ -1,14 +1,13 @@
 import About from "@/components/About";
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
 
 type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <div className="flex justify-center">
-      <div className="w-fit h-full flex flex-col-reverse justify-evenly items-center md:flex-row">
-      <About></About>
+      <div className="pb-4 mt-[6vw] pt-8 sm:pt-4 w-fit h-full flex flex-col-reverse justify-center items-center md:gap-4 md:flex-row">
+        <About></About>
         <Image
           src="/images/geek.png"
           alt="profile"
@@ -17,7 +16,6 @@ const Home = (props: Props) => {
           className="w-64 h-64 md:w-80 md:h-80 animate-floating"
         />
       </div>
-    </div>
   );
 };
 
