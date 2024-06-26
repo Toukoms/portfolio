@@ -33,8 +33,8 @@ const ImageWithErrorHandler = (props: Props) => {
           src={props.src}
           alt={props.alt}
           loading="lazy"
-          onLoadingComplete={(img) => {
-            if (!img.complete || img.naturalWidth == 0) {
+          onLoad={(e) => {
+            if (!e.currentTarget.complete || e.currentTarget.naturalWidth == 0) {
               setOnError(true);
             }
           }}
