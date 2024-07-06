@@ -47,9 +47,10 @@ const Header = () => {
               className={
                 "sm:hover:border-b-2 hover:border-b-primary text-lg sm:text-sm w-fit text-center sm:text-left capitalize cursor-pointer"
               }
+              // FIXME: Quick changing position when clicking on link
               onClick={() => setTimeout(() => toggleShowNavBar(), 100)}
             >
-              {link.href === "" ? "about" : link.href}
+              {link.href}
             </Link>
           ))}
         </nav>
