@@ -7,6 +7,7 @@ import { ToggleThemeButton } from "./ToggleThemeButton";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
+  // TODO: Style active links
   const links = [
     { href: "about", delay: "delay-0" },
     { href: "projects", delay: "delay-[100ms]" },
