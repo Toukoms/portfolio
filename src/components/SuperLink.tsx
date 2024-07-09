@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
+import { Button } from './ui/button'
 
 export const SuperLink = ({href, children}:{href: string, children:React.ReactNode}) => {
   return (
-    <Link href={href} className='font-semibold border-b text-cyan-400 hover:text-cyan-200 border-cyan-400 hover:border-cyan-200'>{children}</Link>
+    <Button variant={"link"} className="p-0" asChild><Link href={href}>{children}</Link></Button>
   )
 }

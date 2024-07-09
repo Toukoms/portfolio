@@ -24,7 +24,8 @@ const BebasNeue = localFont({
 
 export const metadata = {
   title: "Toki",
-  description: "I create websites and applications that are accessible, engaging, and visually appealing.",
+  description:
+    "I create websites and applications that are accessible, engaging, and visually appealing.",
 };
 
 export default function RootLayout({
@@ -37,16 +38,16 @@ export default function RootLayout({
       <body
         className={`${OswaldFont.variable} ${Montserrat.variable} ${BebasNeue.variable} h-full bg-background text-foreground overflow-x-hidden overflow-y-auto`}
       >
-        <Header></Header>
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        <Footer></Footer>
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </ThemeProvider>
       </body>
     </html>
   );

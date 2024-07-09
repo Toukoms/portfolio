@@ -5,7 +5,7 @@ import ImageWithErrorHandler from "./ImageWithErrorHandler";
 
 const Project = (props: Project) => {
   return (
-    <div className="flex flex-col gap-2 p-4 overflow-hidden bg-card text-card-foreground border-2 border-primary-foreground rounded-md w-80 h-80 group">
+    <div className="flex flex-col gap-2 p-4 overflow-hidden bg-card text-card-foreground border-2 rounded-md w-80 h-80 group">
       <Link href={props.linkDemo ?? props.linkSource} target="_blank" className="w-full h-48 overflow-hidden group">
         <ImageWithErrorHandler src={props.imageSrc} alt={props.title} className="object-cover object-center w-full h-full transition-transform duration-1000 ease-in-out scale-105 group-hover:scale-110" loading="eager"/>
       </Link>

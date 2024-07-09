@@ -10,15 +10,15 @@ import {
 
 const ProjectSection = () => {
   return (
-    <section className="w-full">
-      <h1 className="mb-8 text-4xl text-secondary-foreground font-montserrat">
+    <section id="projects" className="w-full">
+      <h1 className="mb-4 text-4xl text-secondary-foreground font-montserrat">
         What have I done ?
       </h1>
       <div className="mb-8">
         <h2 className="mb-2 text-4xl text-secondary-foreground font-oswald">
           Projects
         </h2>
-        <p className="">
+        <p>
           I appreciate using my skills to create applications and tools that
           benefit others.
         </p>

@@ -1,5 +1,3 @@
-import { Skill } from "@/types/skill";
-
 export const skills = [
   "/images/html_logo.png",
   "CSS.svg",
