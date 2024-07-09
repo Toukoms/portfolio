@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { MdClose, MdMenu } from "react-icons/md";
 import { ToggleThemeButton } from "./ToggleThemeButton";
 import { cn } from "@/lib/utils";
@@ -14,8 +14,9 @@ const Header = () => {
     { href: "education", delay: "delay-[300ms]" },
     { href: "contact", delay: "delay-[400ms]" },
   ];
-  const path = usePathname();
-  const current = path.slice(1, path.length);
+  const params = useSearchParams();
+  const current = "";
+  console.log(params);
   const [showNavBar, setShowNavBar] = React.useState(false);
 
   const toggleShowNavBar = () => {
@@ -25,7 +26,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "w-screen sm:h-auto dark:shadow-sm px-4 md:px-0 py-2 sm:py-4 pt-3 sm:pt-6 fixed left-0 top-0 z-50 backdrop-blur-xl sm:backdrop-opacity-90  bg-secondary/75 transition-all duration-300 ease-in-out border-b dark:border-none",
+        "w-screen sm:h-auto shadow-sm px-4 md:px-0 py-2 sm:py-4 pt-3 sm:pt-6 fixed left-0 top-0 z-50 backdrop-blur-2xl sm:backdrop-opacity-90  bg-secondary/50 transition-all duration-300 ease-in-out border-b dark:border-none",
         showNavBar
           ? "h-screen backdrop-opacity-100"
           : "h-max backdrop-opacity-80"
@@ -37,7 +38,7 @@ const Header = () => {
         </h1>
         <nav
           className={
-            cn("w-screen sm:w-auto mx-auto sm:mx-0 z-10 flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-2 sm:gap-4 absolute sm:static left-0", showNavBar ? "top-1/2 transform -translate-y-1/2" : "-top-96")
+            cn("w-screen sm:w-auto mx-auto sm:mx-0 z-10 flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-2 sm:gap-4 absolute sm:static left-0 sm:transform-none", showNavBar ? "top-1/2 transform -translate-y-1/2" : "-top-96")
           }
         >
           {links.map((link) => (
@@ -45,9 +46,9 @@ const Header = () => {
               key={`_${link.href}`}
               href={`#${link.href}`}
               className={
-                "sm:hover:border-b-2 hover:border-b-primary text-lg sm:text-sm w-fit text-center sm:text-left capitalize cursor-pointer"
+                cn(
+                "hover:border-b-2 hover:border-b-primary text-lg sm:text-sm w-fit text-center sm:text-left capitalize cursor-pointer", {"text-primary": link.href == current})
               }
-              // FIXME: Quick changing position when clicking on link
               onClick={() => setTimeout(() => toggleShowNavBar(), 100)}
             >
               {link.href}

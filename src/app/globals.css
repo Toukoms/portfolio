@@ -70,19 +70,18 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border scroll-smooth scroll-mt-28;
   }
 
   body {
     @apply bg-background text-foreground;
   }
-}
 
-@keyframes animate-one-rotation {
-  from {
-    transform: rotate(0);
+  section {
+    @apply mb-24;
   }
-  to {
-    transform: rotate(180);
+
+  img {
+    @apply select-none;
   }
 }

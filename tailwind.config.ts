@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -19,9 +19,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        oswald: ['var(--font-oswald)'],
-        montserrat: ['var(--font-montserrat)'],
-        "bebas-neue": ['var(--font-bebas-neue)'],
+        oswald: ["var(--font-oswald)"],
+        montserrat: ["var(--font-montserrat)"],
+        "bebas-neue": ["var(--font-bebas-neue)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -72,14 +72,19 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "one-rotation": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "one-rotation": "one-rotation 0.6s ease-out",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
