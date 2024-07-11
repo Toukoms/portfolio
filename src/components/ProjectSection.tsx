@@ -7,6 +7,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "./ui/carousel";
+import { projects } from "@/constants/projects";
 
 const ProjectSection = () => {
   return (
@@ -27,70 +28,15 @@ const ProjectSection = () => {
         className="w-full max-w-xs md:max-w-2xl mx-auto"
         opts={{
           align: "start",
+          slidesToScroll: 2
         }}
       >
         <CarouselContent>
-          <CarouselItem>
-            <Project
-              title={"A* algorithm"}
-              description={
-                "Implementation of one of the best path finding algorithm"
-              }
-              imageSrc={"/images/a_star_algorithm.png"}
-              linkSource={""}
-            />
-          </CarouselItem>
-          <CarouselItem>
-            <Project
-              title={"A* algorithm"}
-              description={
-                "Implementation of one of the best path finding algorithm"
-              }
-              imageSrc={"/images/black_panther.jpeg"}
-              linkSource={""}
-              linkDemo="a"
-            />
-          </CarouselItem>
-          <CarouselItem>
-            <Project
-              title={"A* algorithm"}
-              description={
-                "Implementation of one of the best path finding algorithm"
-              }
-              imageSrc={"/images/a_star_algorithm.png"}
-              linkSource={""}
-            />
-          </CarouselItem>
-          <CarouselItem>
-            <Project
-              title={"A* algorithm"}
-              description={
-                "Implementation of one of the best path finding algorithm"
-              }
-              imageSrc={"/images/black_panther.jpeg"}
-              linkSource={""}
-            />
-          </CarouselItem>
-          <CarouselItem>
-            <Project
-              title={"A* algorithm"}
-              description={
-                "Implementation of one of the best path finding algorithm"
-              }
-              imageSrc={"/images/a_star_algorithm.png"}
-              linkSource={""}
-            />
-          </CarouselItem>
-          <CarouselItem>
-            <Project
-              title={"A* algorithm"}
-              description={
-                "Implementation of one of the best path finding algorithm"
-              }
-              imageSrc={"/images/black_panther.jpeg"}
-              linkSource={""}
-            />
-          </CarouselItem>
+          {projects.map((project) => (
+            <CarouselItem key={project.name}>
+              <Project {...project}/>
+            </CarouselItem>
+          ))}
         </CarouselContent>
         <CarouselPrevious className="bg-transparent" />
         <CarouselNext className="bg-transparent" />

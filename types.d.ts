@@ -1,12 +1,12 @@
 type Project = {
-    title: string;
+    name: string;
     description: string;
-    imageSrc: string;
+    image: string;
     linkSource: string;
     linkDemo?: string;
 }
 
 type Skill = {
-    logoSrc: string;
-    description: string;
+    name: string;
+    image: string;
 }
