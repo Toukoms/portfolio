@@ -1,8 +1,8 @@
 import AboutSection from "@/components/AboutSection";
 import React from "react";
 import ProjectSection from "@/components/ProjectSection";
-import { Separator } from "@/components/ui/separator";
 import SkillSection from "@/components/SkillSection";
+import ContactSection from "@/components/ContactSection";
 
 type Props = {};
 
@@ -12,6 +12,7 @@ const Home = (props: Props) => {
       <AboutSection/>
       <ProjectSection/>
       <SkillSection />
+      <ContactSection/>
     </main>
   );
 };

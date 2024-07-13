@@ -21,7 +21,7 @@ export const skills:Skill[] = [
   },
   {
     name: "Express.JS",
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzKMvm_gn2zcWMnvWt0YSxKStI0dV37qEMZQ&s"
   },
   {
     name: "MongoDB",
