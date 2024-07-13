@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 import localFont from "next/font/local";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const OswaldFont = localFont({
   src: "../../public/fonts/Oswald-Regular.ttf",
@@ -22,7 +23,9 @@ const BebasNeue = localFont({
 });
 
 export const metadata = {
-  title: "Portfolio",
+  title: "Toki",
+  description:
+    "I create websites and applications that are accessible, engaging, and visually appealing.",
 };
 
 export default function RootLayout({
@@ -33,11 +36,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${OswaldFont.variable} ${Montserrat.variable} ${BebasNeue.variable} h-full md:h-screen sm:p-2 flex flex-col gap-2 justify-between text-neutral-200 bg-gradient-to-bl from-slate-800 to-gray-800`}
+        className={`${OswaldFont.variable} ${Montserrat.variable} ${BebasNeue.variable} h-full bg-background text-foreground overflow-x-hidden overflow-y-auto`}
       >
-        <Header></Header>
-        {children}
-        <Footer></Footer>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </ThemeProvider>
       </body>
     </html>
   );

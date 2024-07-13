@@ -1,97 +1,78 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { MdClose, MdMenu } from "react-icons/md";
-import Button from "./Button";
+import { ToggleThemeButton } from "./ToggleThemeButton";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
-  const links = ["", "skills", "projects"];
-  const path = usePathname();
-  const current = path.slice(1, path.length);
-  const [showNavBar, setShowNavBar] = React.useState(false);
+  // TODO: Style active links
+  const links = [
+    { href: "about", delay: "delay-0" },
+    { href: "projects", delay: "delay-[100ms]" },
+    { href: "skills", delay: "delay-[200ms]" },
+    { href: "education", delay: "delay-[300ms]" },
+    { href: "contact", delay: "delay-[400ms]" },
+  ];
 
-  const link_style =
-    "w-fit text-2xl sm:text-xl text-center sm:text-left capitalize cursor-pointer";
+  const current = "";
+  const [showNavBar, setShowNavBar] = React.useState(false);
 
   const toggleShowNavBar = () => {
     setShowNavBar(!showNavBar);
   };
 
   return (
-    <div
-      className={
-        `w-full
-        sm:h-auto
-        flex
-        justify-between
-        flex-row
-        items-start sm:items-center
-        shadow-xl
-        py-2 sm:py-4
-        px-4
-        sm:px-12
-        fixed
-        left-0
-        top-0
-        z-50
-        backdrop-blur-xl
-        sm:backdrop-opacity-90
-        bg-black
-        bg-opacity-50
-        sm:bg-opacity-0
-        transition-all
-        duration-300
-        ease-in-out ` +
-        (showNavBar
-          ? "h-full backdrop-opacity-100"
-          : "h-max backdrop-opacity-80")
-      }
+    <header
+      className={cn(
+        "w-screen sm:h-auto shadow-sm px-4 md:px-0 py-2 sm:py-4 pt-3 sm:pt-6 fixed left-0 top-0 z-50 backdrop-blur-2xl sm:backdrop-opacity-90  bg-secondary/50 transition-all duration-300 ease-in-out border-b dark:border-none",
+        showNavBar
+          ? "h-screen backdrop-opacity-100"
+          : "h-max backdrop-opacity-80"
+      )}
     >
-      <h1 className="font-bebas-neue w-fit text-6xl text-cyan-400 uppercase font-bold">
-        Toki.
-      </h1>
-      <nav
-        className={`
-        w-full
-        z-10
-        md:w-auto
-        flex
-        flex-col
-        sm:flex-row
-        justify-center sm:justify-end md:justify-normal
-        items-center
-        gap-8 md:gap-12
-        absolute sm:static
-        left-0
-        duration-300 `
-        + (showNavBar ? "top-[35%]" : "top-[-300%]")
-      }
-      >
-        {links.map((link) => (
-          <Link
-            key={`_${link}`}
-            href={`/${link}`}
-            className={
-              link === current
-                ? `text-cyan-400 sm:hover:border-b-2 hover:border-b-cyan-400 ${link_style}`
-                : `text-neutral-200  sm:hover:border-b-2 hover:border-b-cyan-400 ${link_style}`
-            }
-            onClick={() => setTimeout(() => toggleShowNavBar(), 100)}
-          >
-            {link === "" ? "home" : link}
-          </Link>
-        ))}
-      </nav>
-      <div className="z-20 ml-4 flex justify-center items-center gap-2">
-        <Button href={"/contact"}>Contact Me</Button>
-        {
-          showNavBar
-          ? (<MdClose size={56} className="sm:hidden cursor-pointer animate-one-rotation" onClick={toggleShowNavBar}/>) 
-          : (<MdMenu size={56} className="sm:hidden cursor-pointer animate-one-rotation" onClick={toggleShowNavBar}/>)
-        }
+      <div className="flex items-center justify-between max-w-3xl mx-auto">
+        <h1 className="text-3xl font-bold uppercase font-bebas-neue w-fit text-primary">
+          Toki.
+        </h1>
+        <nav
+          className={
+            cn("w-screen sm:w-auto mx-auto sm:mx-0 z-10 flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-2 sm:gap-4 absolute sm:static left-0 sm:transform-none", showNavBar ? "top-1/2 transform -translate-y-1/2" : "-top-96")
+          }
+        >
+          {links.map((link) => (
+            <Link
+              key={`_${link.href}`}
+              href={`#${link.href}`}
+              className={
+                cn(
+                "hover:border-b-2 hover:border-b-primary text-lg sm:text-sm w-fit text-center sm:text-left capitalize cursor-pointer", {"text-primary": link.href == current})
+              }
+              onClick={() => setTimeout(() => toggleShowNavBar(), 100)}
+            >
+              {link.href}
+            </Link>
+          ))}
+        </nav>
+        <div className="flex gap-2 items-center mr-2 sm:m-0">
+          <ToggleThemeButton />
+          {showNavBar ? (
+            <MdClose
+              size={32}
+              className="cursor-pointer sm:hidden animate-one-rotation"
+              onClick={toggleShowNavBar}
+            />
+          ) : (
+            <MdMenu
+              size={32}
+              className="cursor-pointer sm:hidden animate-one-rotation"
+              onClick={toggleShowNavBar}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 

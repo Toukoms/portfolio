@@ -1,8 +1,10 @@
+import Link from 'next/link'
 import React from 'react'
+import { SuperLink } from './SuperLink'
 
 const Footer = () => {
   return (
-    <div className='self-end text-sm text-gray-500 text-center mt-8 p-2 md:p-1 md:text-right'>Copyright © 2023 by Me Tokiniaina - All Rights Reserved. </div>
+    <div className='self-end pb-4 mt-8 text-sm text-center text-gray-500'>© 2024 Designed and Developed by Tokiniaina - Source code available <SuperLink href="">here</SuperLink>.</div>
   )
 }
 
