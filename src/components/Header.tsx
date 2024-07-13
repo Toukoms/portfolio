@@ -15,9 +15,8 @@ const Header = () => {
     { href: "education", delay: "delay-[300ms]" },
     { href: "contact", delay: "delay-[400ms]" },
   ];
-  const params = useSearchParams();
+
   const current = "";
-  console.log(params);
   const [showNavBar, setShowNavBar] = React.useState(false);
 
   const toggleShowNavBar = () => {
