@@ -19,7 +19,7 @@ const ContactSection = () => {
         <h2 className="mb-2 text-4xl text-secondary-foreground font-oswald">
           Contacts
         </h2>
-        <p className="mb-4">
+        <p className="mb-4 description">
           Call me, send me an email or locate me on my social media accounts.
         </p>
         <div className="w-fit flex items-center gap-8">
@@ -29,7 +29,7 @@ const ContactSection = () => {
           </div>
           <div className="flex items-center gap-2 p-0 text-primary text-lg font-oswald">
             <Phone size={20} />
-            <span>034 07 188 69</span>
+            <span>038 07 188 69</span>
           </div>
         </div>
         <div className="w-fit flex gap-8 mb-2">

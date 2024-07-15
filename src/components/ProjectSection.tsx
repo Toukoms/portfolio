@@ -19,7 +19,7 @@ const ProjectSection = () => {
         <h2 className="mb-2 text-4xl text-secondary-foreground font-oswald">
           Projects
         </h2>
-        <p>
+        <p className="description">
           I appreciate using my skills to create applications and tools that
           benefit others.
         </p>
