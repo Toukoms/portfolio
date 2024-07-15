@@ -7,7 +7,7 @@ export const SuperLink = ({
   target,
   children,
   ...props
-}: React.PropsWithChildren<LinkProps & { target: string }>) => {
+}: React.PropsWithChildren<LinkProps & { target?: string }>) => {
   return (
     <Button
       variant={"link"}
