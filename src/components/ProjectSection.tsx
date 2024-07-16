@@ -28,13 +28,18 @@ const ProjectSection = () => {
         className="w-full max-w-xs md:max-w-2xl mx-auto"
         opts={{
           align: "start",
-          slidesToScroll: 2
+          slidesToScroll: 1,
+          breakpoints: {
+            "(min-width: 768px)": {
+              slidesToScroll: 2,
+            },
+          },
         }}
       >
         <CarouselContent>
           {projects.map((project) => (
             <CarouselItem key={project.name}>
-              <Project {...project}/>
+              <Project {...project} />
             </CarouselItem>
           ))}
         </CarouselContent>
