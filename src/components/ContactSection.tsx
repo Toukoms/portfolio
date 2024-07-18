@@ -14,7 +14,7 @@ import { MailIcon, Phone } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="w-full">
+    <section id="contact" className="w-full mb-0">
       <div>
         <h2 className="mb-2 text-4xl text-secondary-foreground font-oswald">
           Contacts
@@ -32,12 +32,12 @@ const ContactSection = () => {
             <span>038 07 188 69</span>
           </div>
         </div>
-        <div className="w-fit flex gap-8 mb-2">
+        <div className="w-fit flex items-center flex-wrap gap-0 sm:gap-8 my-2">
           <Link
             href={"mailto:tokiniaina090605@gmail.com"}
             className={cn(
               buttonVariants({ variant: "link" }),
-              "flex gap-1 p-0"
+              "flex gap-1 p-0 h-2"
             )}
           >
             <MailIcon size={16} />
