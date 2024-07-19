@@ -19,7 +19,7 @@ const ProjectSection = () => {
         <h2 className="mb-2 text-4xl text-secondary-foreground font-oswald">
           Projects
         </h2>
-        <p>
+        <p className="description">
           I appreciate using my skills to create applications and tools that
           benefit others.
         </p>
@@ -28,13 +28,18 @@ const ProjectSection = () => {
         className="w-full max-w-xs md:max-w-2xl mx-auto"
         opts={{
           align: "start",
-          slidesToScroll: 2
+          slidesToScroll: 1,
+          breakpoints: {
+            "(min-width: 768px)": {
+              slidesToScroll: 2,
+            },
+          },
         }}
       >
         <CarouselContent>
           {projects.map((project) => (
             <CarouselItem key={project.name}>
-              <Project {...project}/>
+              <Project {...project} />
             </CarouselItem>
           ))}
         </CarouselContent>

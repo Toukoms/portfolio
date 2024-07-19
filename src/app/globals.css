@@ -84,4 +84,8 @@
   img {
     @apply select-none;
   }
+
+  p.description {
+    @apply text-sm leading-6 text-justify text-muted-foreground;
+  }
 }

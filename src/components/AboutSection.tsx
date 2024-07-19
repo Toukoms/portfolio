@@ -29,7 +29,7 @@ const AboutSection = () => {
           </h4>
         </div>
       </div>
-      <p className="mb-4 text-sm leading-6 text-justify text-muted-foreground font-montserrat">
+      <p className="mb-4 font-montserrat description">
         Passionate about application development, I am constantly seeking
         challenges that allow me to push my limits and develop my{" "}
         <SuperLink href="#skills">skills</SuperLink>. I enjoy working on
