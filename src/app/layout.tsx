@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${OswaldFont.variable} ${Montserrat.variable} ${BebasNeue.variable} h-full bg-background text-foreground overflow-x-hidden overflow-y-auto`}
       >

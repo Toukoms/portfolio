@@ -1,9 +1,7 @@
 import ImageWithErrorHandler from '@/components/ImageWithErrorHandler';
 import React from 'react'
 
-type Props = Skill
-
-const Skill = (props: Props) => {
+const Skill = (props: SkillProps) => {
   return (
     <div className='h-fit flex items-center border border-primary p-2 rounded-md'>
         <div className='h-12 w-12'>

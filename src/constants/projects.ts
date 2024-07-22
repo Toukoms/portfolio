@@ -1,8 +1,8 @@
-export const projects:Project[] = [
+export const projects:ProjectProps[] = [
     {
         name: "Meteorite Team 21",
         description: "This web application allows you to explore data about meteorite strikes recorded by NASA, providing valuable insights and visualizations.",
-        image: "https://private-user-images.githubusercontent.com/53390409/267027934-6857db52-bae4-41c2-97ec-a57982e43182.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjA3MDE5MjMsIm5iZiI6MTcyMDcwMTYyMywicGF0aCI6Ii81MzM5MDQwOS8yNjcwMjc5MzQtNjg1N2RiNTItYmFlNC00MWMyLTk3ZWMtYTU3OTgyZTQzMTgyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzExVDEyNDAyM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTAzMmI3ZTU0MjczODQ2ZTVkNjMyY2Y4OGQyM2E3NWU2NDA2OTFiYzUwYTQ4N2Q4ODZiNTdhMTI2NWIxMjQyMzUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.iQcQKSG8Ze7yywACGev9FOv1m05QeOb6nQqTT_w2jUM",
+        image: "https://github.com/chingu-voyages/v45-tier2-team-21/assets/53390409/6857db52-bae4-41c2-97ec-a57982e43182",
         linkSource: "https://github.com/chingu-voyages/v45-tier2-team-21",
         linkDemo: "https://meteorite-team21.netlify.app/"
     },

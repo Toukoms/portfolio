@@ -12,7 +12,7 @@ const SkillSection = () => {
         <h2 className="mb-2 text-4xl text-secondary-foreground font-oswald">
           Skills
         </h2>
-        <p>
+        <p className="description">
           I can create user-friendly websites that are both attractive and
           functional. Here are the technologies I have already used:
         </p>

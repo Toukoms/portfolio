@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import { BsArrowUpRightSquare } from "react-icons/bs";
 import ImageWithErrorHandler from "./ImageWithErrorHandler";
 
-const Project = (props: Project) => {
+const Project = (props: ProjectProps) => {
   return (
     <div className="flex flex-col gap-2 p-4 overflow-hidden bg-card text-card-foreground border-2 rounded-md w-80 h-80 group">
       <Link href={props.linkDemo ?? props.linkSource} target="_blank" className="w-full h-48 overflow-hidden group">

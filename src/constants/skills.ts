@@ -1,4 +1,4 @@
-export const skills:Skill[] = [
+export const skills:SkillProps[] = [
   {
     name: "Next.JS",
     image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
