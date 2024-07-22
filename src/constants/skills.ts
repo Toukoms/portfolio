@@ -34,5 +34,17 @@ export const skills:SkillProps[] = [
   {
     name: "Flutter",
     image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"
+  },
+  {
+    name: "Python",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+  },
+  {
+    name: "VSCode",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+  },
+  {
+    name: "Git",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
   }
 ];
