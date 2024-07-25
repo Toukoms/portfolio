@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image";
 import { SuperLink } from "./SuperLink";
 import Link from "next/link";
+import { Badge } from "./ui/badge";
 
 const AboutSection = () => {
   return (
@@ -24,9 +25,10 @@ const AboutSection = () => {
           <h3 className="pb-2 text-4xl font-bold uppercase sm:text-5xl font-oswald whitespace-nowrap">
             I am Tokiniaina
           </h3>
-          <h4 className="pb-4 text-2xl font-bold sm:text-3xl font-montserrat text-primary">
+          <h4 className="pb-2 text-2xl font-bold sm:text-3xl font-montserrat text-primary">
             Web Developper
           </h4>
+          <Badge variant={"outline"} className="text-orange-400 border-orange-400">Open to work</Badge>
         </div>
       </div>
       <p className="mb-4 font-montserrat description">
