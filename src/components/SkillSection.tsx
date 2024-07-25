@@ -24,7 +24,7 @@ const SkillSection = () => {
         ))}
       </div>
       <p  className="description">
-        I learned the SCRUM methodology through{" "}
+        I learned SCRUM methodology through{" "}
         <SuperLink href="https://chingu.io" target="_blank">Chingu</SuperLink>, an online
         platform that connects developers worldwide. This experience has
         sharpened my ability to work effectively in diverse teams and manage
