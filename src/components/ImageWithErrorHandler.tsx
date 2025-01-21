@@ -20,8 +20,7 @@ const ImageWithErrorHandler = (props: Props) => {
         <div className="w-full h-full bg-gray-50 bg-opacity-25 flex flex-col justify-center items-center">
           {props.errorIcon || <MdErrorOutline size={32} />}
           <p className="text-sm text-gray-200 text-center w-1/2 font-light">
-            {props.errorMessage ||
-              "Something went wrong, please reload the page!"}
+            {props.errorMessage || "Error"}
           </p>
         </div>
       ) : (
@@ -33,11 +32,6 @@ const ImageWithErrorHandler = (props: Props) => {
           src={props.src}
           alt={props.alt}
           loading="lazy"
-          onLoad={(e) => {
-            if (!e.currentTarget.complete || e.currentTarget.naturalWidth == 0) {
-              setOnError(true);
-            }
-          }}
           onError={(e) => {
             e.currentTarget.onerror = null;
             setOnError(true);
