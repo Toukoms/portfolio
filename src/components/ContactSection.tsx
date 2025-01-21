@@ -44,7 +44,9 @@ const ContactSection = () => {
             <span>tokiniaina090605@gmail.com</span>
           </Link>
           <Link
-            href={"mailto:tokiniaina.rahajanirina@student.passerellesnumeriques.org"}
+            href={
+              "mailto:tokiniaina.rahajanirina@student.passerellesnumeriques.org"
+            }
             className={cn(
               buttonVariants({ variant: "link" }),
               "flex gap-1 p-0"
@@ -68,7 +70,7 @@ const ContactSection = () => {
             <BsGithub size={24} />
           </Link>
           <Link
-            href={"https://www.linkedin.com/in/fanomezantsoa-tokiniaina-rahajanirina-6a2420237/"}
+            href={"https://mg.linkedin.com/in/fanomezantsoa-tokiniaina"}
             target="_blank"
             className={cn(
               buttonVariants({ variant: "outline" }),
