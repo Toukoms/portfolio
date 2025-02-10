@@ -21,9 +21,7 @@ const Home = (props: Props) => {
       deactivateLinks();
 
       sections.forEach((section) => {
-        if (
-          section.offsetTop - 350 <= window.scrollY
-        ) {
+        if (section.offsetTop - 350 <= window.scrollY) {
           i++;
         }
       });
@@ -41,7 +39,7 @@ const Home = (props: Props) => {
   }, [deactivateLinks, setLinkActive]);
 
   return (
-    <main className="h-full max-w-3xl px-8 mx-auto mt-20 mb-16 sm:mt-32 md:px-2">
+    <main className="h-full max-w-3xl 2xl:max-w-6xl px-8 mx-auto mt-20 mb-16 sm:mt-32 md:px-2">
       <AboutSection />
       <ProjectSection />
       <SkillSection />

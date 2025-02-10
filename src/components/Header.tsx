@@ -25,13 +25,13 @@ const Header = () => {
           : "h-max backdrop-opacity-80"
       )}
     >
-      <div className="flex items-center justify-between max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold uppercase font-bebas-neue w-fit text-primary">
+      <div className="flex items-center justify-between max-w-3xl 2xl:max-w-6xl mx-auto">
+        <h1 className="text-3xl xl:text-5xl font-bold uppercase font-bebas-neue w-fit text-primary">
           Toki.
         </h1>
         <nav
           className={cn(
-            "w-screen sm:w-auto mx-auto sm:mx-0 z-10 flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-2 sm:gap-4 absolute sm:static left-0 sm:transform-none transition-colors duration-300",
+            "w-screen sm:w-auto mx-auto sm:mx-0 z-10 flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-2 sm:gap-4 xl:gap-4 absolute sm:static left-0 sm:transform-none transition-colors duration-300",
             showNavBar ? "top-1/2 transform -translate-y-1/2" : "-top-96"
           )}
         >
@@ -40,7 +40,7 @@ const Header = () => {
               key={`_${link.href}`}
               href={`#${link.href}`}
               className={cn(
-                "text-muted-foreground hover:border-b-2 hover:border-b-primary text-lg sm:text-sm w-fit text-center sm:text-left capitalize cursor-pointer font-medium",
+                "text-muted-foreground hover:border-b-2 hover:border-b-primary text-lg xl:text-xl sm:text-sm w-fit text-center sm:text-left capitalize cursor-pointer font-medium",
                 { "text-primary": link.active }
               )}
               onClick={() => setTimeout(() => toggleShowNavBar(), 100)}

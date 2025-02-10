@@ -26,7 +26,7 @@ const ProjectSection = () => {
         </p>
       </div>
       <Carousel
-        className="w-full max-w-xs md:max-w-2xl mx-auto"
+        className="w-full max-w-xs md:max-w-2xl lg:max-w-3xl 2xl:max-w-6xl mx-auto"
         opts={{
           align: "start",
           slidesToScroll: 1,
