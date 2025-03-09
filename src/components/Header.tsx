@@ -26,8 +26,13 @@ const Header = () => {
       )}
     >
       <div className="flex items-center justify-between max-w-3xl 2xl:max-w-6xl mx-auto">
-        <h1 className="text-3xl xl:text-5xl font-bold uppercase font-bebas-neue w-fit text-primary">
-          Toki.
+        <h1>
+          <a
+            href="/"
+            className="text-3xl xl:text-5xl font-bold uppercase font-bebas-neue w-fit text-primary"
+          >
+            Toki.
+          </a>
         </h1>
         <nav
           className={cn(

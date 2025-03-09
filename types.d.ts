@@ -2,6 +2,8 @@ type ProjectProps = {
   name: string;
   description: string;
   image: string;
+  type: "team" | "solo";
+  techno: string[];
   linkSource: string;
   linkDemo?: string;
 };
@@ -16,8 +18,8 @@ type LinkType = {
   active: boolean;
 };
 
-type LinkStateType = { 
-    links: LinkType[],
-    setLinkActive: (activeLink: string) => void;
-    deactivateLinks: () => void;
+type LinkStateType = {
+  links: LinkType[];
+  setLinkActive: (activeLink: string) => void;
+  deactivateLinks: () => void;
 };

@@ -15,7 +15,7 @@ import { MailIcon, Phone } from "lucide-react";
 const ContactSection = () => {
   return (
     <section id="contact" className="w-full mb-0">
-      <div>
+      <div className="w-full anime_hidden">
         <h2 className="mb-2 text-4xl text-secondary-foreground font-oswald">
           Contacts
         </h2>

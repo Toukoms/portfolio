@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import ScrollViewProvider from "@/providers/ScrollViewProvider";
 
 const OswaldFont = localFont({
   src: "../../public/fonts/Oswald-Regular.ttf",
@@ -44,6 +45,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollViewProvider />
           <Header></Header>
           {children}
           <Footer></Footer>

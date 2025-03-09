@@ -7,6 +7,8 @@ export const projects: ProjectProps[] = [
       "https://raw.githubusercontent.com/Toukoms/ti-books/refs/heads/main/screenshot.png",
     linkSource: "https://github.com/Toukoms/ti-books",
     linkDemo: "https://ti-books.vercel.app/",
+    type: "team",
+    techno: ["Nextjs 14", "TypeScript", "TailwindCSS 3"],
   },
   {
     name: "Meteorite Team 21",
@@ -16,6 +18,8 @@ export const projects: ProjectProps[] = [
       "https://github.com/chingu-voyages/v45-tier2-team-21/assets/53390409/6857db52-bae4-41c2-97ec-a57982e43182",
     linkSource: "https://github.com/chingu-voyages/v45-tier2-team-21",
     linkDemo: "https://meteorite-team21.netlify.app/",
+    type: "team",
+    techno: [],
   },
   {
     name: "Bus Mahajanga",
@@ -24,6 +28,8 @@ export const projects: ProjectProps[] = [
     image: "https://github.com/Toukoms/bus-mahajanga/raw/main/screenshot.png",
     linkSource: "https://github.com/Toukoms/bus-mahajanga",
     linkDemo: "https://bus-mj.netlify.app/",
+    type: "solo",
+    techno: [],
   },
   {
     name: "PySnake",
@@ -31,6 +37,8 @@ export const projects: ProjectProps[] = [
     image:
       "https://github.com/Toukoms/Py-snake/raw/main/src/assets/screenshot_pysnake.jpg",
     linkSource: "https://github.com/Toukoms/Py-snake",
+    type: "solo",
+    techno: [],
   },
   {
     name: "TravelNow",
@@ -40,6 +48,8 @@ export const projects: ProjectProps[] = [
       "https://github.com/Toukoms/travel-now/raw/main/public/screenshot.jpeg",
     linkSource: "https://github.com/Toukoms/travel-now",
     linkDemo: "https://travel-now-tau.vercel.app/",
+    type: "solo",
+    techno: [],
   },
   {
     name: "CONQUER",
@@ -49,6 +59,8 @@ export const projects: ProjectProps[] = [
       "https://github.com/Toukoms/soloproject-tier1-website-template/raw/main/assets/Tier1_Website_Template.gif",
     linkSource: "https://github.com/Toukoms/soloproject-tier1-website-template",
     linkDemo: "https://toukoms.github.io/soloproject-tier1-website-template",
+    type: "solo",
+    techno: [],
   },
   {
     name: "Mother Earth",
@@ -56,6 +68,8 @@ export const projects: ProjectProps[] = [
     image: "https://github.com/Toukoms/mother-earth/raw/main/screenshot.jpeg",
     linkSource: "https://github.com/Toukoms/mother-earth/",
     linkDemo: "https://toukoms.github.io/mother-earth/",
+    type: "solo",
+    techno: [],
   },
   {
     name: "Club Multi",
@@ -64,6 +78,8 @@ export const projects: ProjectProps[] = [
     image: "/images/club-multi.png",
     linkSource: "https://github.com/Toukoms/club-multi",
     linkDemo: "https://toukoms.github.io/club-multi/",
+    type: "team",
+    techno: [],
   },
   {
     name: "BWC",
@@ -72,6 +88,8 @@ export const projects: ProjectProps[] = [
     image: "/images/bwc.png",
     linkSource: "https://github.com/Toukoms/bwc",
     linkDemo: "https://toukoms.github.io/bwc",
+    type: "solo",
+    techno: [],
   },
   {
     name: "Serious.ly",
@@ -81,6 +99,8 @@ export const projects: ProjectProps[] = [
       "https://user-images.githubusercontent.com/105977653/217185404-82bc81a5-8839-4971-aa7a-a4ac1ef8c4e4.png",
     linkSource: "https://github.com/chingu-voyages/v42-toucans-team-09",
     linkDemo: "https://chingu-voyages.github.io/v42-toucans-team-09/",
+    type: "team",
+    techno: [],
   },
   {
     name: "A* Algorithm",
@@ -89,5 +109,7 @@ export const projects: ProjectProps[] = [
     image:
       "https://github.com/Toukoms/a_star_algorithm/raw/main/a_start_image_2.png",
     linkSource: "https://github.com/Toukoms/a_star_algorithm",
+    type: "solo",
+    techno: [],
   },
 ];
