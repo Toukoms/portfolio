@@ -49,7 +49,7 @@ const AboutSection = () => {
           collaboration opportunities.
         </p>
         <Button asChild>
-          <Link href="CV Tokiniaina - FR.pdf">Download my CV</Link>
+          <Link href="/CV_Tokiniaina.pdf">Download my CV</Link>
         </Button>
       </div>
     </section>
