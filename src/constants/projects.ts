@@ -2,13 +2,13 @@ export const projects: ProjectProps[] = [
   {
     name: "Ti-books Malagasy",
     description:
-      " Explore beautiful fairy tales through our interactive storybooks, featuring captivating visuals and engaging audio.",
+      "Explore beautiful fairy tales through our interactive storybooks, featuring captivating visuals and engaging audio. You can search it in Google by typing 'tibooks malagasy'",
     image:
       "https://raw.githubusercontent.com/Toukoms/ti-books/refs/heads/main/screenshot.png",
     linkSource: "https://github.com/Toukoms/ti-books",
     linkDemo: "https://ti-books.vercel.app/",
     type: "team",
-    techno: ["Nextjs 14", "TypeScript", "TailwindCSS 3"],
+    techno: ["Nextjs 14", "TypeScript", "TailwindCSS 3", "Firebase"],
   },
   {
     name: "Meteorite Team 21",

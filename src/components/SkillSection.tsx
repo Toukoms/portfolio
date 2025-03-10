@@ -6,7 +6,7 @@ import { SuperLink } from "./SuperLink";
 const SkillSection = () => {
   return (
     <section id="skills" className="w-full">
-      <div className="anime_hidden">
+      <div className="w-full anime_hidden">
         <h1 className="mb-4 text-4xl text-secondary-foreground font-montserrat">
           How can I help you ?
         </h1>

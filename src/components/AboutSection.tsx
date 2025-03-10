@@ -8,7 +8,7 @@ import { Badge } from "./ui/badge";
 const AboutSection = () => {
   return (
     <section id="about" className="w-full">
-      <div className="anime_hidden">
+      <div className="w-full anime_hidden">
         <h2 className="pb-8 text-4xl font-light text-center sm:text-left font-montserrat">
           Welcome to my portfolio
         </h2>

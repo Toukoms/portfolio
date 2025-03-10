@@ -70,7 +70,7 @@
 
 @layer base {
   * {
-    @apply border-border scroll-smooth scroll-mt-[20rem];
+    @apply border-border scroll-smooth scroll-mt-32 lg:scroll-mt-[20rem];
   }
 
   body {
