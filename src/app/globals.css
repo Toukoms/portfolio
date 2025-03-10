@@ -74,7 +74,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground w-screen overflow-x-hidden;
   }
 
   section {
@@ -99,8 +99,8 @@ section {
 .anime_hidden {
   opacity: 0;
   filter: blur(3px);
-  transform: translateY(180px);
-  transition: all 1s;
+  transform: translateY(300px);
+  transition: all 0.8s;
 }
 
 .anime_show {
