@@ -8,7 +8,17 @@ export const projects: ProjectProps[] = [
     linkSource: "https://github.com/Toukoms/ti-books",
     linkDemo: "https://ti-books.vercel.app/",
     type: "team",
-    techno: ["Nextjs 14", "TypeScript", "TailwindCSS 3", "Firebase"],
+    techno: ["Next.js 14", "TypeScript", "TailwindCSS 3", "Firebase"],
+  },
+  {
+    name: "Bus Mahajanga",
+    description:
+      "This is a web plateforme to find bus in Mahajanga (Madagascar).",
+    image: "https://github.com/Toukoms/bus-mahajanga/raw/main/screenshot.png",
+    linkSource: "https://github.com/Toukoms/bus-mahajanga",
+    linkDemo: "https://bus-mj.netlify.app/",
+    type: "solo",
+    techno: ["React", "Vite", "TailwindCSS"],
   },
   {
     name: "Meteorite Team 21",
@@ -19,17 +29,7 @@ export const projects: ProjectProps[] = [
     linkSource: "https://github.com/chingu-voyages/v45-tier2-team-21",
     linkDemo: "https://meteorite-team21.netlify.app/",
     type: "team",
-    techno: [],
-  },
-  {
-    name: "Bus Mahajanga",
-    description:
-      "This is a web plateforme to find bus in Mahajanga (Madagascar).",
-    image: "https://github.com/Toukoms/bus-mahajanga/raw/main/screenshot.png",
-    linkSource: "https://github.com/Toukoms/bus-mahajanga",
-    linkDemo: "https://bus-mj.netlify.app/",
-    type: "solo",
-    techno: [],
+    techno: ["Next.js 13", "TypeScript", "TailwindCSS", "Nasa API", "Chart.js"],
   },
   {
     name: "PySnake",
@@ -38,7 +38,17 @@ export const projects: ProjectProps[] = [
       "https://github.com/Toukoms/Py-snake/raw/main/src/assets/screenshot_pysnake.jpg",
     linkSource: "https://github.com/Toukoms/Py-snake",
     type: "solo",
-    techno: [],
+    techno: ["Python", "PyGame"],
+  },
+  {
+    name: "Club Multi",
+    description:
+      "The Club Multimédia is a club of technology and digital enthusiasts.",
+    image: "/images/club-multi.png",
+    linkSource: "https://github.com/Toukoms/club-multi",
+    linkDemo: "https://toukoms.github.io/club-multi/",
+    type: "team",
+    techno: ["HTML", "CSS", "JS"],
   },
   {
     name: "TravelNow",
@@ -49,47 +59,7 @@ export const projects: ProjectProps[] = [
     linkSource: "https://github.com/Toukoms/travel-now",
     linkDemo: "https://travel-now-tau.vercel.app/",
     type: "solo",
-    techno: [],
-  },
-  {
-    name: "CONQUER",
-    description:
-      "Clone of CONQUER from Templatemo, a website template crafted by using Bootstrap but I design it using only HTML, CSS and JS.",
-    image:
-      "https://github.com/Toukoms/soloproject-tier1-website-template/raw/main/assets/Tier1_Website_Template.gif",
-    linkSource: "https://github.com/Toukoms/soloproject-tier1-website-template",
-    linkDemo: "https://toukoms.github.io/soloproject-tier1-website-template",
-    type: "solo",
-    techno: [],
-  },
-  {
-    name: "Mother Earth",
-    description: "Integration of Mother Earth design from figma community.",
-    image: "https://github.com/Toukoms/mother-earth/raw/main/screenshot.jpeg",
-    linkSource: "https://github.com/Toukoms/mother-earth/",
-    linkDemo: "https://toukoms.github.io/mother-earth/",
-    type: "solo",
-    techno: [],
-  },
-  {
-    name: "Club Multi",
-    description:
-      "The Club Multimédia is a club of technology and digital enthusiasts.",
-    image: "/images/club-multi.png",
-    linkSource: "https://github.com/Toukoms/club-multi",
-    linkDemo: "https://toukoms.github.io/club-multi/",
-    type: "team",
-    techno: [],
-  },
-  {
-    name: "BWC",
-    description:
-      "Best Website Competition organized by our profs in Passerelles Numériques.",
-    image: "/images/bwc.png",
-    linkSource: "https://github.com/Toukoms/bwc",
-    linkDemo: "https://toukoms.github.io/bwc",
-    type: "solo",
-    techno: [],
+    techno: ["Next.js 13", "TypeScript", "TailwindCSS"],
   },
   {
     name: "Serious.ly",
@@ -100,7 +70,37 @@ export const projects: ProjectProps[] = [
     linkSource: "https://github.com/chingu-voyages/v42-toucans-team-09",
     linkDemo: "https://chingu-voyages.github.io/v42-toucans-team-09/",
     type: "team",
-    techno: [],
+    techno: ["HTML", "CSS", "JS"],
+  },
+  {
+    name: "CONQUER",
+    description:
+      "Clone of CONQUER from Templatemo, a website template crafted by using Bootstrap but I design it using only HTML, CSS and JS.",
+    image:
+      "https://github.com/Toukoms/soloproject-tier1-website-template/raw/main/assets/Tier1_Website_Template.gif",
+    linkSource: "https://github.com/Toukoms/soloproject-tier1-website-template",
+    linkDemo: "https://toukoms.github.io/soloproject-tier1-website-template",
+    type: "solo",
+    techno: ["HTML", "CSS", "JS"],
+  },
+  {
+    name: "Mother Earth",
+    description: "Integration of Mother Earth design from figma community.",
+    image: "https://github.com/Toukoms/mother-earth/raw/main/screenshot.jpeg",
+    linkSource: "https://github.com/Toukoms/mother-earth/",
+    linkDemo: "https://toukoms.github.io/mother-earth/",
+    type: "solo",
+    techno: ["HTML", "CSS"],
+  },
+  {
+    name: "BWC",
+    description:
+      "Best Website Competition organized by our profs in Passerelles Numériques.",
+    image: "/images/bwc.png",
+    linkSource: "https://github.com/Toukoms/bwc",
+    linkDemo: "https://toukoms.github.io/bwc",
+    type: "solo",
+    techno: ["HTML", "CSS", "JS"],
   },
   {
     name: "A* Algorithm",
