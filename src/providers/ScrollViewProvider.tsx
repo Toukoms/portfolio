@@ -44,7 +44,7 @@ function ScrollViewProvider() {
           }
         });
       },
-      { threshold: 0.2, rootMargin: "500px" }
+      { threshold: 0.3, rootMargin: "400px" }
     );
 
     const hiddenSections = document.querySelectorAll("section .anime_hidden");
