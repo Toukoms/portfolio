@@ -1,68 +1,37 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import NavigationProvider from "@/provider/NavigationProvider";
 import "./globals.css";
-import localFont from "next/font/local";
-import { ThemeProvider } from "@/providers/ThemeProvider";
-import ScrollViewProvider from "@/providers/ScrollViewProvider";
-import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
-import { cn } from "@/lib/utils";
+import "./(home)/home.css";
+import Background from "@/components/Background";
 
-const OswaldFont = localFont({
-  src: "../../public/fonts/Oswald-Regular.ttf",
-  display: "swap",
-  variable: "--font-oswald",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
-const Montserrat = localFont({
-  src: "../../public/fonts/Montserrat-Regular.ttf",
-  display: "swap",
-  variable: "--font-montserrat",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
-const BebasNeue = localFont({
-  src: "../../public/fonts/BebasNeue-Regular.ttf",
-  display: "swap",
-  variable: "--font-bebas-neue",
-});
-
-export const metadata = {
-  title: "Toki",
-  description:
-    "I create websites and applications that are accessible, engaging, and visually appealing.",
+export const metadata: Metadata = {
+  title: "Tokiniaina - Portfolio",
+  description: "Web developer with 2 years of experience",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={cn(
-          `${OswaldFont.variable} ${Montserrat.variable} ${BebasNeue.variable} h-full bg-background text-foreground overflow-x-hidden overflow-y-auto`,
-          `bg-none dark:bg-[url(/bg-dotted.svg)] bg-[auto_56px] bg-repeat-space`
-        )}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ScrollViewProvider />
-          <Header></Header>
-          {children}
-          <Footer></Footer>
-        </ThemeProvider>
-        {/* <Image
-          src={bgDotted}
-          alt="bg-dotted"
-          width={1920}
-          height={1080}
-          className="fixed top-0 left-0 h-screen w-screen -z-50 "
-        /> */}
-        <BackgroundBeamsWithCollision />
+        <Background />
+        <NavigationProvider>{children}</NavigationProvider>
       </body>
     </html>
   );
