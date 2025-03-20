@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { cn } from "@/lib/utils";
-import { FaAws, FaCode, FaNodeJs, FaReact } from "react-icons/fa";
+import { FaCode, FaNodeJs, FaReact, FaVuejs } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import {
@@ -9,7 +9,6 @@ import {
   SiExpress,
   SiFigma,
   SiGit,
-  SiGraphql,
   SiJest,
   SiMongodb,
   SiPostgresql,
@@ -81,13 +80,18 @@ const About: React.FC<AboutProps> = ({ className }) => {
   const skills: SkillProps[] = [
     // Frontend
     {
-      name: "NextJS",
+      name: "Next.js",
       icon: <RiNextjsFill className="h-6 w-6 text-neon-cyan" />,
       category: "frontend",
     },
     {
       name: "React",
       icon: <FaReact className="h-6 w-6 text-neon-cyan" />,
+      category: "frontend",
+    },
+    {
+      name: "Vue.js",
+      icon: <FaVuejs className="h-6 w-6 text-neon-cyan" />,
       category: "frontend",
     },
     {
@@ -127,11 +131,11 @@ const About: React.FC<AboutProps> = ({ className }) => {
       icon: <SiPostgresql className="h-6 w-6 text-neon-purple" />,
       category: "backend",
     },
-    {
-      name: "GraphQL",
-      icon: <SiGraphql className="h-6 w-6 text-neon-purple" />,
-      category: "backend",
-    },
+    // {
+    //   name: "GraphQL",
+    //   icon: <SiGraphql className="h-6 w-6 text-neon-purple" />,
+    //   category: "backend",
+    // },
 
     // Tools & Others
     {
@@ -154,11 +158,11 @@ const About: React.FC<AboutProps> = ({ className }) => {
       icon: <SiFigma className="h-6 w-6 text-neon-blue" />,
       category: "tools",
     },
-    {
-      name: "AWS",
-      icon: <FaAws className="h-6 w-6 text-neon-blue" />,
-      category: "tools",
-    },
+    // {
+    //   name: "AWS",
+    //   icon: <FaAws className="h-6 w-6 text-neon-blue" />,
+    //   category: "tools",
+    // },
   ];
 
   const experiences: ExperienceProps[] = [
@@ -212,8 +216,8 @@ const About: React.FC<AboutProps> = ({ className }) => {
             style={{ transitionDelay: "100ms" }}
           >
             <div className="flex flex-col items-center space-y-4">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center">
-                <div className="w-18 h-18 overflow-hidden rounded-full bg-background flex items-center justify-center">
+              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center">
+                <div className="w-30 h-30 overflow-hidden rounded-full bg-background flex items-center justify-center">
                   <Image
                     src={"/pdp.jpg"}
                     alt={"Avatar Image"}
@@ -224,8 +228,8 @@ const About: React.FC<AboutProps> = ({ className }) => {
               </div>
               <div className="text-center">
                 <h3 className="font-bold text-xl">Dev Portfolio</h3>
-                <p className="text-muted-foreground text-sm">Web Developer</p>
-                <p className="text-primary">3 years of experience</p>
+                <p className="text-primary text-2xl">Web Developer</p>
+                <p className="text-secondary">3 years of experience</p>
               </div>
             </div>
           </div>

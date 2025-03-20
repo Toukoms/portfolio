@@ -25,66 +25,99 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
     threshold: 0.2,
   });
 
+  // const projects = [
+  //   {
+  //     title: "E-Commerce Dashboard",
+  //     description:
+  //       "A full-featured admin dashboard for managing online stores with real-time analytics and inventory tracking.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  //     technologies: ["React", "Redux", "Node.js", "MongoDB"],
+  //     demoUrl: "#",
+  //     githubUrl: "#",
+  //   },
+  //   {
+  //     title: "Fitness Tracker App",
+  //     description:
+  //       "A mobile-responsive app for tracking workouts, nutrition, and health metrics with customizable goals.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1598520106830-8c45c2035460?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
+  //     technologies: ["React Native", "TypeScript", "Firebase"],
+  //     demoUrl: "#",
+  //     githubUrl: "#",
+  //   },
+  //   {
+  //     title: "Weather Forecast",
+  //     description:
+  //       "A beautiful weather app with 7-day forecasts, hourly updates, and interactive maps using modern APIs.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+  //     technologies: ["JavaScript", "React", "OpenWeather API"],
+  //     demoUrl: "#",
+  //     githubUrl: "#",
+  //   },
+  //   {
+  //     title: "Task Management",
+  //     description:
+  //       "A collaborative task manager with real-time updates, task assignments, and progress tracking.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+  //     technologies: ["Vue.js", "Vuex", "Express", "PostgreSQL"],
+  //     demoUrl: "#",
+  //     githubUrl: "#",
+  //   },
+  //   {
+  //     title: "Social Media Dashboard",
+  //     description:
+  //       "An analytics dashboard for tracking social media performance across multiple platforms.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+  //     technologies: ["React", "D3.js", "Express", "Social APIs"],
+  //     demoUrl: "#",
+  //     githubUrl: "#",
+  //   },
+  //   {
+  //     title: "Real Estate Finder",
+  //     description:
+  //       "An application for finding, comparing, and saving properties with interactive maps and filters.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
+  //     technologies: ["React", "NextJS", "Google Maps API", "MongoDB"],
+  //     demoUrl: "#",
+  //     githubUrl: "#",
+  //   },
+  // ];
+
   const projects = [
     {
-      title: "E-Commerce Dashboard",
+      title: "How Much!",
       description:
-        "A full-featured admin dashboard for managing online stores with real-time analytics and inventory tracking.",
+        "A currency exchange application that allows users to convert various currencies based on the Malagasy Ariary (MGA).",
       image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      technologies: ["React", "Redux", "Node.js", "MongoDB"],
-      demoUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Fitness Tracker App",
-      description:
-        "A mobile-responsive app for tracking workouts, nutrition, and health metrics with customizable goals.",
-      image:
-        "https://images.unsplash.com/photo-1598520106830-8c45c2035460?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
-      technologies: ["React Native", "TypeScript", "Firebase"],
-      demoUrl: "#",
-      githubUrl: "#",
+        "https://images.unsplash.com/photo-1625216299291-3be2cb697457?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      technologies: ["Vue.js", "TailwindCSS"],
+      demoUrl: "https://how-much-mga.netlify.app/",
+      githubUrl: "https://github.com/Toukoms/how-much",
     },
     {
       title: "Weather Forecast",
       description:
-        "A beautiful weather app with 7-day forecasts, hourly updates, and interactive maps using modern APIs.",
+        "A beautiful weather app with 14-day forecasts, hourly updates, and interactive maps using modern APIs.",
       image:
         "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       technologies: ["JavaScript", "React", "OpenWeather API"],
-      demoUrl: "#",
-      githubUrl: "#",
+      demoUrl: "https://weather-app-vert-chi.vercel.app/",
+      githubUrl: "https://github.com/toukoms/weather-app",
     },
     {
-      title: "Task Management",
+      title: "Malagasy Storybooks",
       description:
-        "A collaborative task manager with real-time updates, task assignments, and progress tracking.",
+        "Discover traditional Malagasy stories translated into English. Explore the rich cultural heritage of Madagascar with SEO-optimized content, easily found on Google by searching 'Tibooks Malagasy'.",
       image:
-        "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
-      technologies: ["Vue.js", "Vuex", "Express", "PostgreSQL"],
-      demoUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Social Media Dashboard",
-      description:
-        "An analytics dashboard for tracking social media performance across multiple platforms.",
-      image:
-        "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-      technologies: ["React", "D3.js", "Express", "Social APIs"],
-      demoUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Real Estate Finder",
-      description:
-        "An application for finding, comparing, and saving properties with interactive maps and filters.",
-      image:
-        "https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
-      technologies: ["React", "NextJS", "Google Maps API", "MongoDB"],
-      demoUrl: "#",
-      githubUrl: "#",
+        "https://images.unsplash.com/photo-1622647154493-bcbd02b00b48?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      technologies: ["React", "Next.js", "SEO", "Firebase"],
+      demoUrl: "https://ti-books.vercel.app/",
+      githubUrl: "https://github.com/toukoms/ti-books",
     },
   ];
 
