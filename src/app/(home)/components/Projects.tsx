@@ -90,14 +90,14 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
 
   const projects = [
     {
-      title: "How Much!",
+      title: "Tapakila",
       description:
-        "A currency exchange application that allows users to convert various currencies based on the Malagasy Ariary (MGA).",
+        "An event web application to search event like party or festival near you. It still in development!",
       image:
-        "https://images.unsplash.com/photo-1625216299291-3be2cb697457?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      technologies: ["Vue.js", "TailwindCSS"],
-      demoUrl: "https://how-much-mga.netlify.app/",
-      githubUrl: "https://github.com/Toukoms/how-much",
+        "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      technologies: ["Next.js", "React.js", "TailwindCSS"],
+      demoUrl: "https://tapakila.vercel.app/",
+      githubUrl: "https://github.com/toukoms/tapakila/",
     },
     {
       title: "Weather Forecast",
