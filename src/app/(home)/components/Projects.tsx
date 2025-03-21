@@ -137,8 +137,9 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
           <h3 className="text-3xl md:text-4xl font-bold">Featured Projects</h3>
           <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Select a project to view the details. Each project showcases
-            different skills and technologies.
+            Here are some of my best projects, blending clean code, great
+            design, and smooth interactions. Each project showcases my passion
+            and my skills.
           </p>
         </div>
 
