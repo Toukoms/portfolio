@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import ProjectDialog from "./ProjectDialog";
 import { FiInfo } from "react-icons/fi";
+import { ProjectProps } from "../_types/project";
 
 const ProjectCard: React.FC<ProjectProps & { className?: string }> = (
   props
 ) => {
-  const {
-    title,
-    description,
-    image,
-    technologies,
-    demoUrl,
-    githubUrl,
-    className,
-  } = props;
+  const { title, description, image, technologies, className } = props;
 
   return (
     <div

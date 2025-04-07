@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
             <span className="font-mono text-lg font-bold text-neon-cyan">
               TOKINIAINA
               <span className="text-neon-pink">/</span>
-              <span className="text-neon-purple">PORT</span>
+              <span className="text-neon-purple">PORTFOLIO</span>
             </span>
           </div>
 
