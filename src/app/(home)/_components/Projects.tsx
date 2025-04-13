@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../../../components/ProjectCard";
 import { cn } from "@/lib/utils";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import { ProjectProps } from "@/types/project";
 
 interface ProjectsProps {
   className?: string;
@@ -25,70 +26,7 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
     threshold: 0.2,
   });
 
-  // const projects = [
-  //   {
-  //     title: "E-Commerce Dashboard",
-  //     description:
-  //       "A full-featured admin dashboard for managing online stores with real-time analytics and inventory tracking.",
-  //     image:
-  //       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  //     technologies: ["React", "Redux", "Node.js", "MongoDB"],
-  //     demoUrl: "#",
-  //     githubUrl: "#",
-  //   },
-  //   {
-  //     title: "Fitness Tracker App",
-  //     description:
-  //       "A mobile-responsive app for tracking workouts, nutrition, and health metrics with customizable goals.",
-  //     image:
-  //       "https://images.unsplash.com/photo-1598520106830-8c45c2035460?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80",
-  //     technologies: ["React Native", "TypeScript", "Firebase"],
-  //     demoUrl: "#",
-  //     githubUrl: "#",
-  //   },
-  //   {
-  //     title: "Weather Forecast",
-  //     description:
-  //       "A beautiful weather app with 7-day forecasts, hourly updates, and interactive maps using modern APIs.",
-  //     image:
-  //       "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  //     technologies: ["JavaScript", "React", "OpenWeather API"],
-  //     demoUrl: "#",
-  //     githubUrl: "#",
-  //   },
-  //   {
-  //     title: "Task Management",
-  //     description:
-  //       "A collaborative task manager with real-time updates, task assignments, and progress tracking.",
-  //     image:
-  //       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
-  //     technologies: ["Vue.js", "Vuex", "Express", "PostgreSQL"],
-  //     demoUrl: "#",
-  //     githubUrl: "#",
-  //   },
-  //   {
-  //     title: "Social Media Dashboard",
-  //     description:
-  //       "An analytics dashboard for tracking social media performance across multiple platforms.",
-  //     image:
-  //       "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-  //     technologies: ["React", "D3.js", "Express", "Social APIs"],
-  //     demoUrl: "#",
-  //     githubUrl: "#",
-  //   },
-  //   {
-  //     title: "Real Estate Finder",
-  //     description:
-  //       "An application for finding, comparing, and saving properties with interactive maps and filters.",
-  //     image:
-  //       "https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
-  //     technologies: ["React", "NextJS", "Google Maps API", "MongoDB"],
-  //     demoUrl: "#",
-  //     githubUrl: "#",
-  //   },
-  // ];
-
-  const projects = [
+  const projects: ProjectProps[] = [
     {
       title: "Tapakila",
       description:
@@ -106,6 +44,8 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
       ],
       demoUrl: "https://tapakila.vercel.app/",
       githubUrl: "https://github.com/toukoms/tapakila/",
+      category: "web",
+      id: "1",
     },
     {
       title: "Weather Forecast",
@@ -116,9 +56,11 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
       technologies: ["TypeScript", "React", "OpenWeather API"],
       demoUrl: "https://weather-app-vert-chi.vercel.app/",
       githubUrl: "https://github.com/toukoms/weather-app",
+      category: "web",
+      id: "2",
     },
     {
-      title: "Malagasy Storybooks",
+      title: "Ti-books Malagasy",
       description:
         "Discover traditional Malagasy stories translated into English. Explore the rich cultural heritage of Madagascar with SEO-optimized content, easily found on Google by searching 'Tibooks Malagasy'.",
       image:
@@ -126,6 +68,8 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
       technologies: ["React", "Next.js", "SEO", "Firebase"],
       demoUrl: "https://ti-books.vercel.app/",
       githubUrl: "https://github.com/toukoms/ti-books",
+      category: "web",
+      id: "3",
     },
   ];
 
@@ -158,14 +102,9 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-              technologies={project.technologies}
-              demoUrl={project.demoUrl}
-              githubUrl={project.githubUrl}
               className={cn("opacity-0", projectsInView && "animate-fade-in")}
               data-delay={index * 100}
+              {...project}
             />
           ))}
         </div>
@@ -178,8 +117,7 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
           )}
         >
           <Link
-            href="https://github.com/Toukoms?tab=repositories"
-            target="_blank"
+            href="/project"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-300 bg-gradient-to-r from-neon-cyan to-neon-blue bg-[length:200%_100%] hover:bg-[position:100%_0%] text-background"
           >

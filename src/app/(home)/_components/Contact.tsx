@@ -144,9 +144,9 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium mb-1"
+                      className="block text-left text-sm font-medium mb-1"
                     >
-                      Name
+                      Name :
                     </label>
                     <input
                       type="text"
@@ -162,9 +162,9 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium mb-1"
+                      className="block text-left text-sm font-medium mb-1"
                     >
-                      Email
+                      Email :
                     </label>
                     <input
                       type="email"
@@ -180,9 +180,9 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium mb-1"
+                      className="block text-left text-sm font-medium mb-1"
                     >
-                      Message
+                      Message :
                     </label>
                     <textarea
                       id="message"
@@ -255,12 +255,12 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                     </div>
                   </div>
                   <div className="py-2 px-4 bg-muted rounded-xl rounded-tl-none w-full">
-                    <div className="min-h-[48px] w-full flex items-center">
+                    <div className="relative min-h-[48px] h-full w-full flex items-center">
                       {dialogLines.map((line, index) => (
                         <p
                           key={index}
                           className={cn(
-                            "w-[80%] text-wrap transition-opacity duration-300 absolute",
+                            "text-wrap text-left transition-opacity duration-300 absolute",
                             currentLine === index ? "opacity-100" : "opacity-0"
                           )}
                         >
@@ -339,7 +339,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                         <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
                       </svg>
                     </div>
-                    <span>Antananarivo, Madagascar</span>
+                    <span>Ivandry, Antananarivo, Madagascar</span>
                   </div>
                 </div>
 

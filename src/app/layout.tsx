@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import NavigationProvider from "@/provider/NavigationProvider";
 import "./globals.css";
-import "./(home)/home.css";
 import Background from "@/components/Background";
 
 const geistSans = Geist({
@@ -17,7 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Tokiniaina - Portfolio",
-  description: "Web developer with 2 years of experience",
+  description: "Web developer with 3 years of experience",
+  openGraph: {
+    images: "/pdp.jpg",
+  },
 };
 
 export default function RootLayout({

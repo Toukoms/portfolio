@@ -94,6 +94,35 @@
       radial-gradient(circle at 20% 30%, rgba(10, 70, 90, 0.1) 0%, transparent 30%),
       radial-gradient(circle at 80% 70%, rgba(120, 20, 100, 0.05) 0%, transparent 40%);
   }
+
+  #home {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+
+  .card {
+    padding: 2em;
+  }
+
+  .read-the-docs {
+    color: #888;
+  }
 }
 
 @layer components {
@@ -334,4 +363,32 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.TabsTrigger {
+  @apply flex items-center justify-center w-full px-4 py-2 h-fit rounded-md cursor-pointer text-sm font-medium transition-colors;
+}
+
+.TabsTrigger:hover {
+  @apply bg-card/50;
+}
+
+.TabsTrigger[data-state="active"] {
+  @apply bg-card text-card-foreground;
 }

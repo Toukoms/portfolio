@@ -227,7 +227,9 @@ const About: React.FC<AboutProps> = ({ className }) => {
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="font-bold text-xl">Dev Portfolio</h3>
+                <h1 className="font-bold text-xl mb-4">
+                  RAHAJANIRINA Fanomezantsoa Tokiniaina
+                </h1>
                 <p className="text-primary text-2xl">Web Developer</p>
                 <p className="text-secondary">3 years of experience</p>
               </div>
@@ -238,7 +240,7 @@ const About: React.FC<AboutProps> = ({ className }) => {
           <div
             ref={bioRef}
             className={cn(
-              "glass-panel p-6 md:col-span-2 lg:col-span-3 rounded-xl transition-all duration-700",
+              "glass-panel text-left p-6 md:col-span-2 lg:col-span-3 rounded-xl transition-all duration-700",
               bioInView
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"

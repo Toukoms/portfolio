@@ -10,7 +10,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 import Link from "next/link";
-import { ProjectProps } from "../_types/project";
+import { ProjectProps } from "../types/project";
 
 function ProjectDialog({
   title,
@@ -22,7 +22,7 @@ function ProjectDialog({
 }: ProjectProps) {
   return (
     <Dialog>
-      <DialogTrigger className="absolute w-full h-full z-50 cursor-pointer" />
+      <DialogTrigger className="absolute top-0 left-0 w-full h-full z-50 cursor-pointer" />
       <DialogContent className="max-w-lg p-6 rounded-lg shadow-lg">
         <Image
           src={image}
