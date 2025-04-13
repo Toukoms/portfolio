@@ -95,7 +95,15 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
         "An event web application to search event like party or festival near you. It still in development!",
       image:
         "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      technologies: ["Next.js", "React.js", "TailwindCSS"],
+      technologies: [
+        "Next.js",
+        "React.js",
+        "TailwindCSS",
+        "TypeScript",
+        "Zustand",
+        "Express",
+        "PostgreSQL",
+      ],
       demoUrl: "https://tapakila.vercel.app/",
       githubUrl: "https://github.com/toukoms/tapakila/",
     },
@@ -105,7 +113,7 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
         "A beautiful weather app with 14-day forecasts, hourly updates, and interactive maps using modern APIs.",
       image:
         "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      technologies: ["JavaScript", "React", "OpenWeather API"],
+      technologies: ["TypeScript", "React", "OpenWeather API"],
       demoUrl: "https://weather-app-vert-chi.vercel.app/",
       githubUrl: "https://github.com/toukoms/weather-app",
     },
@@ -133,7 +141,7 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
               : "opacity-0 translate-y-10"
           )}
         >
-          <h2 className="text-sm font-mono text-primary">GAME SELECTION</h2>
+          <h2 className="text-sm font-mono text-primary">PROJECT SELECTION</h2>
           <h3 className="text-3xl md:text-4xl font-bold">Featured Projects</h3>
           <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">

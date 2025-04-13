@@ -253,7 +253,7 @@ const About: React.FC<AboutProps> = ({ className }) => {
               user experiences that are both functional and visually appealing.
             </p>
             <p className="mb-4">
-              My journey in web development began over 7 years ago, and
+              My journey in web development began over 5 years ago, and
               I&apos;ve been leveling up my skills ever since. I specialize in
               React and TypeScript, and I&apos;m constantly exploring new
               technologies and frameworks to enhance my development arsenal.

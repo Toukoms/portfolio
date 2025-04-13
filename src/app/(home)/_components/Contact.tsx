@@ -89,7 +89,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               : "opacity-0 translate-y-10"
           )}
         >
-          <h2 className="text-sm font-mono text-primary">MISSION COMPLETE</h2>
+          <h2 className="text-sm font-mono text-primary">GET IN TOUCH</h2>
           <h3 className="text-3xl md:text-4xl font-bold">Let&apos;s Connect</h3>
           <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
