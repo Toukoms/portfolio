@@ -19,7 +19,8 @@ async function getProjects(category: string) {
     .get();
 
   const projects: ProjectProps[] = (await spnashot).docs.map((doc) => {
-    const { createdAt, ...rest } = doc.data();
+    const { ...rest } = doc.data();
+    delete rest.createdAt;
     return {
       id: doc.id,
       ...rest,
