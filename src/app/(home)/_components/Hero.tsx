@@ -45,9 +45,9 @@ function Hero({ className }: { className?: string }) {
             )}
           >
             <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple opacity-75 blur rounded-full"></div>
-            <h1 className="relative bg-background rounded-full font-mono text-xl px-4 py-1.5">
-              Portfolio 1.0.0
-            </h1>
+            <span className="relative bg-background rounded-full font-mono text-xl px-4 py-1.5">
+              Portfolio 1.1.0
+            </span>
           </div>
 
           <h2

@@ -1,19 +1,27 @@
+"use client";
 import React from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import ProjectDialog from "./ProjectDialog";
 import { FiInfo } from "react-icons/fi";
-import { ProjectProps } from "../_types/project";
+import { ProjectProps } from "@/types/project";
+import { useInView } from "react-intersection-observer";
 
 const ProjectCard: React.FC<ProjectProps & { className?: string }> = (
   props
 ) => {
   const { title, description, image, technologies, className } = props;
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <div
+      ref={ref}
       className={cn(
         "game-card group h-[280px] md:h-[320px] transition-all duration-300 hover:transform hover:scale-[1.03] hover:shadow-md hover:shadow-primary/10",
+        inView ? "opacity-100" : "opacity-0 translate-y-10",
         className
       )}
     >
@@ -56,14 +64,14 @@ const ProjectCard: React.FC<ProjectProps & { className?: string }> = (
 
           <div
             className={cn(
-              "flex gap-3 transition-all bg-accent/50 backdrop-blur-md p-2 rounded-md duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
+              "transition-all bg-accent/50 backdrop-blur-md p-2 rounded-md duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
             )}
           >
-            <div className="flex items-center gap-2 text-sm opacity-80">
-              <FiInfo size={20} />
-              <span className="text-sm font-semibold">
+            <div className="flex items-center gap-2 opacity-80">
+              <FiInfo className="size-6" />
+              <p className="text-sm font-semibold">
                 Click to learn more about this project
-              </span>
+              </p>
             </div>
           </div>
         </div>
