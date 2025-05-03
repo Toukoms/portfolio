@@ -108,7 +108,7 @@ function Hero({ className }: { className?: string }) {
                 GitHub Profile
               </Link>
               <Link
-                href="/CV_Tokiniaina.pdf"
+                href="/CV_RAHAJANIRINA_Fanomezantsoa_Tokiniaina.pdf"
                 className="flex-1 py-3 border border-border text-center font-medium rounded-md transition-all hover:bg-muted/30"
               >
                 Download Resume
