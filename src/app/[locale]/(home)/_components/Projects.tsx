@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
-import ProjectCard from "../../../components/ProjectCard";
 import { cn } from "@/lib/utils";
-import { useInView } from "react-intersection-observer";
-import Link from "next/link";
 import { ProjectProps } from "@/types/project";
+import Link from "next/link";
+import React from "react";
+import { useInView } from "react-intersection-observer";
+import ProjectCard from "../../../../components/ProjectCard";
 
 interface ProjectsProps {
   className?: string;

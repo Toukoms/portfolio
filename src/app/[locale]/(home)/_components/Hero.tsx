@@ -1,10 +1,12 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { useScopedI18n } from "@/locales/client";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 
 function Hero({ className }: { className?: string }) {
+  const t = useScopedI18n("hero")
   const [titleRef, titleInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -59,21 +61,23 @@ function Hero({ className }: { className?: string }) {
                 : "opacity-0 translate-y-10"
             )}
           >
-            Creating{" "}
-            <span className="neon-text animate-neon-pulse">Immersive</span>{" "}
-            Digital Experiences
+            {t("title.start")} {" "}
+            <span className="neon-text animate-neon-pulse">
+              {t("title.neon")}
+            </span>
+            {" "}
+            {t("title.end")}
           </h2>
 
           <p
             className={cn(
-              "text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed transition-all duration-700 delay-200 transform",
+              "text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-5xl leading-relaxed transition-all duration-700 delay-200 transform",
               subtitleInView
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             )}
           >
-            Web developer specializing in modern, responsive, and interactive
-            websites and applications.
+            {t("subtitle")}
           </p>
 
           <div
@@ -94,7 +98,7 @@ function Hero({ className }: { className?: string }) {
               className="w-full py-4 bg-gradient-to-r from-neon-cyan to-neon-blue text-background font-medium rounded-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <span className="flex items-center justify-center gap-2">
-                <span>Start Exploring</span>
+                <span>{t("cta")}</span>
                 <ArrowRight size={20} />
               </span>
             </button>

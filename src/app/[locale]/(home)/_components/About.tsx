@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
 import { cn } from "@/lib/utils";
-import { FaCode, FaNodeJs, FaReact, FaVuejs } from "react-icons/fa";
-import { useInView } from "react-intersection-observer";
+import { useScopedI18n } from "@/locales/client";
 import Image from "next/image";
+import React from "react";
+import { FaCode, FaNodeJs, FaReact, FaVuejs } from "react-icons/fa";
+import { RiNextjsFill } from "react-icons/ri";
 import {
   SiDocker,
   SiExpress,
@@ -15,7 +16,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { RiNextjsFill } from "react-icons/ri";
+import { useInView } from "react-intersection-observer";
 
 interface SkillProps {
   name: string;
@@ -35,6 +36,7 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ className }) => {
+  const t = useScopedI18n("about")
   // Main section ref for the entire section
   const [sectionRef] = useInView({
     triggerOnce: true,
