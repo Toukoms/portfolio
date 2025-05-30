@@ -13,7 +13,6 @@ export default {
     projects: "Projets",
     contact: "Contact",
     language: {
-      title: "Langues",
       en: "Anglais",
       fr: "Français"
     }
@@ -28,12 +27,15 @@ export default {
     cta: "Me connaître plus en détail"
   },
   about: {
-    
     title: "À propos de moi",
-    name: "RAHAJANIRINA Fanomezantsoa Tokiniaina",
     role: "Développeur Web",
-    experience: "3 ans d'expérience",
-    description: "Je suis un développeur web passionné, expert dans la création d'applications web modernes et réactives. Avec une solide base en technologies frontend et backend, j'aime concevoir des expériences utilisateur intuitives, fonctionnelles et esthétiques."
+    experience: "ans d'expérience",
+    biography: {
+      title: "BIOGRAPHIE",
+      p1: "Je suis un développeur web passionné, expert dans la création d'applications web modernes et réactives. Avec une solide base en technologies frontend et backend, j'aime créer des expériences utilisateur intuitives qui sont à la fois fonctionnelles et visuellement attrayantes.",
+      p2: "Mon parcours dans le développement web a commencé à mes 15 ans, et depuis, je n'ai cessé d'améliorer mes compétences. Je suis spécialisé en React et TypeScript, et j'explore constamment de nouvelles technologies et frameworks pour enrichir mon arsenal de développement.",
+      p3: "Quand je ne code pas, vous pouvez me trouver en train d'explorer les nouvelles tendances du design, de contribuer à des projets open-source, ou de monter de niveau dans mes jeux RPG préférés."
+    }
   },
   skills: {
     frontend: "Compétences Frontend",
@@ -41,14 +43,14 @@ export default {
     tools: "Outils & Autres"
   },
   experience: {
-    title: "Expérience",
-    qa: {
-      title: "Stage Découverte QA Tester",
+    title: "Expériences",
+    xp2: {
+      title: "Stage Découverte - QA Testeur",
       company: "Vivetic Group Madagascar",
       date: "Octobre 2024",
       description: "Vérification que les fonctionnalités demandées dans le cahier des charges étaient correctement implémentées."
     },
-    dev: {
+    xp1: {
       title: "Développeur Junior",
       company: "Express In Code",
       date: "Mai 2022 - Avril 2023",
@@ -56,7 +58,8 @@ export default {
     }
   },
   projects: {
-    title: "Projets en vedette",
+    title: "Top Projets",
+    description: "Voici quelques-uns de mes meilleurs projets, alliant code propre, design soigné et interactions fluides. Chaque projet met en valeur ma passion et mes compétences.",
     tapakila: {
       title: "Tapakila",
       description: "Une application web pour rechercher des événements comme des fêtes ou des festivals près de chez vous. Encore en développement !"

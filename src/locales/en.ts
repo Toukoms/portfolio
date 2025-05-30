@@ -14,7 +14,6 @@ export default {
     projects: "Projects",
     contact: "Contact",
     language: {
-      title: "Languages",
       fr: "French",
       en: "English"
     }
@@ -30,10 +29,14 @@ export default {
   },
   about: {
     title: "About Me",
-    name: "RAHAJANIRINA Fanomezantsoa Tokiniaina",
     role: "Web Developer",
-    experience: "3 years of experience",
-    description: "I'm a passionate web developer with expertise in creating modern, responsive web applications. With a strong foundation in both frontend and backend technologies, I love crafting intuitive user experiences that are both functional and visually appealing."
+    experience: "years of experience",
+    biography: {
+      title: "BIOGRAPHY",
+      p1: "I'm a passionate web developer with expertise in creating modern, responsive web applications. With a strong foundation in both frontend and backend technologies, I love crafting intuitive user experiences that are both functional and visually appealing.",
+      p2: "My journey in web development began in my 15 years old, and I've been leveling up my skills ever since. I specialize in React and TypeScript, and I'm constantly exploring new technologies and frameworks to enhance my development arsenal.",
+      p3: "When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or leveling up in my favorite RPG games."
+    }
   },
   skills: {
     frontend: "Frontend Skills",
@@ -41,14 +44,14 @@ export default {
     tools: "Tools & Other"
   },
   experience: {
-    title: "Experience",
-    qa: {
-      title: "Discovery Internship QA Tester",
+    title: "Experiences",
+    xp2: {
+      title: "Discovery Internship - QA Tester",
       company: "Vivetic Group Madagascar",
       date: "October 2024",
       description: "Verified that requested functionalities in the requirements document were correctly implemented."
     },
-    dev: {
+    xp1: {
       title: "Junior Developer",
       company: "Express In Code",
       date: "May 2022 - April 2023",
@@ -56,7 +59,8 @@ export default {
     }
   },
   projects: {
-    title: "Featured Projects",
+    title: "Top Projects",
+    description: "Here are some of my best projects, blending clean code, great design, and smooth interactions. Each project showcases my passion and my skills.",
     tapakila: {
       title: "Tapakila",
       description: "An event web application to search events like parties or festivals near you. It is still in development!"

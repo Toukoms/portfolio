@@ -4,8 +4,7 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectTrigger,
-  SelectValue,
+  SelectTrigger
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import {
@@ -13,7 +12,6 @@ import {
   useCurrentLocale,
   useScopedI18n,
 } from "@/locales/client";
-import { SelectLabel } from "@radix-ui/react-select";
 import React, { useEffect, useState } from "react";
 
 interface HeaderProps {
@@ -28,6 +26,7 @@ const Header: React.FC<HeaderProps> = ({
   className,
 }) => {
   const t = useScopedI18n("nav");
+  
   const locale = useCurrentLocale();
   const changeLocale = useChangeLocale();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <header
-      className={cn("fixed top-0 left-0 w-full z-40 py-4 border-b", className)}
+      className={cn("fixed top-0 left-0 w-full z-40 py-4 border-b backdrop-blur-md", className)}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
@@ -127,12 +126,11 @@ const Header: React.FC<HeaderProps> = ({
               defaultValue={locale}
               onValueChange={(value) => changeLocale(value as "en" | "fr")}
             >
-              <SelectTrigger className="w-[100px]">
-                <SelectValue placeholder={locale} />
+              <SelectTrigger className="w-[64px] uppercase font-bold">
+                {locale}
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>{t("language.title")}</SelectLabel>
                   <SelectItem value="fr">{t("language.fr")}</SelectItem>
                   <SelectItem value="en">{t("language.en")}</SelectItem>
                 </SelectGroup>
