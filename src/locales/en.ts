@@ -70,9 +70,11 @@ export default {
       description: "A beautiful weather app with 14-day forecasts, hourly updates, and interactive maps using modern APIs."
     },
     tibooks: {
-      title: "Ti-books Malagasy",
+      title: "TiBooks Malagasy",
       description: "Discover traditional Malagasy stories translated into English. Explore the rich cultural heritage of Madagascar with SEO-optimized content."
-    }
+    },
+    more: "View More Projects",
+    cta: "Click to learn more about this project"
   },
   contact: {
     title: "Let's Connect",

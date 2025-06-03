@@ -12,21 +12,21 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
   onComplete,
   className,
 }) => {
-  const t = useScopedI18n("splashScreen")
+  const t = useScopedI18n("splashScreen");
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [loadingText, setLoadingText] = useState("Initializing...");
   const [showSplash, setShowSplash] = useState(true);
 
-  useEffect(() => {
-    const loadingTexts = [
-      t("init"),
-      t("load"),
-      t("connect"),
-      t("render"),
-      t("optimize"),
-      t("prepare"),
-    ];
+  const loadingTexts = [
+    t("init"),
+    t("load"),
+    t("connect"),
+    t("render"),
+    t("optimize"),
+    t("prepare"),
+  ];
 
+  useEffect(() => {
     let currentIndex = 0;
     let progress = 0;
 
@@ -51,7 +51,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
     }, 300);
 
     return () => clearInterval(interval);
-  }, [onComplete]);
+  }, []);
 
   return (
     <div
@@ -63,7 +63,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
     >
       <div className="w-full max-w-md px-4 space-y-8">
         <div className="text-center mb-8">
-          <p className="text-3xl md:text-4xl font-mono font-bold mb-2 animate-neon-pulse">
+          <p className="text-xl md:text-2xl font-mono font-bold mb-2 animate-neon-pulse">
             <span className="text-neon-cyan">TOKINIAINA</span>
             <span className="text-neon-pink">/</span>
             <span className="text-neon-purple">PORTFOLIO</span>

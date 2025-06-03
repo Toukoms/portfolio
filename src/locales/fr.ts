@@ -65,13 +65,15 @@ export default {
       description: "Une application web pour rechercher des événements comme des fêtes ou des festivals près de chez vous. Encore en développement !"
     },
     weather: {
-      title: "Prévisions Météo",
+      title: "Weather Forecast",
       description: "Une belle application météo avec des prévisions sur 14 jours, des mises à jour horaires et des cartes interactives utilisant des API modernes."
     },
     tibooks: {
-      title: "Ti-books Malagasy",
+      title: "TiBooks Malagasy",
       description: "Découvrez des histoires traditionnelles malgaches traduites en anglais. Explorez le riche patrimoine culturel de Madagascar avec un contenu optimisé pour le SEO."
-    }
+    },
+    more: "Voir Plus de Projets",
+    cta: "Cliquez pour en savoir plus sur ce projet"
   },
   contact: {
     title: "Restons en contact",

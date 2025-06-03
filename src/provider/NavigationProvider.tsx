@@ -3,10 +3,15 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import SplashScreen from "@/components/SplashScreen";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useCurrentLocale } from "@/locales/client";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 function NavigationProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const locale = useCurrentLocale();
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("home");
 
   const handleSplashComplete = () => {
@@ -14,15 +19,15 @@ function NavigationProvider({ children }: { children: React.ReactNode }) {
   };
 
   const handleNavigation = (section: string) => {
-    const sectionRef = document.getElementById(section);
-
-    if (sectionRef) {
-      sectionRef.scrollIntoView({ behavior: "smooth" });
-    }
+    router.push(`/${locale}#${section}`);
   };
 
   // Update active section based on scroll position
   useEffect(() => {
+    if (pathname !== `/${locale}`) {
+      setActiveSection("");
+    }
+
     const handleScroll = () => {
       const aboutRef = document.getElementById("about");
       const projectsRef = document.getElementById("projects");
@@ -46,7 +51,7 @@ function NavigationProvider({ children }: { children: React.ReactNode }) {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [setActiveSection, pathname, locale]);
 
   return (
     <div className="min-h-screen">

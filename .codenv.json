@@ -1,0 +1,9 @@
+{
+  "projectName": "portfolio",
+  "envsBasePath": "/home/toki/.envs/portfolio",
+  "envs": [".env"],
+  "scripts": {
+    "dev": ["npm run dev", "default"],
+    "build": ["npm run build", "default"]
+  }
+}

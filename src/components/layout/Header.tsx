@@ -14,6 +14,8 @@ import {
 } from "@/locales/client";
 import React, { useEffect, useState } from "react";
 
+type TNav = "home" | "about" | "projects" | "contact";
+
 interface HeaderProps {
   activeSection: string;
   onNavigate: (section: string) => void;
@@ -95,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({
 
             {/* Desktop navigation */}
             <nav className="hidden md:flex items-center space-x-2">
-              {[t("home"), t("about"), t("projects"), t("contact")].map(
+              {["home", "about", "projects", "contact"].map(
                 (section) => (
                   <button
                     key={section}
@@ -107,7 +109,7 @@ const Header: React.FC<HeaderProps> = ({
                         : "text-foreground/70 hover:text-primary hover:bg-muted/10"
                     )}
                   >
-                    <span className="font-mono text-xs opacity-70 absolute -top-1 -left-1">
+                    <span className="font-mono text-xs opacity-70 absolute -top-1 -left-1 capitalize">
                       {section === t("home")
                         ? "01"
                         : section === t("about")
@@ -116,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({
                         ? "03"
                         : "04"}
                     </span>
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    {t(section as TNav)}
                   </button>
                 )
               )}
@@ -151,7 +153,7 @@ const Header: React.FC<HeaderProps> = ({
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col space-y-3">
-            {[t("home"), t("about"), t("projects"), t("contact")].map(
+            {["home", "about", "projects", "contact"].map(
               (section) => (
                 <button
                   key={section}
@@ -163,7 +165,7 @@ const Header: React.FC<HeaderProps> = ({
                       : "text-foreground/70 hover:text-primary"
                   )}
                 >
-                  <span className="font-mono text-xs opacity-70 mr-2">
+                  <span className="font-mono text-xs opacity-70 mr-2 capitalize">
                     {section === t("home")
                       ? "01:"
                       : section === t("about")
@@ -172,7 +174,7 @@ const Header: React.FC<HeaderProps> = ({
                       ? "03:"
                       : "04:"}
                   </span>
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {t(section as TNav)}
                 </button>
               )
             )}
