@@ -1,20 +1,24 @@
 "use client";
-import React from "react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import ProjectDialog from "./ProjectDialog";
-import { FiInfo } from "react-icons/fi";
+import { useScopedI18n } from "@/locales/client";
 import { ProjectProps } from "@/types/project";
+import Image from "next/image";
+import React from "react";
+import { FiInfo } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
+import ProjectDialog from "./ProjectDialog";
 
 const ProjectCard: React.FC<ProjectProps & { className?: string }> = (
   props
 ) => {
-  const { title, description, image, technologies, className } = props;
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+  
+  const t = useScopedI18n("projects")
+  
+  const { title, description, image, technologies, className } = props;
 
   return (
     <div
@@ -70,7 +74,7 @@ const ProjectCard: React.FC<ProjectProps & { className?: string }> = (
             <div className="flex items-center gap-2 opacity-80">
               <FiInfo className="size-6" />
               <p className="text-sm font-semibold">
-                Click to learn more about this project
+                {t("cta")}
               </p>
             </div>
           </div>
