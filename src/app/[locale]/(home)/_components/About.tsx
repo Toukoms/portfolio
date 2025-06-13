@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
 import { cn } from "@/lib/utils";
-import { FaCode, FaNodeJs, FaReact, FaVuejs } from "react-icons/fa";
-import { useInView } from "react-intersection-observer";
+import { useScopedI18n } from "@/locales/client";
 import Image from "next/image";
+import React from "react";
+import { FaCode, FaNodeJs, FaReact, FaVuejs } from "react-icons/fa";
+import { RiNextjsFill } from "react-icons/ri";
 import {
   SiDocker,
   SiExpress,
@@ -15,7 +16,95 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { RiNextjsFill } from "react-icons/ri";
+import { useInView } from "react-intersection-observer";
+
+const skills: SkillProps[] = [
+  // Frontend
+  {
+    name: "Next.js",
+    icon: <RiNextjsFill className="h-6 w-6 text-neon-cyan" />,
+    category: "frontend",
+  },
+  {
+    name: "React",
+    icon: <FaReact className="h-6 w-6 text-neon-cyan" />,
+    category: "frontend",
+  },
+  {
+    name: "Vue.js",
+    icon: <FaVuejs className="h-6 w-6 text-neon-cyan" />,
+    category: "frontend",
+  },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript className="h-6 w-6 text-neon-cyan" />,
+    category: "frontend",
+  },
+  {
+    name: "HTML/CSS/JS",
+    icon: <FaCode className="h-6 w-6 text-neon-cyan" />,
+    category: "frontend",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: <SiTailwindcss className="h-6 w-6 text-neon-cyan" />,
+    category: "frontend",
+  },
+
+  // Backend
+  {
+    name: "Node.js",
+    icon: <FaNodeJs className="h-6 w-6 text-neon-purple" />,
+    category: "backend",
+  },
+  {
+    name: "Express",
+    icon: <SiExpress className="h-6 w-6 text-neon-purple" />,
+    category: "backend",
+  },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb className="h-6 w-6 text-neon-purple" />,
+    category: "backend",
+  },
+  {
+    name: "PostgreSQL",
+    icon: <SiPostgresql className="h-6 w-6 text-neon-purple" />,
+    category: "backend",
+  },
+  // {
+  //   name: "GraphQL",
+  //   icon: <SiGraphql className="h-6 w-6 text-neon-purple" />,
+  //   category: "backend",
+  // },
+
+  // Tools & Others
+  {
+    name: "Git",
+    icon: <SiGit className="h-6 w-6 text-neon-blue" />,
+    category: "tools",
+  },
+  {
+    name: "Docker",
+    icon: <SiDocker className="h-6 w-6 text-neon-blue" />,
+    category: "tools",
+  },
+  {
+    name: "Jest",
+    icon: <SiJest className="h-6 w-6 text-neon-blue" />,
+    category: "tools",
+  },
+  {
+    name: "Figma",
+    icon: <SiFigma className="h-6 w-6 text-neon-blue" />,
+    category: "tools",
+  },
+  // {
+  //   name: "AWS",
+  //   icon: <FaAws className="h-6 w-6 text-neon-blue" />,
+  //   category: "tools",
+  // },
+];
 
 interface SkillProps {
   name: string;
@@ -35,6 +124,25 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ className }) => {
+  const tAbout = useScopedI18n("about");
+  const tSkills = useScopedI18n("skills");
+  const tExperience = useScopedI18n("experience");
+
+  const experiences: ExperienceProps[] = [
+  {
+    title: tExperience("xp2.title"),
+    company: tExperience("xp2.company"),
+    period: tExperience("xp2.date"),
+    description: tExperience("xp2.description"),
+  },
+  {
+    title: tExperience("xp1.title"),
+    company: tExperience("xp1.company"),
+    period: tExperience("xp1.date"),
+    description: tExperience("xp1.description"),
+  },
+];
+
   // Main section ref for the entire section
   const [sectionRef] = useInView({
     triggerOnce: true,
@@ -77,111 +185,6 @@ const About: React.FC<AboutProps> = ({ className }) => {
     threshold: 0.1,
   });
 
-  const skills: SkillProps[] = [
-    // Frontend
-    {
-      name: "Next.js",
-      icon: <RiNextjsFill className="h-6 w-6 text-neon-cyan" />,
-      category: "frontend",
-    },
-    {
-      name: "React",
-      icon: <FaReact className="h-6 w-6 text-neon-cyan" />,
-      category: "frontend",
-    },
-    {
-      name: "Vue.js",
-      icon: <FaVuejs className="h-6 w-6 text-neon-cyan" />,
-      category: "frontend",
-    },
-    {
-      name: "TypeScript",
-      icon: <SiTypescript className="h-6 w-6 text-neon-cyan" />,
-      category: "frontend",
-    },
-    {
-      name: "HTML/CSS/JS",
-      icon: <FaCode className="h-6 w-6 text-neon-cyan" />,
-      category: "frontend",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: <SiTailwindcss className="h-6 w-6 text-neon-cyan" />,
-      category: "frontend",
-    },
-
-    // Backend
-    {
-      name: "Node.js",
-      icon: <FaNodeJs className="h-6 w-6 text-neon-purple" />,
-      category: "backend",
-    },
-    {
-      name: "Express",
-      icon: <SiExpress className="h-6 w-6 text-neon-purple" />,
-      category: "backend",
-    },
-    {
-      name: "MongoDB",
-      icon: <SiMongodb className="h-6 w-6 text-neon-purple" />,
-      category: "backend",
-    },
-    {
-      name: "PostgreSQL",
-      icon: <SiPostgresql className="h-6 w-6 text-neon-purple" />,
-      category: "backend",
-    },
-    // {
-    //   name: "GraphQL",
-    //   icon: <SiGraphql className="h-6 w-6 text-neon-purple" />,
-    //   category: "backend",
-    // },
-
-    // Tools & Others
-    {
-      name: "Git",
-      icon: <SiGit className="h-6 w-6 text-neon-blue" />,
-      category: "tools",
-    },
-    {
-      name: "Docker",
-      icon: <SiDocker className="h-6 w-6 text-neon-blue" />,
-      category: "tools",
-    },
-    {
-      name: "Jest",
-      icon: <SiJest className="h-6 w-6 text-neon-blue" />,
-      category: "tools",
-    },
-    {
-      name: "Figma",
-      icon: <SiFigma className="h-6 w-6 text-neon-blue" />,
-      category: "tools",
-    },
-    // {
-    //   name: "AWS",
-    //   icon: <FaAws className="h-6 w-6 text-neon-blue" />,
-    //   category: "tools",
-    // },
-  ];
-
-  const experiences: ExperienceProps[] = [
-    {
-      title: "Discovery Internship QA Tester",
-      company: "Vivetic Group Madagascar",
-      period: "October 2024",
-      description:
-        "Verified that requested functionalities in the requirements document were correctly implemented.",
-    },
-    {
-      title: "Junior Developer",
-      company: "Express In Code",
-      period: "Mai 2022 - April 2023",
-      description:
-        "One-year learning internship: 9 months on site, 3 months remote., created a japanese anime streaming website..",
-    },
-  ];
-
   return (
     <section id="about" className={cn("py-20", className)} ref={sectionRef}>
       <div className="container mx-auto px-2 md:px-4 lg:px-6">
@@ -197,8 +200,10 @@ const About: React.FC<AboutProps> = ({ className }) => {
             <h2 className="text-sm font-mono text-primary">
               CHARACTER PROFILE
             </h2>
-            <h3 className="text-3xl md:text-4xl font-bold">About Me</h3>
-            <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto"></div>
+            <h3 className="text-3xl md:text-4xl font-bold">
+              {tAbout("title")}
+            </h3>
+            <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto" />
           </div>
         </div>
 
@@ -230,8 +235,8 @@ const About: React.FC<AboutProps> = ({ className }) => {
                 <h1 className="font-bold text-xl mb-4">
                   RAHAJANIRINA Fanomezantsoa Tokiniaina
                 </h1>
-                <p className="text-primary text-2xl">Web Developer</p>
-                <p className="text-secondary">3 years of experience</p>
+                <p className="text-primary text-2xl">{tAbout("role")}</p>
+                <p className="text-secondary">3 {tAbout("experience")}</p>
               </div>
             </div>
           </div>
@@ -247,24 +252,12 @@ const About: React.FC<AboutProps> = ({ className }) => {
             )}
             style={{ transitionDelay: "200ms" }}
           >
-            <h3 className="font-mono text-lg mb-4">CHARACTER BIOGRAPHY</h3>
-            <p className="mb-4">
-              I&apos;m a passionate web developer with expertise in creating
-              modern, responsive web applications. With a strong foundation in
-              both frontend and backend technologies, I love crafting intuitive
-              user experiences that are both functional and visually appealing.
-            </p>
-            <p className="mb-4">
-              My journey in web development began over 5 years ago, and
-              I&apos;ve been leveling up my skills ever since. I specialize in
-              React and TypeScript, and I&apos;m constantly exploring new
-              technologies and frameworks to enhance my development arsenal.
-            </p>
-            <p>
-              When I&apos;m not coding, you can find me exploring new design
-              trends, contributing to open-source projects, or leveling up in my
-              favorite RPG games.
-            </p>
+            <h3 className="font-mono text-lg mb-4">
+              {tAbout("biography.title")}
+            </h3>
+            <p className="mb-4 text-gray-600">{tAbout("biography.p1")}</p>
+            <p className="mb-4 text-gray-600">{tAbout("biography.p2")}</p>
+            <p className="text-gray-600">{tAbout("biography.p3")}</p>
           </div>
 
           {/* Frontend Skills - Spans 1 column on mobile, 1 column on md, and 2 columns on lg */}
@@ -278,7 +271,9 @@ const About: React.FC<AboutProps> = ({ className }) => {
             )}
             style={{ transitionDelay: "300ms" }}
           >
-            <h3 className="font-mono text-lg mb-4">FRONTEND SKILLS</h3>
+            <h3 className="font-mono text-lg mb-4 uppercase">
+              {tSkills("frontend")}
+            </h3>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
               {skills
                 .filter((skill) => skill.category === "frontend")
@@ -313,7 +308,9 @@ const About: React.FC<AboutProps> = ({ className }) => {
             )}
             style={{ transitionDelay: "400ms" }}
           >
-            <h3 className="font-mono text-lg mb-4">BACKEND SKILLS</h3>
+            <h3 className="font-mono text-lg mb-4 uppercase">
+              {tSkills("backend")}
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
               {skills
                 .filter((skill) => skill.category === "backend")
@@ -348,7 +345,9 @@ const About: React.FC<AboutProps> = ({ className }) => {
             )}
             style={{ transitionDelay: "500ms" }}
           >
-            <h3 className="font-mono text-lg mb-4">TOOLS & OTHER</h3>
+            <h3 className="font-mono text-lg mb-4 uppercase">
+              {tSkills("tools")}
+            </h3>
             <div className="grid grid-cols-2 gap-3">
               {skills
                 .filter((skill) => skill.category === "tools")
@@ -383,7 +382,9 @@ const About: React.FC<AboutProps> = ({ className }) => {
             )}
             style={{ transitionDelay: "600ms" }}
           >
-            <h3 className="font-mono text-lg mb-6">EXPERIENCE</h3>
+            <h3 className="font-mono text-lg mb-6 uppercase">
+              {tExperience("title")}
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {experiences.map((exp, index) => (
                 <div

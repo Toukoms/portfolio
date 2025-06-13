@@ -38,4 +38,4 @@ const firebaseAdmin = getFirebaseAdmin();
 
 const db = firebaseAdmin.firestore();
 
-export { firebaseAdmin, db };
+export { db, firebaseAdmin };
