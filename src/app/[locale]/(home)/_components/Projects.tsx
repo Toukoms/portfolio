@@ -12,7 +12,7 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ className }) => {
-  const t = useScopedI18n("projects")
+  const t = useScopedI18n("projects");
 
   const [headerRef, headerInView] = useInView({
     triggerOnce: true,
@@ -30,26 +30,6 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
   });
 
   const projects: ProjectProps[] = [
-    {
-      title: t("tapakila.title"),
-      description:
-        t("tapakila.description"),
-      image:
-        "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      technologies: [
-        "Next.js",
-        "React.js",
-        "TailwindCSS",
-        "TypeScript",
-        "Zustand",
-        "Express",
-        "PostgreSQL",
-      ],
-      demoUrl: "https://tapakila.vercel.app/",
-      githubUrl: "https://github.com/toukoms/tapakila/",
-      category: "web",
-      id: "1",
-    },
     {
       title: t("weather.title"),
       description: t("weather.description"),
@@ -71,6 +51,25 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
       githubUrl: "https://github.com/toukoms/ti-books",
       category: "web",
       id: "3",
+    },
+    {
+      title: t("webinart.title"),
+      description: t("webinart.description"),
+      image:
+        "https://raw.githubusercontent.com/Toukoms/web-in-art/refs/heads/main/assets/screenshot.png",
+      technologies: [
+        "Next.js",
+        "React.js",
+        "TailwindCSS",
+        "TypeScript",
+        "Zustand",
+        "Clerk",
+        "PostgreSQL",
+      ],
+      demoUrl: "https://webinart.vercel.app/",
+      githubUrl: "https://github.com/toukoms/web-in-art/",
+      category: "web",
+      id: "1",
     },
   ];
 
