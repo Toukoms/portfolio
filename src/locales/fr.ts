@@ -29,6 +29,7 @@ export default {
   },
   about: {
     title: "À propos de moi",
+    birth: "Né le ",
     role: "Développeur Web",
     experience: "ans d'expérience",
     biography: {
@@ -83,15 +84,31 @@ export default {
     cta: "Cliquez pour en savoir plus sur ce projet",
   },
   contact: {
-    title: "Restons en contact",
+    title: "Connectons-nous",
+    subtitle: "ENTRER EN CONTACT",
     description:
-      "Prêt à démarrer un nouveau projet ou simplement envie de discuter ? Envoyez-moi un message !",
+      "Prêt à démarrer un nouveau projet ou simplement discuter ? Envoyez-moi un message !",
     form: {
+      title: "Formulaire de Contact",
+      sending: "Envoi en cours...",
+      success: "Message Envoyé !",
+      successMessage: "Merci de m'avoir contacté. Je vous répondrai bientôt.",
       name: "Nom",
       email: "Email",
       message: "Message",
-      send: "Envoyer le message",
+      send: "Envoyer le Message",
     },
+    dialog: {
+      title: "Dialogue",
+    },
+    info: {
+      title: "Informations de Contact",
+    },
+    dialogLines: [
+      "Bonjour ! Comment puis-je vous aider aujourd'hui ?",
+      "N'hésitez pas à partager vos idées de projet ou vos questions.",
+      "Je vous répondrai dès que possible !",
+    ],
   },
   footer: {
     rights: "© 2025 Portfolio de Tokiniaina. Tous droits réservés.",

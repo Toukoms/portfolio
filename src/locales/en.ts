@@ -29,6 +29,7 @@ export default {
   },
   about: {
     title: "About Me",
+    birth: "Born on ",
     role: "Web Developer",
     experience: "years of experience",
     biography: {
@@ -84,14 +85,30 @@ export default {
   },
   contact: {
     title: "Let's Connect",
+    subtitle: "GET IN TOUCH",
     description:
       "Ready to start a new project or just want to chat? Send me a message!",
     form: {
+      title: "Contact Form",
+      sending: "Sending...",
+      success: "Message Sent!",
+      successMessage: "Thanks for reaching out. I'll get back to you soon.",
       name: "Name",
       email: "Email",
       message: "Message",
       send: "Send Message",
     },
+    dialog: {
+      title: "Dialog",
+    },
+    info: {
+      title: "Contact Information",
+    },
+    dialogLines: [
+      "Hello there! How can I help you today?",
+      "Feel free to share your project ideas or questions.",
+      "I'll get back to you as soon as possible!",
+    ],
   },
   footer: {
     rights: "© 2025 Tokiniaina Portfolio. All rights reserved.",
