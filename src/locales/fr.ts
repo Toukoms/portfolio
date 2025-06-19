@@ -29,6 +29,7 @@ export default {
   },
   about: {
     title: "À propos de moi",
+    birth: "Né le ",
     role: "Développeur Web",
     experience: "ans d'expérience",
     biography: {
