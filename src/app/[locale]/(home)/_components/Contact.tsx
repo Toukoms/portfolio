@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import { useInView } from "react-intersection-observer";
-import Link from "next/link";
+import { useScopedI18n } from "@/locales/client";
 import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
 import SocialLinks from "./SocialLinks";
 
 interface ContactProps {
@@ -11,6 +12,8 @@ interface ContactProps {
 }
 
 const Contact: React.FC<ContactProps> = ({ className }) => {
+  const t = useScopedI18n("contact");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -63,9 +66,9 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
   };
 
   const dialogLines = [
-    "Hello there! How can I help you today?",
-    "Feel free to share your project ideas or questions.",
-    "I'll get back to you as soon as possible!",
+    t("dialogLines.0"),
+    t("dialogLines.1"),
+    t("dialogLines.2"),
   ];
 
   // Move to next dialog line every 3 seconds
@@ -89,12 +92,11 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               : "opacity-0 translate-y-10"
           )}
         >
-          <h2 className="text-sm font-mono text-primary">GET IN TOUCH</h2>
-          <h3 className="text-3xl md:text-4xl font-bold">Let&apos;s Connect</h3>
+          <h2 className="text-sm font-mono text-primary">{t("subtitle")}</h2>
+          <h3 className="text-3xl md:text-4xl font-bold">{t("title")}</h3>
           <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            Ready to start a new project or just want to chat? Send me a
-            message!
+            {t("description")}
           </p>
         </div>
 
@@ -109,7 +111,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                   : "opacity-0 -translate-x-10"
               )}
             >
-              <h3 className="font-mono text-lg">CONTACT FORM</h3>
+              <h3 className="font-mono text-lg">{t("form.title")}</h3>
 
               {formStatus === "success" ? (
                 <div className="py-8 text-center space-y-4">
@@ -129,9 +131,9 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                       <polyline points="22 4 12 14.01 9 11.01"></polyline>
                     </svg>
                   </div>
-                  <h4 className="text-xl font-bold">Message Sent!</h4>
+                  <h4 className="text-xl font-bold">{t("form.success")}</h4>
                   <p className="text-muted-foreground">
-                    Thanks for reaching out. I&apos;ll get back to you soon.
+                    {t("form.successMessage")}
                   </p>
                 </div>
               ) : (
@@ -146,7 +148,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                       htmlFor="name"
                       className="block text-left text-sm font-medium mb-1"
                     >
-                      Name :
+                      {t("form.name")} :
                     </label>
                     <input
                       type="text"
@@ -164,7 +166,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                       htmlFor="email"
                       className="block text-left text-sm font-medium mb-1"
                     >
-                      Email :
+                      {t("form.email")} :
                     </label>
                     <input
                       type="email"
@@ -182,7 +184,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                       htmlFor="message"
                       className="block text-left text-sm font-medium mb-1"
                     >
-                      Message :
+                      {t("form.message")} :
                     </label>
                     <textarea
                       id="message"
@@ -222,10 +224,10 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                           ></path>
                         </svg>
-                        Sending...
+                        {t("form.sending")}
                       </span>
                     ) : (
-                      "Send Message"
+                      t("form.send")
                     )}
                   </button>
                 </form>
@@ -242,7 +244,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               )}
             >
               <div className="glass-panel p-6 mb-6">
-                <h3 className="font-mono text-lg mb-4">DIALOG</h3>
+                <h3 className="font-mono text-lg mb-4">{t("dialog.title")}</h3>
                 <div className="flex items-start space-x-4">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center flex-shrink-0">
                     <div className="w-9 h-9 overflow-hidden rounded-full bg-background flex items-center justify-center">
@@ -273,7 +275,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               </div>
 
               <div className="glass-panel p-6">
-                <h3 className="font-mono text-lg mb-4">CONTACT INFO</h3>
+                <h3 className="font-mono text-lg mb-4">{t("info.title")}</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">

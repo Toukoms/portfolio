@@ -1,6 +1,8 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { useScopedI18n } from "@/locales/client";
+import { useCurrentLocale, useScopedI18n } from "@/locales/client";
+import { formatDate } from "date-fns";
+import { enUS, fr } from "date-fns/locale";
 import Image from "next/image";
 import React from "react";
 import { FaCode, FaNodeJs, FaReact, FaVuejs } from "react-icons/fa";
@@ -123,25 +125,28 @@ interface AboutProps {
   className?: string;
 }
 
+const BIRTHDAY = new Date("2005-06-09");
+
 const About: React.FC<AboutProps> = ({ className }) => {
   const tAbout = useScopedI18n("about");
   const tSkills = useScopedI18n("skills");
   const tExperience = useScopedI18n("experience");
+  const locale = useCurrentLocale() === "fr" ? fr : enUS;
 
   const experiences: ExperienceProps[] = [
-  {
-    title: tExperience("xp2.title"),
-    company: tExperience("xp2.company"),
-    period: tExperience("xp2.date"),
-    description: tExperience("xp2.description"),
-  },
-  {
-    title: tExperience("xp1.title"),
-    company: tExperience("xp1.company"),
-    period: tExperience("xp1.date"),
-    description: tExperience("xp1.description"),
-  },
-];
+    {
+      title: tExperience("xp2.title"),
+      company: tExperience("xp2.company"),
+      period: tExperience("xp2.date"),
+      description: tExperience("xp2.description"),
+    },
+    {
+      title: tExperience("xp1.title"),
+      company: tExperience("xp1.company"),
+      period: tExperience("xp1.date"),
+      description: tExperience("xp1.description"),
+    },
+  ];
 
   // Main section ref for the entire section
   const [sectionRef] = useInView({
@@ -235,8 +240,14 @@ const About: React.FC<AboutProps> = ({ className }) => {
                 <h1 className="font-bold text-xl mb-4">
                   RAHAJANIRINA Fanomezantsoa Tokiniaina
                 </h1>
-                <p className="text-primary text-2xl">{tAbout("role")}</p>
-                <p className="text-secondary">3 {tAbout("experience")}</p>
+                <p className="font-mono text-sm w-fit px-4 mx-auto mb-3 text-center text-muted-foreground bg-muted rounded-full">
+                  <span className="font-semibold">{tAbout("birth")}</span>{" "}
+                  {formatDate(BIRTHDAY, "PPP", { locale: locale })}
+                </p>
+                <p className="text-primary  text-2xl">{tAbout("role")}</p>
+                <p className="text-accent font-bold text-xl">
+                  3 {tAbout("experience")}
+                </p>
               </div>
             </div>
           </div>
@@ -255,9 +266,13 @@ const About: React.FC<AboutProps> = ({ className }) => {
             <h3 className="font-mono text-lg mb-4">
               {tAbout("biography.title")}
             </h3>
-            <p className="mb-4 text-gray-600">{tAbout("biography.p1")}</p>
-            <p className="mb-4 text-gray-600">{tAbout("biography.p2")}</p>
-            <p className="text-gray-600">{tAbout("biography.p3")}</p>
+            <p className="mb-4 text-muted-foreground">
+              {tAbout("biography.p1")}
+            </p>
+            <p className="mb-4 text-muted-foreground">
+              {tAbout("biography.p2")}
+            </p>
+            <p className="text-muted-foreground">{tAbout("biography.p3")}</p>
           </div>
 
           {/* Frontend Skills - Spans 1 column on mobile, 1 column on md, and 2 columns on lg */}
