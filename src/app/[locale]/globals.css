@@ -84,7 +84,7 @@
 
   html,
   body {
-    @apply overflow-x-hidden overscroll-none;
+    @apply overflow-x-hidden;
     scroll-behavior: smooth;
   }
 
