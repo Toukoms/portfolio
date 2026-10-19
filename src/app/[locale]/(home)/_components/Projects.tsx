@@ -9,9 +9,10 @@ import ProjectCard from "../../../../components/ProjectCard";
 
 interface ProjectsProps {
   className?: string;
+  projects: ProjectProps[];
 }
 
-const Projects: React.FC<ProjectsProps> = ({ className }) => {
+const Projects: React.FC<ProjectsProps> = ({ className, projects }) => {
   const t = useScopedI18n("projects");
 
   const [headerRef, headerInView] = useInView({
@@ -28,50 +29,6 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-  const projects: ProjectProps[] = [
-    {
-      title: t("weather.title"),
-      description: t("weather.description"),
-      image:
-        "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      technologies: ["TypeScript", "React", "OpenWeather API"],
-      demoUrl: "https://weather-app-vert-chi.vercel.app/",
-      githubUrl: "https://github.com/toukoms/weather-app",
-      category: "web",
-      id: "2",
-    },
-    {
-      title: t("tibooks.title"),
-      description: t("tibooks.description"),
-      image:
-        "https://images.unsplash.com/photo-1622647154493-bcbd02b00b48?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      technologies: ["React", "Next.js", "SEO", "Firebase"],
-      demoUrl: "https://ti-books.vercel.app/",
-      githubUrl: "https://github.com/toukoms/ti-books",
-      category: "web",
-      id: "3",
-    },
-    {
-      title: t("webinart.title"),
-      description: t("webinart.description"),
-      image:
-        "https://raw.githubusercontent.com/Toukoms/web-in-art/refs/heads/main/assets/screenshot.png",
-      technologies: [
-        "Next.js",
-        "React.js",
-        "TailwindCSS",
-        "TypeScript",
-        "Zustand",
-        "Clerk",
-        "PostgreSQL",
-      ],
-      demoUrl: "https://webinart.vercel.app/",
-      githubUrl: "https://github.com/toukoms/web-in-art/",
-      category: "web",
-      id: "1",
-    },
-  ];
 
   return (
     <section id="projects" className={cn("py-20", className)}>
@@ -99,7 +56,7 @@ const Projects: React.FC<ProjectsProps> = ({ className }) => {
         >
           {projects.map((project, index) => (
             <ProjectCard
-              key={index}
+              key={project.id}
               className={cn("opacity-0", projectsInView && "animate-fade-in")}
               data-delay={index * 100}
               {...project}
