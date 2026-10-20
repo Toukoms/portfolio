@@ -46,40 +46,11 @@ export default {
   },
   experience: {
     title: "Expériences",
-    xp2: {
-      title: "Stage Découverte - QA Testeur",
-      company: "Vivetic Group Madagascar",
-      date: "Octobre 2024",
-      description:
-        "Vérification que les fonctionnalités demandées dans le cahier des charges étaient correctement implémentées.",
-    },
-    xp1: {
-      title: "Développeur Junior",
-      company: "Express In Code",
-      date: "Mai 2022 - Avril 2023",
-      description:
-        "Stage d'apprentissage d'un an : 9 mois sur site, 3 mois à distance. Création d'un site de streaming d'anime japonais.",
-    },
   },
   projects: {
     title: "Top Projets",
     description:
       "Voici quelques-uns de mes meilleurs projets, alliant code propre, design soigné et interactions fluides. Chaque projet met en valeur ma passion et mes compétences.",
-    webinart: {
-      title: "Webinart",
-      description:
-        "Webinart est une plateforme complète de gestion d'événements qui connecte les apprenants avec des webinaires et des événements éducatifs de classe mondiale.",
-    },
-    weather: {
-      title: "Weather Forecast",
-      description:
-        "Une belle application météo avec des prévisions sur 14 jours, des mises à jour horaires et des cartes interactives utilisant des API modernes.",
-    },
-    tibooks: {
-      title: "TiBooks Malagasy",
-      description:
-        "Découvrez des histoires traditionnelles malgaches traduites en anglais. Explorez le riche patrimoine culturel de Madagascar avec un contenu optimisé pour le SEO.",
-    },
     more: "Voir Plus de Projets",
     cta: "Cliquez pour en savoir plus sur ce projet",
   },

@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
+import { ExperienceRecord } from "@/types/experience";
 import { formatDate } from "date-fns";
 import { enUS, fr } from "date-fns/locale";
 import Image from "next/image";
@@ -115,6 +116,7 @@ interface SkillProps {
 }
 
 interface ExperienceProps {
+  id: string;
   title: string;
   company: string;
   period: string;
@@ -123,30 +125,26 @@ interface ExperienceProps {
 
 interface AboutProps {
   className?: string;
+  experiences: ExperienceRecord[];
 }
 
 const BIRTHDAY = new Date("2005-06-09");
+const FIRST_YEAR_EXPERIENCE = 2022;
 
-const About: React.FC<AboutProps> = ({ className }) => {
+const About: React.FC<AboutProps> = ({ className, experiences }) => {
   const tAbout = useScopedI18n("about");
   const tSkills = useScopedI18n("skills");
   const tExperience = useScopedI18n("experience");
-  const locale = useCurrentLocale() === "fr" ? fr : enUS;
-
-  const experiences: ExperienceProps[] = [
-    {
-      title: tExperience("xp2.title"),
-      company: tExperience("xp2.company"),
-      period: tExperience("xp2.date"),
-      description: tExperience("xp2.description"),
-    },
-    {
-      title: tExperience("xp1.title"),
-      company: tExperience("xp1.company"),
-      period: tExperience("xp1.date"),
-      description: tExperience("xp1.description"),
-    },
-  ];
+  const currentLocale = useCurrentLocale();
+  const locale = currentLocale === "fr" ? fr : enUS;
+  const localizedExperiences: ExperienceProps[] = experiences.map((exp) => ({
+    id: exp.id,
+    title: currentLocale === "fr" ? exp.title_fr : exp.title_en,
+    company: exp.company,
+    period: currentLocale === "fr" ? exp.period_fr : exp.period_en,
+    description:
+      currentLocale === "fr" ? exp.description_fr : exp.description_en,
+  }));
 
   // Main section ref for the entire section
   const [sectionRef] = useInView({
@@ -246,7 +244,7 @@ const About: React.FC<AboutProps> = ({ className }) => {
                 </p>
                 <p className="text-primary  text-2xl">{tAbout("role")}</p>
                 <p className="text-accent font-bold text-xl">
-                  3 {tAbout("experience")}
+                  {Number(new Date().getFullYear()) - FIRST_YEAR_EXPERIENCE} {tAbout("experience")}
                 </p>
               </div>
             </div>
@@ -401,9 +399,9 @@ const About: React.FC<AboutProps> = ({ className }) => {
               {tExperience("title")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {experiences.map((exp, index) => (
+              {localizedExperiences.map((exp, index) => (
                 <div
-                  key={index}
+                  key={exp.id}
                   className={cn(
                     "border-l-2 border-primary/50 pl-4 pb-2 transition-all duration-700",
                     experienceInView

@@ -46,40 +46,11 @@ export default {
   },
   experience: {
     title: "Experiences",
-    xp2: {
-      title: "Discovery Internship - QA Tester",
-      company: "Vivetic Group Madagascar",
-      date: "October 2024",
-      description:
-        "Verified that requested functionalities in the requirements document were correctly implemented.",
-    },
-    xp1: {
-      title: "Junior Developer",
-      company: "Express In Code",
-      date: "May 2022 - April 2023",
-      description:
-        "One-year learning internship: 9 months on site, 3 months remote. Created a Japanese anime streaming website.",
-    },
   },
   projects: {
     title: "Top Projects",
     description:
       "Here are some of my best projects, blending clean code, great design, and smooth interactions. Each project showcases my passion and my skills.",
-    webinart: {
-      title: "Webinart",
-      description:
-        "Webinart is a comprehensive event management platform that connects learners with world-class webinars and educational events.",
-    },
-    weather: {
-      title: "Weather Forecast",
-      description:
-        "A beautiful weather app with 14-day forecasts, hourly updates, and interactive maps using modern APIs.",
-    },
-    tibooks: {
-      title: "TiBooks Malagasy",
-      description:
-        "Discover traditional Malagasy stories translated into English. Explore the rich cultural heritage of Madagascar with SEO-optimized content.",
-    },
     more: "View More Projects",
     cta: "Click to learn more about this project",
   },

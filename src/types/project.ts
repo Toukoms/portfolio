@@ -7,4 +7,6 @@ export interface ProjectProps {
   technologies: string[];
   demoUrl?: string;
   githubUrl?: string;
+  isFavorite: boolean;
+  createdAt: string;
 }

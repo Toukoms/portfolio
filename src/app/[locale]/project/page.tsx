@@ -2,7 +2,14 @@ import ProjectGrid from "@/components/ProjectGrid";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 
-function ProjectPage() {
+export const revalidate = 60;
+
+async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ locale: "en" | "fr" }>;
+}) {
+  const { locale } = await params;
   return (
     <div className="flex flex-col items-center pt-24 min-h-[86vh]">
       <Link href="/" className="text-blue-500 hover:underline mb-4">
@@ -30,7 +37,7 @@ function ProjectPage() {
             <p className="text-sm text-muted-foreground">
               Here are some of my web projects.
             </p>
-            <ProjectGrid category="web" />
+            <ProjectGrid category="web" locale={locale} />
           </div>
         </TabsContent>
         <TabsContent value="mobile">
@@ -39,7 +46,7 @@ function ProjectPage() {
             <p className="text-sm text-muted-foreground">
               Here are some of my mobile projects.
             </p>
-            <ProjectGrid category="mobile" />
+            <ProjectGrid category="mobile" locale={locale} />
           </div>
         </TabsContent>
         <TabsContent value="desktop">
@@ -48,7 +55,7 @@ function ProjectPage() {
             <p className="text-sm text-muted-foreground">
               Here are some of my desktop projects.
             </p>
-            <ProjectGrid category="desktop" />
+            <ProjectGrid category="desktop" locale={locale} />
           </div>
         </TabsContent>
         <TabsContent value="other">
@@ -57,7 +64,7 @@ function ProjectPage() {
             <p className="text-sm text-muted-foreground">
               Here are some of my other projects.
             </p>
-            <ProjectGrid category="other" />
+            <ProjectGrid category="other" locale={locale} />
           </div>
         </TabsContent>
       </Tabs>
