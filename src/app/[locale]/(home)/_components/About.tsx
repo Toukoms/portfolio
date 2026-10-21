@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
+import resume from "@/data/resume.json";
 import { ExperienceRecord } from "@/types/experience";
 import { formatDate, parseISO } from "date-fns";
 import { enUS, fr } from "date-fns/locale";
@@ -129,9 +130,6 @@ interface AboutProps {
   experiences: ExperienceRecord[];
 }
 
-const BIRTHDAY = new Date("2005-06-09");
-const FIRST_YEAR_EXPERIENCE = 2022;
-
 const About: React.FC<AboutProps> = ({ className, experiences }) => {
   const tAbout = useScopedI18n("about");
   const tSkills = useScopedI18n("skills");
@@ -237,16 +235,19 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
                 </div>
               </div>
               <div className="text-center">
-                <h1 className="font-bold text-xl mb-4">
-                  RAHAJANIRINA Fanomezantsoa Tokiniaina
-                </h1>
+                <h1 className="font-bold text-xl mb-4">{resume.name}</h1>
                 <p className="font-mono text-sm w-fit px-4 mx-auto mb-3 text-center text-muted-foreground bg-muted rounded-full">
                   <span className="font-semibold">{tAbout("birth")}</span>{" "}
-                  {formatDate(BIRTHDAY, "PPP", { locale: locale })}
+                  {formatDate(new Date(resume.birthday), "PPP", {
+                    locale: locale,
+                  })}
                 </p>
-                <p className="text-primary  text-2xl">{tAbout("role")}</p>
+                <p className="text-primary text-2xl">
+                  {currentLocale === "fr" ? resume.role.fr : resume.role.en}
+                </p>
                 <p className="text-accent font-bold text-xl">
-                  {Number(new Date().getFullYear()) - FIRST_YEAR_EXPERIENCE} {tAbout("experience")}
+                  {Number(new Date().getFullYear()) - resume.experienceSince}{" "}
+                  {tAbout("experience")}
                 </p>
               </div>
             </div>

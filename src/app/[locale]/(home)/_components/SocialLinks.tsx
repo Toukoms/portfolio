@@ -1,4 +1,5 @@
 import Link from "next/link";
+import resume from "@/data/resume.json";
 import { LuFacebook, LuGithub, LuLinkedin } from "react-icons/lu";
 
 function SocialLinks() {
@@ -7,7 +8,7 @@ function SocialLinks() {
       <h4 className="font-mono text-sm mb-3">SOCIAL LINKS</h4>
       <div className="flex space-x-4">
         <Link
-          href="https://github.com/toukoms"
+          href={resume.contact.social.github}
           target="_blank"
           className="w-10 h-10 rounded-full bg-muted hover:bg-muted/60 flex items-center justify-center transition-all hover:scale-110"
         >
@@ -15,7 +16,7 @@ function SocialLinks() {
         </Link>
 
         <Link
-          href="https://www.linkedin.com/in/fanomezantsoa-tokiniaina/"
+          href={resume.contact.social.linkedin}
           target="_blank"
           className="w-10 h-10 rounded-full bg-muted hover:bg-muted/60 flex items-center justify-center transition-all hover:scale-110"
         >
@@ -23,7 +24,7 @@ function SocialLinks() {
         </Link>
 
         <Link
-          href="https://www.facebook.com/toki.niana.39/"
+          href={resume.contact.social.facebook}
           target="_blank"
           className="w-10 h-10 rounded-full bg-muted hover:bg-muted/60 flex items-center justify-center transition-all hover:scale-110"
         >

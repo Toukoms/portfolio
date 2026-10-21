@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import resume from "@/data/resume.json";
 import { useScopedI18n } from "@/locales/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,17 +11,6 @@ import SocialLinks from "./SocialLinks";
 interface ContactProps {
   className?: string;
 }
-
-const contactData = {
-  formAction: "https://formspree.io/f/xzzedwbp",
-  avatar: {
-    src: "/pdp.jpg",
-    alt: "Avatar Image",
-  },
-  phone: "+261 32 48 995 32",
-  email: "contact@tokiniaina.dev",
-  location: "Antananarivo, Madagascar",
-} as const;
 
 const Contact: React.FC<ContactProps> = ({ className }) => {
   const t = useScopedI18n("contact");
@@ -150,7 +140,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  action={contactData.formAction}
+                  action={resume.contact.formAction}
                   method="POST"
                   className="space-y-4"
                 >
@@ -260,8 +250,8 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center flex-shrink-0">
                     <div className="w-9 h-9 overflow-hidden rounded-full bg-background flex items-center justify-center">
                       <Image
-                        src={contactData.avatar.src}
-                        alt={contactData.avatar.alt}
+                        src={resume.contact.avatar.src}
+                        alt={resume.contact.avatar.alt}
                         width={1920}
                         height={1080}
                       />
@@ -305,7 +295,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                       </svg>
                     </div>
-                    <span>{contactData.phone}</span>
+                    <span>{resume.contact.phone}</span>
                   </div>
 
                   <div className="flex items-center space-x-3">
@@ -327,10 +317,10 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                       </svg>
                     </div>
                     <Link
-                      href={`mailto:${contactData.email}`}
+                      href={`mailto:${resume.contact.email}`}
                       className="text-accent underline"
                     >
-                      {contactData.email}
+                      {resume.contact.email}
                     </Link>
                   </div>
 
@@ -352,7 +342,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                         <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
                       </svg>
                     </div>
-                    <span>{contactData.location}</span>
+                    <span>{resume.contact.location}</span>
                   </div>
                 </div>
 
