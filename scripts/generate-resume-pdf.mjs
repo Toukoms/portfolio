@@ -166,12 +166,12 @@ function writeHeader() {
     .fontSize(8)
     .fillColor("#E3EBF3")
     .text(
-      `${resume.contact.resumeEmail ?? resume.contact.email}  ·  ${resume.contact.phone}  ·  ${resume.contact.website}`,
+      `${resume.contact.email}  ·  ${resume.contact.phone}  ·  ${resume.contact.website}  ·  ${resume.contact.social.github}  ·  ${resume.contact.social.linkedin}`,
       margin,
       79,
       { width: contentWidth }
     )
-    .text(resume.contact.resumeLocation ?? resume.contact.location, margin, 93);
+    .text(resume.contact.location, margin, 93);
   doc.y = 128;
 }
 
