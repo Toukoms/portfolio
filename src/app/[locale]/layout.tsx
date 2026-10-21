@@ -2,6 +2,7 @@ import Background from "@/components/Background";
 import Providers from "@/provider/Providers";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,6 +39,7 @@ export default async function RootLayout({
       >
         <Background />
         <Providers locale={locale}>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
