@@ -76,7 +76,7 @@ export async function getExperiences(): Promise<ExperienceRecord[]> {
   const { data, error } = await getSupabaseClient()
     .from("experiences")
     .select(
-      "id, title_en, title_fr, company, period_en, period_fr, description_en, description_fr, sort_order"
+      "id, title_en, title_fr, company, start_at, end_at, description_en, description_fr, sort_order"
     )
     .eq("is_visible", true)
     .order("sort_order", { ascending: true });

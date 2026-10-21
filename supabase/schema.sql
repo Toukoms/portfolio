@@ -1,5 +1,5 @@
 create table public.projects (
-  id text primary key default gen_random_uuid()::text,
+  id text primary key default gen_random_uuid(),
   title text not null,
   description_en text not null,
   description_fr text not null,
@@ -23,8 +23,8 @@ create table public.experiences (
   title_en text not null,
   title_fr text not null,
   company text not null,
-  period_en text not null,
-  period_fr text not null,
+  start_at date not null,
+  end_at date,
   description_en text not null,
   description_fr text not null,
   sort_order integer not null default 0,
@@ -45,28 +45,3 @@ create policy "Public can read experiences"
   on public.experiences for select
   to anon, authenticated
   using (true);
-
-insert into public.experiences (
-  title_en, title_fr, company, period_en, period_fr,
-  description_en, description_fr, sort_order
-) values
-  (
-    'Discovery Internship - QA Tester',
-    'Stage Découverte - QA Testeur',
-    'Vivetic Group Madagascar',
-    'October 2024',
-    'Octobre 2024',
-    'Verified that requested functionalities in the requirements document were correctly implemented.',
-    'Vérification que les fonctionnalités demandées dans le cahier des charges étaient correctement implémentées.',
-    1
-  ),
-  (
-    'Junior Developer',
-    'Développeur Junior',
-    'Express In Code',
-    'May 2022 - April 2023',
-    'Mai 2022 - Avril 2023',
-    'One-year learning internship: 9 months on site, 3 months remote. Created a Japanese anime streaming website.',
-    'Stage d''apprentissage d''un an : 9 mois sur site, 3 mois à distance. Création d''un site de streaming d''anime japonais.',
-    2
-  );

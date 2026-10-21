@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
 import { ExperienceRecord } from "@/types/experience";
-import { formatDate } from "date-fns";
+import { formatDate, parseISO } from "date-fns";
 import { enUS, fr } from "date-fns/locale";
 import Image from "next/image";
 import React from "react";
@@ -119,7 +119,8 @@ interface ExperienceProps {
   id: string;
   title: string;
   company: string;
-  period: string;
+  startAt: string;
+  endAt: string | null;
   description: string;
 }
 
@@ -141,7 +142,8 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
     id: exp.id,
     title: currentLocale === "fr" ? exp.title_fr : exp.title_en,
     company: exp.company,
-    period: currentLocale === "fr" ? exp.period_fr : exp.period_en,
+    startAt: exp.start_at,
+    endAt: exp.end_at,
     description:
       currentLocale === "fr" ? exp.description_fr : exp.description_en,
   }));
@@ -416,7 +418,15 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
                       {exp.company}
                     </span>
                     <span className="text-sm text-muted-foreground font-mono">
-                      {exp.period}
+                      {formatDate(parseISO(exp.startAt), "MMMM yyyy", {
+                        locale,
+                      })}{" "}
+                      -{" "}
+                      {exp.endAt
+                        ? formatDate(parseISO(exp.endAt), "MMMM yyyy", {
+                            locale,
+                          })
+                        : tExperience("present")}
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">

@@ -46,6 +46,7 @@ export default {
   },
   experience: {
     title: "Expériences",
+    present: "Aujourd’hui",
   },
   projects: {
     title: "Top Projets",
