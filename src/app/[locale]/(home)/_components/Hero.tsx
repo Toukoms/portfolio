@@ -112,6 +112,7 @@ function Hero({ className }: { className?: string }) {
                 GitHub Profile
               </Link>
               <Link
+                target="_blank"
                 href="/CV_RAHAJANIRINA_Tokiniaina__Developer.pdf"
                 className="flex-1 py-3 border border-border text-center font-medium rounded-md transition-all hover:bg-muted/30"
               >
