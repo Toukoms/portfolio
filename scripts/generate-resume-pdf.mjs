@@ -122,7 +122,12 @@ function writeEntryHeading(title, date) {
 }
 
 function writeBody(text, options = {}) {
-  const { indent = 0, color = colors.muted, fontSize = 8.5 } = options;
+  const {
+    indent = 0,
+    color = colors.muted,
+    fontSize = 8.5,
+    link,
+  } = options;
   doc
     .font("Helvetica")
     .fontSize(fontSize)
@@ -130,6 +135,7 @@ function writeBody(text, options = {}) {
     .text(text, margin + indent, doc.y, {
       width: contentWidth - indent,
       lineGap: 1.5,
+      link,
     });
   doc.y += 1;
 }
@@ -250,6 +256,30 @@ if (resume.education?.length) {
   }
 }
 
+if (resume.certifications?.length) {
+  writeSectionTitle("Certifications");
+  for (const certification of resume.certifications) {
+    writeEntryHeading(certification.name, certification.year);
+    writeBody(certification.organization, {
+      indent: 2,
+      color: colors.accent,
+    });
+    writeBody(certification.url, {
+      indent: 2,
+      color: colors.accent,
+      fontSize: 8,
+      link: certification.url,
+    });
+    doc.y += 2;
+  }
+}
+
+if (resume.languages?.length) {
+  writeSectionTitle("Langues");
+  for (const language of resume.languages) {
+    writeBody(`${language.name} - ${language.level}: ${language.description}`);
+  }
+}
 
 doc.end();
 await finished(output);

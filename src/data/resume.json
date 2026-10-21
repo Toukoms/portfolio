@@ -96,5 +96,31 @@
       "date": "Novembre 2025",
       "description": "3e place avec GoLaw, une application mobile et un back-office web visant à diffuser les lois en version numérique."
     }
+  ],
+  "certifications": [
+    {
+      "name": "Software Quality Assurance and Testing Certification",
+      "organization": "Coursera",
+      "year": "2026",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/NMSQC1AUPOBR"
+    },
+    {
+      "name": "Meta Front-End Developer Certification",
+      "organization": "Coursera",
+      "year": "2026",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/5B61461XM9PY"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Français",
+      "level": "B2",
+      "description": "Lecture, rédaction et communication professionnelle."
+    },
+    {
+      "name": "Anglais",
+      "level": "B1",
+      "description": "Lecture de documentation technique, rédaction et communication basique."
+    }
   ]
 }
