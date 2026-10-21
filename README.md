@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Resume data and PDF
+
+Personal profile, contact, education, skills, and distinctions are maintained in [`src/data/resume.json`](src/data/resume.json). Experience and featured project entries are loaded directly from Supabase. Generate the PDF in `public/` with:
+
+```sh
+pnpm cv:generate
+```
+
+Run `pnpm cv:watch` to regenerate the PDF when `resume.json` changes. `pnpm build` also regenerates it before building. The generator uses the Supabase URL and anon key from `.env.local` or the environment; it does not need a service-role key.
+
 ## Supabase content setup
 
 Portfolio projects and experience entries are loaded from Supabase. To set it up:

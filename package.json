@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "prebuild": "pnpm cv:generate",
     "start": "next start",
     "lint": "next lint",
-    "format": "eslint . --fix"
+    "format": "eslint . --fix",
+    "cv:generate": "node scripts/generate-resume-pdf.mjs",
+    "cv:watch": "node scripts/watch-resume.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.6",
@@ -23,6 +26,7 @@
     "lucide-react": "^0.482.0",
     "next": "15.2.8",
     "next-international": "^1.3.1",
+    "pdfkit": "^0.20.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
