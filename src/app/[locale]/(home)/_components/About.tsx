@@ -236,12 +236,6 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
               </div>
               <div className="text-center">
                 <h1 className="font-bold text-xl mb-4">{resume.name}</h1>
-                <p className="font-mono text-sm w-fit px-4 mx-auto mb-3 text-center text-muted-foreground bg-muted rounded-full">
-                  <span className="font-semibold">{tAbout("birth")}</span>{" "}
-                  {formatDate(new Date(resume.birthday), "PPP", {
-                    locale: locale,
-                  })}
-                </p>
                 <p className="text-primary text-2xl">
                   {currentLocale === "fr" ? resume.role.fr : resume.role.en}
                 </p>
