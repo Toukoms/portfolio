@@ -34,7 +34,7 @@ export default {
     experience: "ans d'expérience",
     biography: {
       title: "BIOGRAPHIE",
-      p1: "Je suis un développeur web passionné, expert dans la création d'applications web modernes et réactives. Avec une solide base en technologies frontend et backend, j'aime créer des expériences utilisateur intuitives qui sont à la fois fonctionnelles et visuellement attrayantes.",
+      p1: "Je suis un développeur web, expert dans la création d'applications web modernes et réactives. Avec une solide base en technologies frontend et backend, j'aime créer des expériences utilisateur intuitives qui sont à la fois fonctionnelles et visuellement attrayantes.",
       p2: "Mon parcours dans le développement web a commencé à mes 15 ans, et depuis, je n'ai cessé d'améliorer mes compétences. Je suis spécialisé en React et TypeScript, et j'explore constamment de nouvelles technologies et frameworks pour enrichir mon arsenal de développement.",
       p3: "Quand je ne code pas, vous pouvez me trouver en train d'explorer les nouvelles tendances du design, de regarder des films, ou de monter de niveau dans mes jeux RPG préférés.",
     },

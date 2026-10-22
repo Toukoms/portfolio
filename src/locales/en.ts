@@ -34,7 +34,7 @@ export default {
     experience: "years of experience",
     biography: {
       title: "BIOGRAPHY",
-      p1: "I'm a passionate web developer with expertise in creating modern, responsive web applications. With a strong foundation in both frontend and backend technologies, I love crafting intuitive user experiences that are both functional and visually appealing.",
+      p1: "I'm a web developer with expertise in creating modern, responsive web applications. With a strong foundation in both frontend and backend technologies, I love crafting intuitive user experiences that are both functional and visually appealing.",
       p2: "My journey in web development began in my 15 years old, and I've been leveling up my skills ever since. I specialize in React and TypeScript, and I'm constantly exploring new technologies and frameworks to enhance my development arsenal.",
       p3: "When I'm not coding, you can find me exploring new design trends, watching movies, or leveling up in my favorite RPG games.",
     },
