@@ -27,6 +27,9 @@ export async function generateMetadata({
   return {
     title: `${resume.name} - Portfolio`,
     description: resume.hero.subtitle[locale],
+    icons: {
+      icon: "/favicon.svg",
+    },
     openGraph: {
       images: PROFILE_IMAGE_PATH,
     },
