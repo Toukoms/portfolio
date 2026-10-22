@@ -126,7 +126,11 @@ export default {
     ],
   },
   footer: {
-    rights: "© 2025 Tokiniaina Portfolio. All rights reserved.",
+    rights: "© {year} Tokiniaina Portfolio. All rights reserved.",
     built: "Built with Next.js, React, TypeScript, TailwindCSS, and ShadcnUI",
+  },
+  notFound: {
+    title: "Oops! Page not found",
+    backHome: "Return to Home",
   },
 } as const;

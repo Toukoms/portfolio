@@ -126,7 +126,11 @@ export default {
     ],
   },
   footer: {
-    rights: "© 2025 Portfolio de Tokiniaina. Tous droits réservés.",
+    rights: "© {year} Portfolio de Tokiniaina. Tous droits réservés.",
     built: "Construit avec Next.js, React, TypeScript, TailwindCSS et ShadcnUI",
+  },
+  notFound: {
+    title: "Oups ! Page introuvable",
+    backHome: "Retour à l'accueil",
   },
 } as const;
