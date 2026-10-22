@@ -95,12 +95,12 @@ values
   ('backend-2', 'fr', 'PostgreSQL'),
   ('backend-3', 'en', 'Stripe'),
   ('backend-3', 'fr', 'Stripe'),
-  ('tools-1', 'en', 'Functional testing'),
-  ('tools-1', 'fr', 'Tests fonctionnels'),
-  ('tools-2', 'en', 'Installation testing'),
-  ('tools-2', 'fr', 'Tests d''installation'),
-  ('tools-3', 'en', 'Role-based access testing'),
-  ('tools-3', 'fr', 'Tests des accès par rôle')
+  ('tools-1', 'en', 'TestComplete'),
+  ('tools-1', 'fr', 'TestComplete'),
+  ('tools-2', 'en', 'Azure DevOps'),
+  ('tools-2', 'fr', 'Azure DevOps'),
+  ('tools-3', 'en', 'TFVC'),
+  ('tools-3', 'fr', 'TFVC')
 on conflict (skill_id, locale) do update set name = excluded.name;
 
 insert into public.distinctions (id, profile_id, organization, date_label, sort_order)

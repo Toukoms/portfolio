@@ -8,8 +8,10 @@ import { differenceInYears, formatDate, parseISO } from "date-fns";
 import { enUS, fr } from "date-fns/locale";
 import Image from "next/image";
 import React from "react";
-import { FaCode, FaReact } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
+import { VscAzureDevops, VscSourceControl } from "react-icons/vsc";
+import { ClipboardCheck } from "lucide-react";
 import {
   SiPostgresql,
   SiStripe,
@@ -27,9 +29,9 @@ const skillIcons: Record<string, React.ReactNode> = {
   Supabase: <SiSupabase className="h-6 w-6 text-primary" />,
   Stripe: <SiStripe className="h-6 w-6 text-primary" />,
   PostgreSQL: <SiPostgresql className="h-6 w-6 text-primary" />,
-  "Functional testing": <FaCode className="h-6 w-6 text-primary" />,
-  "Installation testing": <FaCode className="h-6 w-6 text-primary" />,
-  "Role-based access testing": <FaCode className="h-6 w-6 text-primary" />,
+  TestComplete: <ClipboardCheck className="h-6 w-6 text-primary" />,
+  "Azure DevOps": <VscAzureDevops className="h-6 w-6 text-primary" />,
+  TFVC: <VscSourceControl className="h-6 w-6 text-primary" />,
 };
 
 interface SkillProps {
