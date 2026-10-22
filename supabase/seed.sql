@@ -52,14 +52,14 @@ values
   ('anime-dl', 3, 'HTTPX')
 on conflict (project_id, sort_order) do update set technology = excluded.technology;
 
-insert into public.experiences (id, company, start_at, end_at, sort_order)
+insert into public.experiences (id, company, employment_type, start_at, end_at, sort_order)
 values
-  ('10000000-0000-4000-8000-000000000001', 'Genius At Work', '2026-06-01', null, 1),
-  ('10000000-0000-4000-8000-000000000002', 'Grade''Up - Paris, France (Remote)', '2026-01-01', '2026-05-31', 2),
-  ('10000000-0000-4000-8000-000000000003', 'Genius At Work', '2025-05-01', '2026-01-31', 3),
-  ('10000000-0000-4000-8000-000000000004', 'Vivetic Group Madagascar', '2024-10-01', '2024-10-31', 4),
-  ('10000000-0000-4000-8000-000000000005', 'Express In Code', '2022-05-01', '2023-04-30', 5)
-on conflict (id) do update set company = excluded.company, start_at = excluded.start_at, end_at = excluded.end_at, sort_order = excluded.sort_order;
+  ('10000000-0000-4000-8000-000000000001', 'Genius At Work', 'full_time', '2026-06-01', null, 1),
+  ('10000000-0000-4000-8000-000000000002', 'Grade''Up - Paris, France (Remote)', 'freelance', '2026-01-01', '2026-05-31', 2),
+  ('10000000-0000-4000-8000-000000000003', 'Genius At Work', 'full_time', '2025-05-01', '2026-01-31', 3),
+  ('10000000-0000-4000-8000-000000000004', 'Vivetic Group Madagascar', 'internship', '2024-10-01', '2024-10-31', 4),
+  ('10000000-0000-4000-8000-000000000005', 'Express In Code', 'internship', '2022-05-01', '2023-04-30', 5)
+on conflict (id) do update set company = excluded.company, employment_type = excluded.employment_type, start_at = excluded.start_at, end_at = excluded.end_at, sort_order = excluded.sort_order;
 
 insert into public.experience_translations (experience_id, locale, title, description)
 values

@@ -49,6 +49,7 @@ interface ProjectRow {
 
 interface ExperienceRow {
   id: string;
+  employment_type: ExperienceRecord["employment_type"];
   company: string;
   start_at: string;
   end_at: string | null;
@@ -234,7 +235,7 @@ export async function getExperiences(): Promise<ExperienceRecord[]> {
   const { data, error } = await getSupabaseClient()
     .from("experiences")
     .select(
-      "id, company, start_at, end_at, sort_order, experience_translations(locale, title, description), experience_contributions(locale, sort_order, contribution)"
+      "id, employment_type, company, start_at, end_at, sort_order, experience_translations(locale, title, description), experience_contributions(locale, sort_order, contribution)"
     )
     .eq("is_visible", true)
     .order("sort_order", { ascending: true })
@@ -259,6 +260,7 @@ export async function getExperiences(): Promise<ExperienceRecord[]> {
 
     return {
       id: row.id,
+      employment_type: row.employment_type,
       company: row.company,
       start_at: row.start_at,
       end_at: row.end_at,

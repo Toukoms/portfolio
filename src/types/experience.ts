@@ -1,5 +1,6 @@
 export interface ExperienceRecord {
   id: string;
+  employment_type: "full_time" | "freelance" | "internship" | "other";
   title_en: string;
   title_fr: string;
   company: string;

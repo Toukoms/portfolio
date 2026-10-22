@@ -71,13 +71,17 @@ const About: React.FC<AboutProps> = ({ className, experiences, resume }) => {
     contributions:
       currentLocale === "fr" ? exp.contributions_fr : exp.contributions_en,
   }));
-  const earliestExperienceStart = experiences
+  const earliestFullTimeExperienceStart = experiences
+    .filter((experience) => experience.employment_type === "full_time")
     .map((experience) => experience.start_at)
     .sort()[0];
-  const yearsOfExperience = earliestExperienceStart
+  const yearsOfExperience = earliestFullTimeExperienceStart
     ? Math.max(
         0,
-        differenceInYears(new Date(), parseISO(earliestExperienceStart))
+        differenceInYears(
+          new Date(),
+          parseISO(earliestFullTimeExperienceStart)
+        )
       )
     : null;
   const skills: SkillProps[] = resume.skills.flatMap((group) =>

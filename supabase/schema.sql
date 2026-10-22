@@ -36,6 +36,9 @@ create index projects_favorites_created_at_idx
 create table public.experiences (
   id uuid primary key default gen_random_uuid(),
   company text not null,
+  employment_type text not null check (
+    employment_type in ('full_time', 'freelance', 'internship', 'other')
+  ),
   start_at date not null,
   end_at date,
   sort_order integer not null default 0,
