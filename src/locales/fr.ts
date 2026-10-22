@@ -38,6 +38,7 @@ export default {
   experience: {
     title: "Expériences",
     present: "Aujourd’hui",
+    duration: "ans en développement logiciel et assurance qualité",
   },
   projects: {
     eyebrow: "PROJETS SÉLECTIONNÉS",

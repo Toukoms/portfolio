@@ -42,4 +42,6 @@ yarn-error.log*
 next-env.d.ts
 
 mocks/
-brainstorming/
+!brainstorming/
+brainstorming/*
+!brainstorming/EXPERIENCE_YEARS_TODO.md

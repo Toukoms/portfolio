@@ -61,15 +61,13 @@ create table public.experience_contributions (
 create table public.profiles (
   id text primary key,
   name text not null,
-  birthday date not null,
-  resume_url text not null
+  birthday date not null
 );
 
 create table public.profile_translations (
   profile_id text not null references public.profiles(id) on delete cascade,
   locale text not null check (locale in ('en', 'fr')),
   role text not null,
-  experience text not null,
   summary text not null,
   primary key (profile_id, locale)
 );
@@ -100,8 +98,7 @@ create table public.contacts (
   website text not null,
   email text not null,
   location text not null,
-  form_action text not null,
-  avatar_src text not null
+  form_action text not null
 );
 
 create table public.contact_translations (

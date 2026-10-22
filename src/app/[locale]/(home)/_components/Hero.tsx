@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { RESUME_PDF_PATH } from "@/data";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
 import { ResumeContent } from "@/types/portfolio-content";
 import { ArrowRight } from "lucide-react";
@@ -100,7 +101,7 @@ function Hero({
               <Link
                 target="_blank"
                 rel="noopener noreferrer"
-                href={resume.resumeUrl}
+                href={RESUME_PDF_PATH}
                 className="flex-1 py-3 border border-border text-center font-medium rounded-md transition-all hover:bg-muted/30"
               >
                 Download Resume

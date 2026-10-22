@@ -1,9 +1,10 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { PROFILE_IMAGE_PATH } from "@/data";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
 import { ExperienceRecord } from "@/types/experience";
 import { ResumeContent } from "@/types/portfolio-content";
-import { formatDate, parseISO } from "date-fns";
+import { differenceInYears, formatDate, parseISO } from "date-fns";
 import { enUS, fr } from "date-fns/locale";
 import Image from "next/image";
 import React from "react";
@@ -70,6 +71,15 @@ const About: React.FC<AboutProps> = ({ className, experiences, resume }) => {
     contributions:
       currentLocale === "fr" ? exp.contributions_fr : exp.contributions_en,
   }));
+  const earliestExperienceStart = experiences
+    .map((experience) => experience.start_at)
+    .sort()[0];
+  const yearsOfExperience = earliestExperienceStart
+    ? Math.max(
+        0,
+        differenceInYears(new Date(), parseISO(earliestExperienceStart))
+      )
+    : null;
   const skills: SkillProps[] = resume.skills.flatMap((group) =>
     group.items.map((item) => ({
       name: item[currentLocale],
@@ -159,7 +169,7 @@ const About: React.FC<AboutProps> = ({ className, experiences, resume }) => {
               <div className="w-48 h-48 rounded-full bg-primary flex items-center justify-center">
                 <div className="w-[98%] h-[98%] overflow-hidden rounded-full bg-background flex items-center justify-center">
                   <Image
-                    src={resume.contact.avatar.src}
+                    src={PROFILE_IMAGE_PATH}
                     alt={resume.contact.avatar.alt[currentLocale]}
                     width={1920}
                     height={1080}
@@ -171,9 +181,11 @@ const About: React.FC<AboutProps> = ({ className, experiences, resume }) => {
                 <p className="text-primary text-2xl">
                   {resume.role[currentLocale]}
                 </p>
-                <p className="text-accent font-bold text-xl">
-                  {resume.experience[currentLocale]}
-                </p>
+                {yearsOfExperience !== null && (
+                  <p className="text-accent font-bold text-xl">
+                    {yearsOfExperience}+ {tExperience("duration")}
+                  </p>
+                )}
               </div>
             </div>
           </div>

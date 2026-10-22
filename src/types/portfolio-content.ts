@@ -8,7 +8,6 @@ export interface LocalizedText {
 export interface ResumeContent {
   name: string;
   role: LocalizedText;
-  experience: LocalizedText;
   profile: LocalizedText;
   hero: {
     subtitle: LocalizedText;
@@ -24,14 +23,13 @@ export interface ResumeContent {
     p3: LocalizedText;
   };
   birthday: string;
-  resumeUrl: string;
   contact: {
     phone: string;
     website: string;
     email: string;
     location: string;
     formAction: string;
-    avatar: { src: string; alt: LocalizedText };
+    avatar: { alt: LocalizedText };
     social: {
       github: string;
       linkedin: string;

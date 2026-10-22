@@ -38,6 +38,7 @@ export default {
   experience: {
     title: "Experiences",
     present: "Present",
+    duration: "years across software development and QA",
   },
   projects: {
     eyebrow: "PROJECT SELECTION",

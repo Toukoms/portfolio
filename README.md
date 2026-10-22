@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Resume data and PDF
 
-The profile, contact details, education, skills, distinctions, hero copy, and case studies are stored in the `portfolio_content` table in Supabase. Work history is stored in `experiences`: each language has a short project introduction and a separate array of contribution bullets. Projects are stored in `projects`. Edit these records in Supabase Studio/Table Editor; the public site uses read-only access.
+Profile, contact, education, skills, distinctions, hero, and case-study content is stored in Supabase's relational tables. Work history is stored in `experiences`: each language has a short project introduction and a separate array of contribution bullets. Projects are stored in `projects`. Edit these records in Supabase Studio/Table Editor; the public site uses read-only access. The résumé and profile image stay in `public/`, with their paths managed in `src/data.ts`; the displayed experience duration is calculated from the earliest listed experience and its wording is localized in `src/locales/`.
 
 Generate the PDF in `public/` with:
 
@@ -16,7 +16,7 @@ pnpm cv:generate
 
 Portfolio projects and experience entries are loaded from Supabase. To set it up:
 
-1. Create a Supabase project and run [`supabase/schema.sql`](supabase/schema.sql), followed by [`20261022000000_portfolio_content_and_contributions.sql`](supabase/migrations/20261022000000_portfolio_content_and_contributions.sql), in its SQL Editor. For an existing project, apply that migration before deploying this app. Local Supabase setup applies the ordered migrations automatically.
+1. Link the Supabase project with the CLI and apply pending migrations with `pnpm dlx supabase db push`. This applies the ordered migrations under `supabase/migrations`; local Supabase setup applies them automatically.
 2. Add the project URL and anon key to your local `.env.local` and deployment environment, using `.env.template` as a guide. Never use a service-role key in the app.
 3. Add or edit the `profile` and `case-studies` JSON rows in `portfolio_content`, plus rows in `projects` and `experiences`. Keep English/French values together in the JSON rows. Experience `description_en`/`description_fr` should be a brief project introduction; put individual contributions in `contributions_en`/`contributions_fr` so the site and PDF show them as bullets. Project names are shared between languages and descriptions use `description_en` and `description_fr`; categories must be `web`, `mobile`, `desktop`, or `other`. Experience company names are shared, while titles and dates have English and French columns.
 4. For project images, use an existing supported image URL or upload an image to a public Supabase Storage bucket and save its public URL in `projects.image`.

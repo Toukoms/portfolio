@@ -69,11 +69,9 @@ interface ProfileRow {
   id: string;
   name: string;
   birthday: string;
-  resume_url: string;
   profile_translations: Array<{
     locale: PortfolioLocale;
     role: string;
-    experience: string;
     summary: string;
   }>;
   hero_translations: Array<{
@@ -95,7 +93,6 @@ interface ProfileRow {
     email: string;
     location: string;
     form_action: string;
-    avatar_src: string;
     contact_translations: Array<{
       locale: PortfolioLocale;
       avatar_alt: string;
@@ -281,7 +278,7 @@ export async function getResumeContent(): Promise<ResumeContent> {
   const { data, error } = await supabase
     .from("profiles")
     .select(
-      "id, name, birthday, resume_url, profile_translations(locale, role, experience, summary), hero_translations(locale, subtitle, highlight_workflows, highlight_delivery, highlight_quality), biography_translations(locale, paragraph_1, paragraph_2, paragraph_3), contacts(phone, website, email, location, form_action, avatar_src, contact_translations(locale, avatar_alt), social_links(platform, url)), educations(institution, location, degree, start_label, end_label, sort_order), skill_groups(section, sort_order, skill_group_translations(locale, category), skills(sort_order, skill_translations(locale, name))), distinctions(organization, date_label, sort_order, distinction_translations(locale, name, description)), certifications(organization, year_label, url, sort_order, certification_translations(locale, name)), languages(sort_order, language_translations(locale, name, level, description))"
+      "id, name, birthday, profile_translations(locale, role, summary), hero_translations(locale, subtitle, highlight_workflows, highlight_delivery, highlight_quality), biography_translations(locale, paragraph_1, paragraph_2, paragraph_3), contacts(phone, website, email, location, form_action, contact_translations(locale, avatar_alt), social_links(platform, url)), educations(institution, location, degree, start_label, end_label, sort_order), skill_groups(section, sort_order, skill_group_translations(locale, category), skills(sort_order, skill_translations(locale, name))), distinctions(organization, date_label, sort_order, distinction_translations(locale, name, description)), certifications(organization, year_label, url, sort_order, certification_translations(locale, name)), languages(sort_order, language_translations(locale, name, level, description))"
     )
     .eq("id", "primary")
     .single()
@@ -305,7 +302,6 @@ export async function getResumeContent(): Promise<ResumeContent> {
   return {
     name: profile.name,
     role: localizedField(profile.profile_translations, "role"),
-    experience: localizedField(profile.profile_translations, "experience"),
     profile: localizedField(profile.profile_translations, "summary"),
     hero: {
       subtitle: localizedField(profile.hero_translations, "subtitle"),
@@ -321,7 +317,6 @@ export async function getResumeContent(): Promise<ResumeContent> {
       p3: localizedField(profile.biography_translations, "paragraph_3"),
     },
     birthday: profile.birthday,
-    resumeUrl: profile.resume_url,
     contact: {
       phone: contact.phone,
       website: contact.website,
@@ -329,7 +324,6 @@ export async function getResumeContent(): Promise<ResumeContent> {
       location: contact.location,
       formAction: contact.form_action,
       avatar: {
-        src: contact.avatar_src,
         alt: localizedField(contact.contact_translations, "avatar_alt"),
       },
       social: {

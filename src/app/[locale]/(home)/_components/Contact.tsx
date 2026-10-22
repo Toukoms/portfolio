@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { PROFILE_IMAGE_PATH } from "@/data";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
 import { ResumeContent } from "@/types/portfolio-content";
 import Image from "next/image";
@@ -273,7 +274,7 @@ const Contact: React.FC<ContactProps> = ({ className, resume }) => {
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
                     <div className="w-9 h-9 overflow-hidden rounded-full bg-background flex items-center justify-center">
                       <Image
-                        src={resume.contact.avatar.src}
+                        src={PROFILE_IMAGE_PATH}
                         alt={resume.contact.avatar.alt[locale]}
                         width={1920}
                         height={1080}

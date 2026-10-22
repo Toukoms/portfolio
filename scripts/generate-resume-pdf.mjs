@@ -22,25 +22,29 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: { autoRefreshToken: false, persistSession: false },
 });
 const [
-  { data: profileRow, error: profileError },
-  { data: experiences, error: experienceError },
-  { data: projects, error: projectError },
+  { data: profile, error: profileError },
+  { data: experienceRows, error: experienceError },
+  { data: projectRows, error: projectError },
 ] = await Promise.all([
   supabase
-    .from("portfolio_content")
-    .select("content")
-    .eq("id", "profile")
+    .from("profiles")
+    .select(
+      "id, name, profile_translations(locale, role, summary), contacts(phone, website, email, location, social_links(platform, url)), educations(institution, location, degree, start_label, end_label, sort_order), skill_groups(section, sort_order, skill_group_translations(locale, category), skills(sort_order, skill_translations(locale, name))), distinctions(organization, date_label, sort_order, distinction_translations(locale, name, description)), certifications(organization, year_label, url, sort_order, certification_translations(locale, name)), languages(sort_order, language_translations(locale, name, level, description))"
+    )
+    .eq("id", "primary")
     .single(),
   supabase
     .from("experiences")
     .select(
-      "title_fr, company, start_at, end_at, description_fr, contributions_fr, sort_order"
+      "id, company, start_at, end_at, sort_order, experience_translations(locale, title, description), experience_contributions(locale, sort_order, contribution)"
     )
     .eq("is_visible", true)
     .order("sort_order", { ascending: true }),
   supabase
     .from("projects")
-    .select("title, description_fr, technologies, demo_url, github_url")
+    .select(
+      "title, created_at, project_translations(locale, description), project_links(demo_url, github_url), project_technologies(sort_order, technology)"
+    )
     .eq("is_favorite", true)
     .order("created_at", { ascending: false })
     .limit(3),
@@ -55,20 +59,119 @@ if (experienceError) {
 if (projectError) {
   throw new Error(`Unable to load resume projects: ${projectError.message}`);
 }
-
-const resume = profileRow.content;
-if (
-  !resume ||
-  typeof resume !== "object" ||
-  !("name" in resume) ||
-  !("role" in resume) ||
-  !("profile" in resume) ||
-  !("skills" in resume) ||
-  !("contact" in resume) ||
-  !("education" in resume)
-) {
-  throw new Error("Portfolio profile content has an invalid format.");
+if (!experienceRows || !projectRows) {
+  throw new Error("Unable to load resume content: no data was returned.");
 }
+
+function localizedField(rows, field) {
+  const en = rows.find((row) => row.locale === "en")?.[field];
+  const fr = rows.find((row) => row.locale === "fr")?.[field];
+  if (typeof en !== "string" || typeof fr !== "string") {
+    throw new Error(`Missing localized ${field} content.`);
+  }
+  return { en, fr };
+}
+
+if (!profile) {
+  throw new Error("Unable to load resume profile: no data was returned.");
+}
+const contact = profile.contacts;
+if (!contact) {
+  throw new Error("Portfolio profile is missing contact details.");
+}
+const social = {
+  github: contact.social_links.find((link) => link.platform === "github")?.url,
+  linkedin: contact.social_links.find((link) => link.platform === "linkedin")?.url,
+};
+if (!social.github || !social.linkedin) {
+  throw new Error("Portfolio profile is missing a social link.");
+}
+
+const resume = {
+  name: profile.name,
+  role: localizedField(profile.profile_translations, "role"),
+  profile: localizedField(profile.profile_translations, "summary"),
+  contact: {
+    phone: contact.phone,
+    website: contact.website,
+    email: contact.email,
+    location: contact.location,
+    social,
+  },
+  education: profile.educations
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .map(({ institution, location, degree, start_label, end_label }) => ({
+      institution,
+      location,
+      degree,
+      start: start_label,
+      end: end_label,
+    })),
+  skills: profile.skill_groups
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .map((group) => ({
+      category: localizedField(group.skill_group_translations, "category"),
+      items: group.skills
+        .sort((a, b) => a.sort_order - b.sort_order)
+        .map((skill) => localizedField(skill.skill_translations, "name")),
+    })),
+  distinctions: profile.distinctions
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .map((item) => ({
+      name: localizedField(item.distinction_translations, "name").fr,
+      organization: item.organization,
+      date: item.date_label,
+      description: localizedField(item.distinction_translations, "description").fr,
+    })),
+  certifications: profile.certifications
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .map((item) => ({
+      name: localizedField(item.certification_translations, "name").fr,
+      organization: item.organization,
+      year: item.year_label,
+      url: item.url,
+    })),
+  languages: profile.languages
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .map((item) => {
+      const translations = item.language_translations;
+      const english = translations.find((translation) => translation.locale === "en");
+      if (!english) {
+        throw new Error("A language is missing its English translation.");
+      }
+      return {
+        name: localizedField(translations, "name").fr,
+        level: english.level,
+        description: english.description,
+      };
+    }),
+};
+
+const experiences = experienceRows.map((experience) => {
+  const translations = experience.experience_translations;
+  const contributions = experience.experience_contributions
+    .filter((contribution) => contribution.locale === "fr")
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .map(({ contribution }) => contribution);
+  return {
+    company: experience.company,
+    start_at: experience.start_at,
+    end_at: experience.end_at,
+    title_fr: localizedField(translations, "title").fr,
+    description_fr: localizedField(translations, "description").fr,
+    contributions_fr: contributions,
+  };
+});
+
+const projects = projectRows.map((project) => ({
+  title: project.title,
+  description_fr: localizedField(project.project_translations, "description").fr,
+  technologies: project.project_technologies
+    .sort((a, b) => a.sort_order - b.sort_order)
+    .map(({ technology }) => technology),
+  demo_url: project.project_links?.demo_url,
+  github_url: project.project_links?.github_url,
+}));
 
 const outputPath = new URL(
   "../public/CV_RAHAJANIRINA_Tokiniaina__Developer.pdf",
@@ -170,7 +273,7 @@ function writeBullet(text) {
     .font("Helvetica")
     .fontSize(8.5)
     .fillColor(colors.muted)
-    .text(text, margin + 10, doc.y, {
+    .text(`- ${text}`, margin + 10, doc.y, {
       width: contentWidth - 10,
       lineGap: 1.5,
       bullet: { indent: 4 },
@@ -226,10 +329,7 @@ if (resume.profile?.fr) {
 
 if (experiences.length) {
   writeSectionTitle("Expériences");
-  for (const [index, experience] of experiences.entries()) {
-    if (index === 2 && doc.y > 350 && doc.y < 650) {
-      doc.addPage();
-    }
+  for (const experience of experiences) {
     writeEntryHeading(
       experience.company,
       `${formatMonth(experience.start_at)} – ${

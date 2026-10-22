@@ -1,5 +1,6 @@
 import Background from "@/components/Background";
 import Providers from "@/provider/Providers";
+import { PROFILE_IMAGE_PATH } from "@/data";
 import { getResumeContent } from "@/lib/portfolio-data";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -27,7 +28,7 @@ export async function generateMetadata({
     title: `${resume.name} - Portfolio`,
     description: resume.hero.subtitle[locale],
     openGraph: {
-      images: "/pdp.jpg",
+      images: PROFILE_IMAGE_PATH,
     },
   };
 }

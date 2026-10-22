@@ -1,15 +1,15 @@
 -- Profile and case-study content, stored in scope-specific relational tables.
 
-insert into public.profiles (id, name, birthday, resume_url)
+insert into public.profiles (id, name, birthday)
 values
-  ('primary', 'RAHAJANIRINA Fanomezantsoa Tokiniaina', '2005-06-09', '/CV_RAHAJANIRINA_Tokiniaina__Developer.pdf')
-on conflict (id) do update set name = excluded.name, birthday = excluded.birthday, resume_url = excluded.resume_url;
+  ('primary', 'RAHAJANIRINA Fanomezantsoa Tokiniaina', '2005-06-09')
+on conflict (id) do update set name = excluded.name, birthday = excluded.birthday;
 
-insert into public.profile_translations (profile_id, locale, role, experience, summary)
+insert into public.profile_translations (profile_id, locale, role, summary)
 values
-  ('primary', 'en', 'Web Application Developer', '2+ years across software development and QA', 'I build web application workflows for real-world services, including tutoring requests through lesson scheduling and billing, and quote creation with temporary-token access. In my current QA role, I test installation configurations, module access, service availability, and user permissions. I am looking for a web application developer role focused on building and validating dependable product features.'),
-  ('primary', 'fr', 'Développeur d''applications web', '2+ ans en développement logiciel et assurance qualité', 'Je développe des fonctionnalités web pour des services concrets : demandes de tutorat jusqu''à la planification et la facturation des cours, et création de devis avec accès par jeton temporaire. Dans mon poste actuel en assurance qualité, je teste différentes configurations d''installation, l''accès aux modules, la disponibilité des services et les permissions utilisateurs. Je recherche un poste de développeur d''applications web centré sur la création et la validation de fonctionnalités fiables.')
-on conflict (profile_id, locale) do update set role = excluded.role, experience = excluded.experience, summary = excluded.summary;
+  ('primary', 'en', 'Web Application Developer', 'I build web application workflows for real-world services, including tutoring requests through lesson scheduling and billing, and quote creation with temporary-token access. In my current QA role, I test installation configurations, module access, service availability, and user permissions. I am looking for a web application developer role focused on building and validating dependable product features.'),
+  ('primary', 'fr', 'Développeur d''applications web', 'Je développe des fonctionnalités web pour des services concrets : demandes de tutorat jusqu''à la planification et la facturation des cours, et création de devis avec accès par jeton temporaire. Dans mon poste actuel en assurance qualité, je teste différentes configurations d''installation, l''accès aux modules, la disponibilité des services et les permissions utilisateurs. Je recherche un poste de développeur d''applications web centré sur la création et la validation de fonctionnalités fiables.')
+on conflict (profile_id, locale) do update set role = excluded.role, summary = excluded.summary;
 
 insert into public.hero_translations (profile_id, locale, subtitle, highlight_workflows, highlight_delivery, highlight_quality)
 values
@@ -23,10 +23,10 @@ values
   ('primary', 'fr', 'Je me concentre sur la création de fonctionnalités web adaptées aux processus réels d''un produit, avec une expérience en développement et en assurance qualité.', 'Mes travaux de développement couvrent les demandes de tutorat, le choix des enseignants, la planification des cours, la facturation et la création de devis avec consultation et validation par les destinataires.', 'Dans mon poste actuel en assurance qualité, je teste les configurations d''installation, l''accès aux modules, la disponibilité des services et les permissions utilisateurs.')
 on conflict (profile_id, locale) do update set paragraph_1 = excluded.paragraph_1, paragraph_2 = excluded.paragraph_2, paragraph_3 = excluded.paragraph_3;
 
-insert into public.contacts (id, profile_id, phone, website, email, location, form_action, avatar_src)
+insert into public.contacts (id, profile_id, phone, website, email, location, form_action)
 values
-  ('primary', 'primary', '+261 32 48 995 32', 'https://www.tokiniaina.dev', 'contact@tokiniaina.dev', 'Antananarivo, Madagascar', 'https://formspree.io/f/xzzedwbp', '/pdp.jpg')
-on conflict (id) do update set profile_id = excluded.profile_id, phone = excluded.phone, website = excluded.website, email = excluded.email, location = excluded.location, form_action = excluded.form_action, avatar_src = excluded.avatar_src;
+  ('primary', 'primary', '+261 32 48 995 32', 'https://www.tokiniaina.dev', 'contact@tokiniaina.dev', 'Antananarivo, Madagascar', 'https://formspree.io/f/xzzedwbp')
+on conflict (id) do update set profile_id = excluded.profile_id, phone = excluded.phone, website = excluded.website, email = excluded.email, location = excluded.location, form_action = excluded.form_action;
 
 insert into public.contact_translations (contact_id, locale, avatar_alt)
 values
