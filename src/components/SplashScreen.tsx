@@ -40,7 +40,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
         // After loading completes, wait a moment before hiding
         setTimeout(() => {
           setShowSplash(false);
-          setTimeout(() => onComplete(), 500); // Wait for fade out animation
+          setTimeout(() => onComplete(), 200); // Wait for fade out animation
         }, 1000);
       } else if (progress > currentIndex * (100 / loadingTexts.length)) {
         currentIndex = Math.min(currentIndex + 1, loadingTexts.length - 1);
@@ -48,7 +48,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
       }
 
       setLoadingProgress(progress);
-    }, 300);
+    }, 100);
 
     return () => clearInterval(interval);
   }, []);
