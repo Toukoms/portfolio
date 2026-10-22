@@ -26,86 +26,86 @@ const skills: SkillProps[] = [
   // Frontend
   {
     name: "Next.js",
-    icon: <RiNextjsFill className="h-6 w-6 text-neon-cyan" />,
+    icon: <RiNextjsFill className="h-6 w-6 text-primary" />,
     category: "frontend",
   },
   {
     name: "React",
-    icon: <FaReact className="h-6 w-6 text-neon-cyan" />,
+    icon: <FaReact className="h-6 w-6 text-primary" />,
     category: "frontend",
   },
   {
     name: "Vue.js",
-    icon: <FaVuejs className="h-6 w-6 text-neon-cyan" />,
+    icon: <FaVuejs className="h-6 w-6 text-primary" />,
     category: "frontend",
   },
   {
     name: "TypeScript",
-    icon: <SiTypescript className="h-6 w-6 text-neon-cyan" />,
+    icon: <SiTypescript className="h-6 w-6 text-primary" />,
     category: "frontend",
   },
   {
     name: "HTML/CSS/JS",
-    icon: <FaCode className="h-6 w-6 text-neon-cyan" />,
+    icon: <FaCode className="h-6 w-6 text-primary" />,
     category: "frontend",
   },
   {
     name: "Tailwind CSS",
-    icon: <SiTailwindcss className="h-6 w-6 text-neon-cyan" />,
+    icon: <SiTailwindcss className="h-6 w-6 text-primary" />,
     category: "frontend",
   },
 
   // Backend
   {
     name: "Node.js",
-    icon: <FaNodeJs className="h-6 w-6 text-neon-purple" />,
+    icon: <FaNodeJs className="h-6 w-6 text-primary" />,
     category: "backend",
   },
   {
     name: "Express",
-    icon: <SiExpress className="h-6 w-6 text-neon-purple" />,
+    icon: <SiExpress className="h-6 w-6 text-primary" />,
     category: "backend",
   },
   {
     name: "MongoDB",
-    icon: <SiMongodb className="h-6 w-6 text-neon-purple" />,
+    icon: <SiMongodb className="h-6 w-6 text-primary" />,
     category: "backend",
   },
   {
     name: "PostgreSQL",
-    icon: <SiPostgresql className="h-6 w-6 text-neon-purple" />,
+    icon: <SiPostgresql className="h-6 w-6 text-primary" />,
     category: "backend",
   },
   // {
   //   name: "GraphQL",
-  //   icon: <SiGraphql className="h-6 w-6 text-neon-purple" />,
+  //   icon: <SiGraphql className="h-6 w-6 text-primary" />,
   //   category: "backend",
   // },
 
   // Tools & Others
   {
     name: "Git",
-    icon: <SiGit className="h-6 w-6 text-neon-blue" />,
+    icon: <SiGit className="h-6 w-6 text-primary" />,
     category: "tools",
   },
   {
     name: "Docker",
-    icon: <SiDocker className="h-6 w-6 text-neon-blue" />,
+    icon: <SiDocker className="h-6 w-6 text-primary" />,
     category: "tools",
   },
   {
     name: "Jest",
-    icon: <SiJest className="h-6 w-6 text-neon-blue" />,
+    icon: <SiJest className="h-6 w-6 text-primary" />,
     category: "tools",
   },
   {
     name: "Figma",
-    icon: <SiFigma className="h-6 w-6 text-neon-blue" />,
+    icon: <SiFigma className="h-6 w-6 text-primary" />,
     category: "tools",
   },
   // {
   //   name: "AWS",
-  //   icon: <FaAws className="h-6 w-6 text-neon-blue" />,
+  //   icon: <FaAws className="h-6 w-6 text-primary" />,
   //   category: "tools",
   // },
 ];
@@ -206,7 +206,7 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
             <h3 className="text-3xl md:text-4xl font-bold">
               {tAbout("title")}
             </h3>
-            <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto" />
+            <div className="h-1 w-20 bg-primary rounded-full mx-auto" />
           </div>
         </div>
 

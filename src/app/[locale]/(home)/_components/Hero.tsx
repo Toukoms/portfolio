@@ -46,7 +46,7 @@ function Hero({ className }: { className?: string }) {
                 : "opacity-0 translate-y-10"
             )}
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple opacity-75 blur rounded-full"></div>
+            <div className="absolute -inset-0.5 bg-primary opacity-75 blur rounded-full"></div>
             <span className="relative bg-background rounded-full font-mono text-xl px-4 py-1.5">
               Portfolio 1.1.0
             </span>
@@ -95,7 +95,7 @@ function Hero({ className }: { className?: string }) {
                 const aboutSection = document.getElementById("about");
                 aboutSection?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="w-full py-4 bg-gradient-to-r from-neon-cyan to-neon-blue text-background font-medium rounded-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full py-4 bg-primary text-primary-foreground font-medium rounded-md transition-all duration-300 hover:shadow-[0_0_15px_var(--orange)] hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <span className="flex items-center justify-center gap-2">
                 <span>{t("cta")}</span>

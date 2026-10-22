@@ -95,7 +95,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
         >
           <h2 className="text-sm font-mono text-primary">{t("subtitle")}</h2>
           <h3 className="text-3xl md:text-4xl font-bold">{t("title")}</h3>
-          <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto"></div>
+          <div className="h-1 w-20 bg-primary rounded-full mx-auto"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
             {t("description")}
           </p>
@@ -247,7 +247,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               <div className="glass-panel p-6 mb-6">
                 <h3 className="font-mono text-lg mb-4">{t("dialog.title")}</h3>
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
                     <div className="w-9 h-9 overflow-hidden rounded-full bg-background flex items-center justify-center">
                       <Image
                         src={resume.contact.avatar.src}

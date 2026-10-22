@@ -31,6 +31,9 @@ const Background: React.FC<BackgroundProps> = ({ className }) => {
     function initParticles() {
       particlesRef.current = [];
       const particleCount = Math.floor(window.innerWidth / 20); // Fewer particles on smaller screens
+      const particleColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--orange")
+        .trim();
 
       for (let i = 0; i < particleCount; i++) {
         particlesRef.current.push({
@@ -39,12 +42,7 @@ const Background: React.FC<BackgroundProps> = ({ className }) => {
           size: Math.random() * 2 + 0.5,
           speedX: Math.random() * 0.2 - 0.1,
           speedY: Math.random() * 0.2 - 0.1,
-          color:
-            i % 3 === 0
-              ? "rgba(0, 255, 255, "
-              : i % 3 === 1
-              ? "rgba(240, 0, 255, "
-              : "rgba(54, 177, 255, ",
+          color: particleColor,
           alpha: Math.random() * 0.5 + 0.1,
         });
       }
@@ -68,8 +66,10 @@ const Background: React.FC<BackgroundProps> = ({ className }) => {
         // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `${particle.color}${particle.alpha})`;
+        ctx.fillStyle = particle.color;
+        ctx.globalAlpha = particle.alpha;
         ctx.fill();
+        ctx.globalAlpha = 1;
       });
 
       requestAnimationFrame(animate);

@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectProps & { className?: string }> = (
       )}
     >
       <ProjectDialog {...props} />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/80 opacity-60 z-10 transition-opacity duration-300 rounded-lg group-hover:opacity-80" />
+      <div className="absolute inset-0 bg-black/60 opacity-60 z-10 transition-opacity duration-300 rounded-lg group-hover:opacity-80" />
       <Image
         src={image}
         alt={title}

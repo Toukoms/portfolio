@@ -58,10 +58,10 @@ const Header: React.FC<HeaderProps> = ({
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <span className="font-mono text-lg font-bold text-neon-cyan">
+            <span className="font-mono text-lg font-bold text-primary">
               TOKINIAINA
-              <span className="text-neon-pink">/</span>
-              <span className="text-neon-purple">PORTFOLIO</span>
+              <span className="text-primary">/</span>
+              <span className="text-primary">PORTFOLIO</span>
             </span>
           </div>
 

@@ -44,7 +44,7 @@ const Projects: React.FC<ProjectsProps> = ({ className, projects }) => {
         >
           <h2 className="text-sm font-mono text-primary">PROJECT SELECTION</h2>
           <h3 className="text-3xl md:text-4xl font-bold">{t("title")}</h3>
-          <div className="h-1 w-20 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full mx-auto"></div>
+          <div className="h-1 w-20 bg-primary rounded-full mx-auto"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
             {t("description")}
           </p>
@@ -74,7 +74,7 @@ const Projects: React.FC<ProjectsProps> = ({ className, projects }) => {
           <Link
             href="/project"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-300 bg-gradient-to-r from-neon-cyan to-neon-blue bg-[length:200%_100%] hover:bg-[position:100%_0%] text-background"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-300 bg-primary hover:bg-secondary text-primary-foreground"
           >
             {t("more")}
           </Link>

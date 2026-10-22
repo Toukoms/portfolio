@@ -64,11 +64,11 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
       <div className="w-full max-w-md px-4 space-y-8">
         <div className="text-center mb-8">
           <p className="text-xl md:text-2xl font-mono font-bold mb-2 animate-neon-pulse">
-            <span className="text-neon-cyan">TOKINIAINA</span>
-            <span className="text-neon-pink">/</span>
-            <span className="text-neon-purple">PORTFOLIO</span>
+            <span className="text-primary">TOKINIAINA</span>
+            <span className="text-primary">/</span>
+            <span className="text-primary">PORTFOLIO</span>
           </p>
-          <div className="h-[2px] w-full bg-gradient-to-r from-neon-cyan via-neon-blue to-neon-purple mb-4"></div>
+          <div className="h-[2px] w-full bg-primary mb-4"></div>
           <p className="font-mono text-sm opacity-80">Version 1.1.0</p>
         </div>
 
@@ -81,7 +81,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
           </div>
 
           <div className="flex justify-between items-center">
-            <p className="font-mono text-xs text-neon-cyan animate-pulse">
+            <p className="font-mono text-xs text-primary animate-pulse">
               {loadingText}
             </p>
             <p className="font-mono text-xs">{Math.round(loadingProgress)}%</p>
