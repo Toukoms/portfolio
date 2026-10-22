@@ -224,8 +224,8 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
             style={{ transitionDelay: "100ms" }}
           >
             <div className="flex flex-col items-center space-y-4">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center">
-                <div className="w-30 h-30 overflow-hidden rounded-full bg-background flex items-center justify-center">
+              <div className="w-48 h-48 rounded-full bg-primary flex items-center justify-center">
+                <div className="w-[98%] h-[98%] overflow-hidden rounded-full bg-background flex items-center justify-center">
                   <Image
                     src={"/pdp.jpg"}
                     alt={"Avatar Image"}
