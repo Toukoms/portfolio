@@ -1,17 +1,20 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { useScopedI18n } from "@/locales/client";
+import { useCurrentLocale, useScopedI18n } from "@/locales/client";
+import { ResumeContent } from "@/types/portfolio-content";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 
-function Hero({ className }: { className?: string }) {
+function Hero({
+  className,
+  resume,
+}: {
+  className?: string;
+  resume: ResumeContent;
+}) {
   const t = useScopedI18n("hero")
-  const [titleRef, titleInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
+  const locale = useCurrentLocale();
   const [subtitleRef, subtitleInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -37,22 +40,7 @@ function Hero({ className }: { className?: string }) {
     >
       <div className="container mx-auto px-4 md:px-6 pt-20">
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <div
-            ref={titleRef}
-            className={cn(
-              "mb-8 relative transition-all duration-700 transform",
-              titleInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            )}
-          >
-            <div className="absolute -inset-0.5 bg-primary opacity-75 blur rounded-full"></div>
-            <span className="relative bg-background rounded-full font-mono text-xl px-4 py-1.5">
-              Portfolio 1.1.0
-            </span>
-          </div>
-
-          <h2
+          <h1
             ref={subtitleRef}
             className={cn(
               "text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight transition-all duration-700 delay-100 transform",
@@ -61,13 +49,10 @@ function Hero({ className }: { className?: string }) {
                 : "opacity-0 translate-y-10"
             )}
           >
-            {t("title.start")} {" "}
             <span className="neon-text animate-neon-pulse">
-              {t("title.neon")}
+              {resume.role[locale]}
             </span>
-            {" "}
-            {t("title.end")}
-          </h2>
+          </h1>
 
           <p
             className={cn(
@@ -77,7 +62,7 @@ function Hero({ className }: { className?: string }) {
                 : "opacity-0 translate-y-10"
             )}
           >
-            {t("subtitle")}
+            {resume.hero.subtitle[locale]}
           </p>
 
           <div
@@ -106,14 +91,16 @@ function Hero({ className }: { className?: string }) {
             <div className="flex space-x-3 justify-center">
               <Link
                 target="_blank"
-                href="https://github.com/toukoms"
+                rel="noopener noreferrer"
+                href={resume.contact.social.github}
                 className="flex-1 py-3 border border-border text-center font-medium rounded-md transition-all hover:bg-muted/30"
               >
                 GitHub Profile
               </Link>
               <Link
                 target="_blank"
-                href="/CV_RAHAJANIRINA_Tokiniaina__Developer.pdf"
+                rel="noopener noreferrer"
+                href={resume.resumeUrl}
                 className="flex-1 py-3 border border-border text-center font-medium rounded-md transition-all hover:bg-muted/30"
               >
                 Download Resume
@@ -130,13 +117,15 @@ function Hero({ className }: { className?: string }) {
                 : "opacity-0 translate-y-10"
             )}
           >
-            <div className="text-2xl font-bold">React</div>
-            <div className="text-xl font-medium">TypeScript</div>
-            <div className="text-lg">Node.js</div>
-            <div className="text-2xl font-bold">Next.js</div>
-            <div className="text-xl font-medium">Tailwind</div>
-            <div className="text-lg">MongoDB</div>
-            <div className="text-2xl font-bold">PostgreSQL</div>
+            <div className="text-lg font-medium">
+              {resume.hero.highlights.workflows[locale]}
+            </div>
+            <div className="text-lg font-medium">
+              {resume.hero.highlights.delivery[locale]}
+            </div>
+            <div className="text-lg font-medium">
+              {resume.hero.highlights.quality[locale]}
+            </div>
           </div>
         </div>
       </div>

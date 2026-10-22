@@ -15,49 +15,91 @@ export default {
     language: {
       fr: "French",
       en: "English",
+      select: "Select language",
     },
+    menu: "Menu",
   },
   hero: {
-    title: {
-      start: "Creating",
-      neon: "Immersive",
-      end: "Digital Experiences",
-    },
-    subtitle:
-      "Web developer specializing in modern, responsive, and interactive websites and applications.",
-    cta: "Learn more about me",
+    cta: "Explore my work",
   },
   about: {
+    eyebrow: "CHARACTER PROFILE",
     title: "About Me",
     birth: "Born on ",
-    role: "Web Developer",
-    experience: "years of experience",
     biography: {
       title: "BIOGRAPHY",
-      p1: "I'm a web developer with expertise in creating modern, responsive web applications. With a strong foundation in both frontend and backend technologies, I love crafting intuitive user experiences that are both functional and visually appealing.",
-      p2: "My journey in web development began in my 15 years old, and I've been leveling up my skills ever since. I specialize in React and TypeScript, and I'm constantly exploring new technologies and frameworks to enhance my development arsenal.",
-      p3: "When I'm not coding, you can find me exploring new design trends, watching movies, or leveling up in my favorite RPG games.",
     },
   },
   skills: {
-    frontend: "Frontend Skills",
-    backend: "Backend Skills",
-    tools: "Tools & Other",
+    frontend: "Web Application Development",
+    backend: "Data & Payments",
+    tools: "Quality Assurance",
   },
   experience: {
     title: "Experiences",
     present: "Present",
   },
   projects: {
+    eyebrow: "PROJECT SELECTION",
     title: "Top Projects",
     description:
-      "Here are some of my best projects, blending clean code, great design, and smooth interactions. Each project showcases my passion and my skills.",
+      "Selected projects showing web application features, integrations, and product workflows.",
     more: "View More Projects",
     cta: "Click to learn more about this project",
+  },
+  projectDialog: {
+    technologies: "Technologies used",
+    demo: "Live demo",
+    code: "View code",
+  },
+  caseStudies: {
+    labels: {
+      context: "Context",
+      role: "My role",
+      constraint: "Requirement",
+      decision: "Implementation decision",
+      outcome: "Delivered",
+      next: "What I would measure next",
+    },
+    items: [
+      {
+        name: "Grade'Up",
+        type: "Education marketplace · Freelance Next.js role",
+        context:
+          "A tutoring marketplace connects families seeking academic support with teachers.",
+        role:
+          "I developed features across the family course-request flow, teacher applications and selection, and lesson scheduling.",
+        constraint:
+          "Billing and teacher payment calculations needed to use lessons actually delivered and hours completed, rather than scheduled lessons.",
+        decision:
+          "I implemented hour tracking and based bill generation and teacher payment calculations on completed lessons and hours.",
+        outcome:
+          "The recorded delivery covers the tutoring workflow from course request and teacher selection through scheduling, hour tracking, billing, and teacher payment calculations.",
+        next:
+          "The project record contains no usage or financial outcome metrics. I would next measure billing/payment reconciliation discrepancies and the time from lesson completion to calculation.",
+      },
+      {
+        name: "Vispacem",
+        type: "CRM/ERP · Full-stack Next.js role",
+        context:
+          "A SaaS CRM/ERP platform centralizes business, financial, administrative, and operational functions. I contributed to its quote and company-contact workflows.",
+        role:
+          "I worked on quote generation and sending, as well as retrieving company contacts from documents and adding, editing, and removing contacts.",
+        constraint:
+          "Recipients needed to receive a quote by email and then view, accept, or refuse it through temporary-token verification.",
+        decision:
+          "I generated the PDF from the composed quote and used temporary-token verification for the recipient's follow-up actions.",
+        outcome:
+          "Delivered work includes quote PDF generation, email sending, token-verified viewing and responses, and company-contact management.",
+        next:
+          "The project record provides no measured results. I would next track quote delivery and response rates, plus the accuracy of contact details extracted from documents.",
+      },
+    ],
   },
   contact: {
     title: "Let's Connect",
     subtitle: "GET IN TOUCH",
+    socialLinks: "SOCIAL LINKS",
     description:
       "Ready to start a new project or just want to chat? Send me a message!",
     form: {
@@ -65,6 +107,7 @@ export default {
       sending: "Sending...",
       success: "Message Sent!",
       successMessage: "Thanks for reaching out. I'll get back to you soon.",
+      error: "Your message could not be sent. Please try again or email me directly.",
       name: "Name",
       email: "Email",
       message: "Message",

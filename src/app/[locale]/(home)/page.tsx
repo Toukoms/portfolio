@@ -1,6 +1,12 @@
 import Projects from "@/app/[locale]/(home)/_components/Projects";
-import { getExperiences, getFavoriteProjects } from "@/lib/portfolio-data";
+import {
+  getCaseStudiesContent,
+  getExperiences,
+  getFavoriteProjects,
+  getResumeContent,
+} from "@/lib/portfolio-data";
 import About from "./_components/About";
+import CaseStudies from "./_components/CaseStudies";
 import Contact from "./_components/Contact";
 import Hero from "./_components/Hero";
 
@@ -12,17 +18,20 @@ export default async function Home({
   params: Promise<{ locale: "en" | "fr" }>;
 }) {
   const { locale } = await params;
-  const [projects, experiences] = await Promise.all([
+  const [projects, experiences, resume, caseStudies] = await Promise.all([
     getFavoriteProjects(locale),
     getExperiences(),
+    getResumeContent(),
+    getCaseStudiesContent(),
   ]);
 
   return (
-    <div id="home" className="min-h-screen">
-      <Hero />
-      <About experiences={experiences} />
+    <main className="min-h-screen">
+      <Hero resume={resume} />
+      <About experiences={experiences} resume={resume} />
+      <CaseStudies content={caseStudies} locale={locale} />
       <Projects projects={projects} />
-      <Contact />
-    </div>
+      <Contact resume={resume} />
+    </main>
   );
 }

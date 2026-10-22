@@ -9,8 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "eslint . --fix",
-    "cv:generate": "node scripts/generate-resume-pdf.mjs",
-    "cv:watch": "node scripts/watch-resume.mjs"
+    "cv:generate": "node scripts/generate-resume-pdf.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.6",

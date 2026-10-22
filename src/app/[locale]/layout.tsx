@@ -1,5 +1,6 @@
 import Background from "@/components/Background";
 import Providers from "@/provider/Providers";
+import { getResumeContent } from "@/lib/portfolio-data";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
@@ -15,13 +16,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Tokiniaina - Portfolio",
-  description: "Web developer with 3 years of experience",
-  openGraph: {
-    images: "/pdp.jpg",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: "en" | "fr" }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const resume = await getResumeContent();
+  return {
+    title: `${resume.name} - Portfolio`,
+    description: resume.hero.subtitle[locale],
+    openGraph: {
+      images: "/pdp.jpg",
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -33,7 +42,7 @@ export default async function RootLayout({
   const { locale } = await params;
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

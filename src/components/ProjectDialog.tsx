@@ -11,6 +11,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectProps } from "../types/project";
+import { useScopedI18n } from "@/locales/client";
 
 function ProjectDialog({
   title,
@@ -20,9 +21,15 @@ function ProjectDialog({
   demoUrl,
   githubUrl,
 }: ProjectProps) {
+  const t = useScopedI18n("projects");
+  const dialogText = useScopedI18n("projectDialog");
+
   return (
     <Dialog>
-      <DialogTrigger className="absolute top-0 left-0 w-full h-full z-50 cursor-pointer" />
+      <DialogTrigger
+        aria-label={`${t("cta")}: ${title}`}
+        className="absolute top-0 left-0 w-full h-full z-50 cursor-pointer"
+      />
       <DialogContent className="max-w-lg p-6 rounded-lg shadow-lg">
         <Image
           src={image}
@@ -41,7 +48,9 @@ function ProjectDialog({
             <p className="text-sm">{description}</p>
           </DialogDescription>
           <div className="mt-4 mb-2">
-            <h3 className="text-lg font-semibold">Technologies Used</h3>
+            <h3 className="text-lg font-semibold">
+              {dialogText("technologies")}
+            </h3>
             <ul className="flex flex-wrap gap-2 mt-2">
               {technologies.map((tech) => (
                 <li
@@ -62,7 +71,7 @@ function ProjectDialog({
               rel="noopener noreferrer"
               className="text-sm font-medium px-3 py-1.5 rounded bg-primary text-primary-foreground hover:bg-primary/90 transition"
             >
-              Live Demo
+              {dialogText("demo")}
             </Link>
           )}
 
@@ -73,7 +82,7 @@ function ProjectDialog({
               rel="noopener noreferrer"
               className="text-sm font-medium px-3 py-1.5 rounded bg-muted hover:bg-muted/80 transition"
             >
-              View Code
+              {dialogText("code")}
             </Link>
           )}
         </div>

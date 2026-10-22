@@ -4,7 +4,6 @@ import { finished } from "node:stream/promises";
 import { fileURLToPath } from "node:url";
 import { createClient } from "@supabase/supabase-js";
 import PDFDocument from "pdfkit";
-import resume from "../src/data/resume.json" with { type: "json" };
 
 const localEnvPath = fileURLToPath(new URL("../.env.local", import.meta.url));
 if (existsSync(localEnvPath)) {
@@ -22,28 +21,53 @@ if (!supabaseUrl || !supabaseAnonKey) {
 const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: { autoRefreshToken: false, persistSession: false },
 });
-const [{ data: experiences, error: experienceError }, { data: projects, error: projectError }] =
-  await Promise.all([
-    supabase
-      .from("experiences")
-      .select(
-        "title_fr, company, start_at, end_at, description_fr, sort_order"
-      )
-      .eq("is_visible", true)
-      .order("sort_order", { ascending: true }),
-    supabase
-      .from("projects")
-      .select("title, description_fr, technologies, demo_url, github_url")
-      .eq("is_favorite", true)
-      .order("created_at", { ascending: false })
-      .limit(3),
-  ]);
+const [
+  { data: profileRow, error: profileError },
+  { data: experiences, error: experienceError },
+  { data: projects, error: projectError },
+] = await Promise.all([
+  supabase
+    .from("portfolio_content")
+    .select("content")
+    .eq("id", "profile")
+    .single(),
+  supabase
+    .from("experiences")
+    .select(
+      "title_fr, company, start_at, end_at, description_fr, contributions_fr, sort_order"
+    )
+    .eq("is_visible", true)
+    .order("sort_order", { ascending: true }),
+  supabase
+    .from("projects")
+    .select("title, description_fr, technologies, demo_url, github_url")
+    .eq("is_favorite", true)
+    .order("created_at", { ascending: false })
+    .limit(3),
+]);
 
+if (profileError) {
+  throw new Error(`Unable to load resume profile: ${profileError.message}`);
+}
 if (experienceError) {
   throw new Error(`Unable to load resume experiences: ${experienceError.message}`);
 }
 if (projectError) {
   throw new Error(`Unable to load resume projects: ${projectError.message}`);
+}
+
+const resume = profileRow.content;
+if (
+  !resume ||
+  typeof resume !== "object" ||
+  !("name" in resume) ||
+  !("role" in resume) ||
+  !("profile" in resume) ||
+  !("skills" in resume) ||
+  !("contact" in resume) ||
+  !("education" in resume)
+) {
+  throw new Error("Portfolio profile content has an invalid format.");
 }
 
 const outputPath = new URL(
@@ -140,6 +164,20 @@ function writeBody(text, options = {}) {
   doc.y += 1;
 }
 
+function writeBullet(text) {
+  ensureSpace(16);
+  doc
+    .font("Helvetica")
+    .fontSize(8.5)
+    .fillColor(colors.muted)
+    .text(text, margin + 10, doc.y, {
+      width: contentWidth - 10,
+      lineGap: 1.5,
+      bullet: { indent: 4 },
+    });
+  doc.y += 1;
+}
+
 function formatMonth(dateString) {
   const date = new Date(`${dateString}T00:00:00Z`);
   return new Intl.DateTimeFormat("fr-FR", {
@@ -181,6 +219,11 @@ function writeHeader() {
 }
 
 writeHeader();
+if (resume.profile?.fr) {
+  writeSectionTitle("Profil");
+  writeBody(resume.profile.fr);
+}
+
 if (experiences.length) {
   writeSectionTitle("Expériences");
   for (const [index, experience] of experiences.entries()) {
@@ -195,6 +238,9 @@ if (experiences.length) {
     );
     writeBody(experience.title_fr, { indent: 2, color: colors.accent });
     writeBody(experience.description_fr, { indent: 2 });
+    for (const contribution of experience.contributions_fr) {
+      writeBullet(contribution);
+    }
   }
 }
 
@@ -206,7 +252,7 @@ if (resume.skills?.length) {
       .font("Helvetica-Bold")
       .fontSize(8.5)
       .fillColor(colors.ink)
-      .text(`${skill.category}: `, margin, doc.y, {
+      .text(`${skill.category.fr}: `, margin, doc.y, {
         continued: true,
         lineBreak: false,
       });
@@ -214,7 +260,10 @@ if (resume.skills?.length) {
       .font("Helvetica")
       .fontSize(8.5)
       .fillColor(colors.muted)
-      .text(skill.items.join(", "), { width: contentWidth });
+      .text(
+        skill.items.map((item) => item.fr).join(", "),
+        { width: contentWidth }
+      );
     doc.y += 1;
   }
 }

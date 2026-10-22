@@ -62,7 +62,7 @@ insert into public.projects (
 
 insert into public.experiences (
   title_en, title_fr, company, start_at, end_at,
-  description_en, description_fr, sort_order
+  description_en, description_fr, contributions_en, contributions_fr, sort_order
 ) values
   (
     'QA Automation Engineer',
@@ -70,8 +70,18 @@ insert into public.experiences (
     'Genius At Work',
     '2026-06-01',
     null, -- present
-    'OBS Manager is a security operations platform that lets agents remotely monitor sites, perform area inspections, manage access and control doors from a centralized interface. Tested different installation configurations (standalone server, microservices, client-only) to ensure reliable installation and operation. Validated module licensing and feature access across video, audio, alarms, wall screens and access control. Tested service availability and user permissions, ensuring each user could access the appropriate areas and modules according to their role.',
-    'OBS Manager est une plateforme d''opérations de sécurité permettant aux agents de surveiller des sites à distance, d''effectuer des inspections de zones, de gérer les accès et de contrôler les portes depuis une interface centralisée. Test de différentes configurations d''installation (serveur autonome, microservices, client seul) pour garantir une installation et un fonctionnement fiables. Validation des licences de modules et de l''accès aux fonctionnalités (vidéo, audio, alarmes, murs d''écrans et contrôle d''accès). Test de la disponibilité des services et des permissions utilisateurs, afin que chaque utilisateur accède aux zones et modules adaptés à son rôle.',
+    'OBS Manager is a security operations platform for remote site monitoring, area inspections, access management, and door control.',
+    'OBS Manager est une plateforme d''opérations de sécurité pour la surveillance à distance, l''inspection des zones, la gestion des accès et le contrôle des portes.',
+    array[
+      'Tested standalone-server, microservices, and client-only installation configurations.',
+      'Validated module licensing and access to video, audio, alarms, wall screens, and access control.',
+      'Tested service availability and whether user permissions matched assigned areas and modules.'
+    ],
+    array[
+      'Testé les configurations d''installation en serveur autonome, microservices et client seul.',
+      'Validé les licences et l''accès aux modules vidéo, audio, alarmes, murs d''écrans et contrôle d''accès.',
+      'Testé la disponibilité des services et l''adéquation des permissions utilisateurs aux zones et modules.'
+    ],
     1
   ),
   (
@@ -80,8 +90,18 @@ insert into public.experiences (
     'Grade''Up - Paris, France (Remote)',
     '2026-01-01',
     '2026-05-31',
-    'Grade''Up is an educational marketplace connecting families with teachers for tutoring and at-home academic support. Developed features supporting the tutoring workflow, from family course requests and teacher applications to teacher selection and lesson scheduling. Implemented business workflows for tracking completed teaching hours and generating bills based on lessons delivered. Developed the teacher payment workflow, using completed lessons and hours to calculate the amounts owed to teachers.',
-    'Grade''Up est une marketplace éducative qui met en relation des familles et des enseignants pour du soutien scolaire à domicile. Développement des fonctionnalités du parcours de cours particuliers, de la demande de cours par les familles et des candidatures des enseignants jusqu''à la sélection de l''enseignant et la planification des cours. Mise en place des workflows métier de suivi des heures effectuées et de génération des factures selon les cours dispensés. Développement du workflow de paiement des enseignants, en utilisant les cours et heures réalisés pour calculer les montants dus.',
+    'Grade''Up is an educational marketplace connecting families with teachers for tutoring and at-home academic support.',
+    'Grade''Up est une marketplace éducative qui met en relation des familles et des enseignants pour du soutien scolaire.',
+    array[
+      'Developed family course-request, teacher-application and selection, and lesson-scheduling features.',
+      'Implemented teaching-hour tracking and bill generation based on lessons delivered.',
+      'Implemented teacher payment calculations based on completed lessons and hours.'
+    ],
+    array[
+      'Développé les demandes de cours des familles, les candidatures et la sélection des enseignants, ainsi que la planification des cours.',
+      'Mis en place le suivi des heures de cours et la génération des factures selon les cours dispensés.',
+      'Mis en place le calcul des paiements aux enseignants selon les cours et les heures effectués.'
+    ],
     2
   ),
   (
@@ -90,8 +110,18 @@ insert into public.experiences (
     'Genius At Work',
     '2025-05-01',
     '2026-01-31',
-    'Vispacem is a SaaS CRM/ERP platform that centralizes business, financial, administrative, operational, HR, analytics, automation and AI-related functions. Worked on the quote process: PDF generation from the quote composition, and sending quotes by email with temporary-token verification so the recipient can view, accept or refuse them. Also worked on company contacts (fetching from documents, adding, editing and removing).',
-    'Vispacem est une plateforme SaaS CRM/ERP qui centralise les fonctions commerciales, financières, administratives, opérationnelles, RH, analytiques, d''automatisation et d''IA. Travail sur le processus de devis : génération de PDF à partir de la composition du devis, et envoi par e-mail avec vérification par jeton temporaire pour que le destinataire puisse consulter, accepter ou refuser le devis. Travail également sur les contacts d''entreprise (récupération depuis des documents, ajout, modification et suppression).',
+    'Vispacem is a SaaS CRM/ERP platform centralizing business, financial, administrative, operational, HR, analytics, automation, and AI-related functions.',
+    'Vispacem est une plateforme SaaS CRM/ERP qui centralise les fonctions commerciales, financières, administratives, opérationnelles, RH, analytiques, d''automatisation et d''IA.',
+    array[
+      'Generated quote PDFs from the quote composition and sent quotes by email.',
+      'Implemented temporary-token verification so recipients could view, accept, or refuse emailed quotes.',
+      'Worked on retrieving company contacts from documents and adding, editing, and removing contacts.'
+    ],
+    array[
+      'Généré des PDF à partir des devis composés et envoyé les devis par e-mail.',
+      'Mis en place la vérification par jeton temporaire permettant aux destinataires de consulter, accepter ou refuser les devis reçus par e-mail.',
+      'Travaillé sur la récupération des contacts d''entreprise depuis des documents, ainsi que leur ajout, modification et suppression.'
+    ],
     3
   ),
   (
@@ -100,8 +130,10 @@ insert into public.experiences (
     'Vivetic Group Madagascar',
     '2024-10-01',
     '2024-10-31',
-    'Verified that requested functionalities in the requirements document were correctly implemented.',
-    'Vérification que les fonctionnalités demandées dans le cahier des charges étaient correctement implémentées.',
+    'A one-month discovery internship focused on checking delivered functionality against the requirements document.',
+    'Stage découverte d''un mois consacré à la vérification des fonctionnalités livrées par rapport au cahier des charges.',
+    array['Verified that requested functionality had been correctly implemented.'],
+    array['Vérifié que les fonctionnalités demandées avaient été correctement implémentées.'],
     4
   ),
   (
@@ -110,7 +142,9 @@ insert into public.experiences (
     'Express In Code',
     '2022-05-01',
     '2023-04-30',
-    'One-year learning internship: 9 months on site, 3 months remote. Created a Japanese anime streaming website.',
-    'Stage d''apprentissage d''un an : 9 mois sur site, 3 mois à distance. Création d''un site de streaming d''anime japonais.',
+    'A one-year learning internship, with nine months on-site and three months remote, focused on web development.',
+    'Stage d''apprentissage d''un an, dont neuf mois sur site et trois mois à distance, consacré au développement web.',
+    array['Created a Japanese anime streaming website.'],
+    array['Créé un site de streaming d''anime japonais.'],
     5
   );

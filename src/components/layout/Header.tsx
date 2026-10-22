@@ -68,10 +68,12 @@ const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-4">
             {/* Mobile menu button */}
             <button
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
               className="menu-button md:hidden flex items-center space-x-1 bg-muted/30 backdrop-blur-sm rounded-md px-3 py-1.5"
               onClick={() => setMenuOpen(!menuOpen)}
             >
-              <span className="text-sm">Menu</span>
+              <span className="text-sm">{t("menu")}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -128,7 +130,10 @@ const Header: React.FC<HeaderProps> = ({
               defaultValue={locale}
               onValueChange={(value) => changeLocale(value as "en" | "fr")}
             >
-              <SelectTrigger className="w-[64px] uppercase font-bold">
+              <SelectTrigger
+                aria-label={t("language.select")}
+                className="w-[64px] uppercase font-bold"
+              >
                 {locale}
               </SelectTrigger>
               <SelectContent>
@@ -144,6 +149,7 @@ const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile navigation */}
       <div
+        id="mobile-navigation"
         className={cn(
           "nav-menu fixed inset-x-0 top-[64px] bg-background/90 backdrop-blur-lg border-t border-b border-border transition-all duration-300 md:hidden",
           menuOpen

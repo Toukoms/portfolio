@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
-import resume from "@/data/resume.json";
-import { useScopedI18n } from "@/locales/client";
+import { useCurrentLocale, useScopedI18n } from "@/locales/client";
+import { ResumeContent } from "@/types/portfolio-content";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -10,10 +10,12 @@ import SocialLinks from "./SocialLinks";
 
 interface ContactProps {
   className?: string;
+  resume: ResumeContent;
 }
 
-const Contact: React.FC<ContactProps> = ({ className }) => {
+const Contact: React.FC<ContactProps> = ({ className, resume }) => {
   const t = useScopedI18n("contact");
+  const locale = useCurrentLocale();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -48,22 +50,34 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormStatus((status) => (status === "error" ? "idle" : status));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setFormStatus("submitting");
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch(resume.contact.formAction, {
+        method: "POST",
+        body: new FormData(event.currentTarget),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        setFormStatus("error");
+        return;
+      }
+
       setFormStatus("success");
       setFormData({ name: "", email: "", message: "" });
-
-      // Reset form status after a delay
       setTimeout(() => {
         setFormStatus("idle");
         setCurrentLine(0);
       }, 5000);
-    }, 1500);
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   const dialogLines = [
@@ -93,8 +107,8 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               : "opacity-0 translate-y-10"
           )}
         >
-          <h2 className="text-sm font-mono text-primary">{t("subtitle")}</h2>
-          <h3 className="text-3xl md:text-4xl font-bold">{t("title")}</h3>
+          <p className="text-sm font-mono text-primary">{t("subtitle")}</p>
+          <h2 className="text-3xl md:text-4xl font-bold">{t("title")}</h2>
           <div className="h-1 w-20 bg-primary rounded-full mx-auto"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
             {t("description")}
@@ -115,7 +129,11 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
               <h3 className="font-mono text-lg">{t("form.title")}</h3>
 
               {formStatus === "success" ? (
-                <div className="py-8 text-center space-y-4">
+                <div
+                  className="py-8 text-center space-y-4"
+                  role="status"
+                  aria-live="polite"
+                >
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 text-primary mb-4 animate-pulse">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -144,6 +162,11 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                   method="POST"
                   className="space-y-4"
                 >
+                  {formStatus === "error" && (
+                    <p role="alert" className="text-sm text-destructive">
+                      {t("form.error")}
+                    </p>
+                  )}
                   <div>
                     <label
                       htmlFor="name"
@@ -251,7 +274,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                     <div className="w-9 h-9 overflow-hidden rounded-full bg-background flex items-center justify-center">
                       <Image
                         src={resume.contact.avatar.src}
-                        alt={resume.contact.avatar.alt}
+                        alt={resume.contact.avatar.alt[locale]}
                         width={1920}
                         height={1080}
                       />
@@ -346,7 +369,7 @@ const Contact: React.FC<ContactProps> = ({ className }) => {
                   </div>
                 </div>
 
-                <SocialLinks />
+                <SocialLinks social={resume.contact.social} />
               </div>
             </div>
           </div>

@@ -1,119 +1,40 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
-import resume from "@/data/resume.json";
 import { ExperienceRecord } from "@/types/experience";
+import { ResumeContent } from "@/types/portfolio-content";
 import { formatDate, parseISO } from "date-fns";
 import { enUS, fr } from "date-fns/locale";
 import Image from "next/image";
 import React from "react";
-import { FaCode, FaNodeJs, FaReact, FaVuejs } from "react-icons/fa";
+import { FaCode, FaReact } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import {
-  SiDocker,
-  SiExpress,
-  SiFigma,
-  SiGit,
-  SiJest,
-  SiMongodb,
   SiPostgresql,
+  SiStripe,
+  SiSupabase,
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
 import { useInView } from "react-intersection-observer";
 
-const skills: SkillProps[] = [
-  // Frontend
-  {
-    name: "Next.js",
-    icon: <RiNextjsFill className="h-6 w-6 text-primary" />,
-    category: "frontend",
-  },
-  {
-    name: "React",
-    icon: <FaReact className="h-6 w-6 text-primary" />,
-    category: "frontend",
-  },
-  {
-    name: "Vue.js",
-    icon: <FaVuejs className="h-6 w-6 text-primary" />,
-    category: "frontend",
-  },
-  {
-    name: "TypeScript",
-    icon: <SiTypescript className="h-6 w-6 text-primary" />,
-    category: "frontend",
-  },
-  {
-    name: "HTML/CSS/JS",
-    icon: <FaCode className="h-6 w-6 text-primary" />,
-    category: "frontend",
-  },
-  {
-    name: "Tailwind CSS",
-    icon: <SiTailwindcss className="h-6 w-6 text-primary" />,
-    category: "frontend",
-  },
-
-  // Backend
-  {
-    name: "Node.js",
-    icon: <FaNodeJs className="h-6 w-6 text-primary" />,
-    category: "backend",
-  },
-  {
-    name: "Express",
-    icon: <SiExpress className="h-6 w-6 text-primary" />,
-    category: "backend",
-  },
-  {
-    name: "MongoDB",
-    icon: <SiMongodb className="h-6 w-6 text-primary" />,
-    category: "backend",
-  },
-  {
-    name: "PostgreSQL",
-    icon: <SiPostgresql className="h-6 w-6 text-primary" />,
-    category: "backend",
-  },
-  // {
-  //   name: "GraphQL",
-  //   icon: <SiGraphql className="h-6 w-6 text-primary" />,
-  //   category: "backend",
-  // },
-
-  // Tools & Others
-  {
-    name: "Git",
-    icon: <SiGit className="h-6 w-6 text-primary" />,
-    category: "tools",
-  },
-  {
-    name: "Docker",
-    icon: <SiDocker className="h-6 w-6 text-primary" />,
-    category: "tools",
-  },
-  {
-    name: "Jest",
-    icon: <SiJest className="h-6 w-6 text-primary" />,
-    category: "tools",
-  },
-  {
-    name: "Figma",
-    icon: <SiFigma className="h-6 w-6 text-primary" />,
-    category: "tools",
-  },
-  // {
-  //   name: "AWS",
-  //   icon: <FaAws className="h-6 w-6 text-primary" />,
-  //   category: "tools",
-  // },
-];
+const skillIcons: Record<string, React.ReactNode> = {
+  "Next.js": <RiNextjsFill className="h-6 w-6 text-primary" />,
+  React: <FaReact className="h-6 w-6 text-primary" />,
+  TypeScript: <SiTypescript className="h-6 w-6 text-primary" />,
+  "Tailwind CSS": <SiTailwindcss className="h-6 w-6 text-primary" />,
+  Supabase: <SiSupabase className="h-6 w-6 text-primary" />,
+  Stripe: <SiStripe className="h-6 w-6 text-primary" />,
+  PostgreSQL: <SiPostgresql className="h-6 w-6 text-primary" />,
+  "Functional testing": <FaCode className="h-6 w-6 text-primary" />,
+  "Installation testing": <FaCode className="h-6 w-6 text-primary" />,
+  "Role-based access testing": <FaCode className="h-6 w-6 text-primary" />,
+};
 
 interface SkillProps {
   name: string;
   icon: React.ReactNode;
-  category: string;
+  category: "frontend" | "backend" | "tools";
 }
 
 interface ExperienceProps {
@@ -123,14 +44,16 @@ interface ExperienceProps {
   startAt: string;
   endAt: string | null;
   description: string;
+  contributions: string[];
 }
 
 interface AboutProps {
   className?: string;
   experiences: ExperienceRecord[];
+  resume: ResumeContent;
 }
 
-const About: React.FC<AboutProps> = ({ className, experiences }) => {
+const About: React.FC<AboutProps> = ({ className, experiences, resume }) => {
   const tAbout = useScopedI18n("about");
   const tSkills = useScopedI18n("skills");
   const tExperience = useScopedI18n("experience");
@@ -144,7 +67,16 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
     endAt: exp.end_at,
     description:
       currentLocale === "fr" ? exp.description_fr : exp.description_en,
+    contributions:
+      currentLocale === "fr" ? exp.contributions_fr : exp.contributions_en,
   }));
+  const skills: SkillProps[] = resume.skills.flatMap((group) =>
+    group.items.map((item) => ({
+      name: item[currentLocale],
+      icon: skillIcons[item.en],
+      category: group.section,
+    }))
+  );
 
   // Main section ref for the entire section
   const [sectionRef] = useInView({
@@ -200,12 +132,12 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
                 : "opacity-0 translate-y-10"
             )}
           >
-            <h2 className="text-sm font-mono text-primary">
-              CHARACTER PROFILE
-            </h2>
-            <h3 className="text-3xl md:text-4xl font-bold">
+            <p className="text-sm font-mono text-primary">
+              {tAbout("eyebrow")}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold">
               {tAbout("title")}
-            </h3>
+            </h2>
             <div className="h-1 w-20 bg-primary rounded-full mx-auto" />
           </div>
         </div>
@@ -227,21 +159,20 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
               <div className="w-48 h-48 rounded-full bg-primary flex items-center justify-center">
                 <div className="w-[98%] h-[98%] overflow-hidden rounded-full bg-background flex items-center justify-center">
                   <Image
-                    src={"/pdp.jpg"}
-                    alt={"Avatar Image"}
+                    src={resume.contact.avatar.src}
+                    alt={resume.contact.avatar.alt[currentLocale]}
                     width={1920}
                     height={1080}
                   />
                 </div>
               </div>
               <div className="text-center">
-                <h1 className="font-bold text-xl mb-4">{resume.name}</h1>
+                <h3 className="font-bold text-xl mb-4">{resume.name}</h3>
                 <p className="text-primary text-2xl">
-                  {currentLocale === "fr" ? resume.role.fr : resume.role.en}
+                  {resume.role[currentLocale]}
                 </p>
                 <p className="text-accent font-bold text-xl">
-                  {Number(new Date().getFullYear()) - resume.experienceSince}{" "}
-                  {tAbout("experience")}
+                  {resume.experience[currentLocale]}
                 </p>
               </div>
             </div>
@@ -262,12 +193,14 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
               {tAbout("biography.title")}
             </h3>
             <p className="mb-4 text-muted-foreground">
-              {tAbout("biography.p1")}
+              {resume.biography.p1[currentLocale]}
             </p>
             <p className="mb-4 text-muted-foreground">
-              {tAbout("biography.p2")}
+              {resume.biography.p2[currentLocale]}
             </p>
-            <p className="text-muted-foreground">{tAbout("biography.p3")}</p>
+            <p className="text-muted-foreground">
+              {resume.biography.p3[currentLocale]}
+            </p>
           </div>
 
           {/* Frontend Skills - Spans 1 column on mobile, 1 column on md, and 2 columns on lg */}
@@ -298,7 +231,7 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
                     )}
                     style={{ transitionDelay: `${400 + index * 100}ms` }}
                   >
-                    {skill.icon}
+                    <span aria-hidden="true">{skill.icon}</span>
                     <span className="mt-2 text-sm font-medium">
                       {skill.name}
                     </span>
@@ -335,7 +268,7 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
                     )}
                     style={{ transitionDelay: `${500 + index * 100}ms` }}
                   >
-                    {skill.icon}
+                    <span aria-hidden="true">{skill.icon}</span>
                     <span className="mt-2 text-sm font-medium">
                       {skill.name}
                     </span>
@@ -372,7 +305,7 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
                     )}
                     style={{ transitionDelay: `${600 + index * 100}ms` }}
                   >
-                    {skill.icon}
+                    <span aria-hidden="true">{skill.icon}</span>
                     <span className="mt-2 text-sm font-medium">
                       {skill.name}
                     </span>
@@ -427,6 +360,11 @@ const About: React.FC<AboutProps> = ({ className, experiences }) => {
                   <p className="text-sm text-muted-foreground">
                     {exp.description}
                   </p>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                    {exp.contributions.map((contribution) => (
+                      <li key={contribution}>{contribution}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
