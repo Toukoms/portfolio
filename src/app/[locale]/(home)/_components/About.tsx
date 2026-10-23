@@ -31,13 +31,13 @@ const skillIcons: Record<string, React.ReactNode> = {
   Supabase: <SiSupabase className="h-6 w-6 text-primary" />,
   Stripe: <SiStripe className="h-6 w-6 text-primary" />,
   PostgreSQL: <SiPostgresql className="h-6 w-6 text-primary" />,
-  TestComplete: <Bitbar size={24} />,
+  TestComplete: <Bitbar className="h-6 w-6 text-primary" />,
   "Azure DevOps": <VscAzureDevops className="h-6 w-6 text-primary" />,
   TFVC: <VscSourceControl className="h-6 w-6 text-primary" />,
   GitHub: <SiGithub className="h-6 w-6 text-primary" />,
   Docker: <SiDocker className="h-6 w-6 text-primary" />,
-  Playwright: <Playwright size={24} />,
-  Vitest: <Vitest size={24} />,
+  Playwright: <Playwright className="h-6 w-6 text-primary" />,
+  Vitest: <Vitest className="h-6 w-6 text-primary" />,
 };
 
 interface SkillProps {
