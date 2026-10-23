@@ -33,7 +33,8 @@ export default {
   skills: {
     frontend: "Développement d'applications web",
     backend: "Données et paiements",
-    tools: "Assurance qualité",
+    developerTools: "Outils de développement",
+    qualityAssurance: "Assurance qualité",
   },
   experience: {
     title: "Expériences",
@@ -41,11 +42,11 @@ export default {
     duration: "ans en développement logiciel et assurance qualité",
   },
   projects: {
-    eyebrow: "PROJETS SÉLECTIONNÉS",
-    title: "Top Projets",
+    eyebrow: "PROJETS",
+    title: "Projets sélectionnés",
     description:
-      "Une sélection de projets illustrant des fonctionnalités web, des intégrations et des processus métier.",
-    more: "Voir Plus de Projets",
+      "Une sélection de projets web et logiciels. Retrouvez tous les projets dans l'archive.",
+    more: "Voir tous les projets",
     cta: "Cliquez pour en savoir plus sur ce projet",
   },
   projectDialog: {

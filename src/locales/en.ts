@@ -33,7 +33,8 @@ export default {
   skills: {
     frontend: "Web Application Development",
     backend: "Data & Payments",
-    tools: "Quality Assurance",
+    developerTools: "Developer Tools",
+    qualityAssurance: "Quality Assurance",
   },
   experience: {
     title: "Experiences",
@@ -41,11 +42,11 @@ export default {
     duration: "years across software development and QA",
   },
   projects: {
-    eyebrow: "PROJECT SELECTION",
-    title: "Top Projects",
+    eyebrow: "PROJECTS",
+    title: "Selected Projects",
     description:
-      "Selected projects showing web application features, integrations, and product workflows.",
-    more: "View More Projects",
+      "A selection of web and software projects, with the full project archive available to explore.",
+    more: "View All Projects",
     cta: "Click to learn more about this project",
   },
   projectDialog: {

@@ -4,9 +4,9 @@ insert into public.projects (id, title, image, category, is_favorite)
 values
   ('ti-books', 'Ti-Books', 'https://2zw74dh6lj.ufs.sh/f/R8NxhbQ5cV9Zl6894UH5vTmxzPJN7KMWrZ23jV8nE49bIFXS', 'web', true),
   ('webinart', 'WebInArt', 'https://2zw74dh6lj.ufs.sh/f/R8NxhbQ5cV9Z41ZZ4JUCykYG1biQH925m7apTtExFfLSqug6', 'web', true),
-  ('damoya', 'Damoya', 'https://2zw74dh6lj.ufs.sh/f/R8NxhbQ5cV9Z1irGmd3LOgboFmPGVa8fBxrUy4Yiq0SlMcsA', 'web', false),
+  ('damoya', 'Damoya', 'https://2zw74dh6lj.ufs.sh/f/R8NxhbQ5cV9Z1irGmd3LOgboFmPGVa8fBxrUy4Yiq0SlMcsA', 'web', true),
   ('py-snake', 'Py-Snake', 'https://2zw74dh6lj.ufs.sh/f/R8NxhbQ5cV9ZsY6Zr1PTvCPthkgo03FyQjUBWHAqi6feS7l2', 'desktop', false),
-  ('anime-dl', 'Anime-DL', 'https://2zw74dh6lj.ufs.sh/f/R8NxhbQ5cV9ZgD9MTR6aGUxHQND2At9nRbFB0wk1yzS65Wrd', 'other', true)
+  ('anime-dl', 'Anime-DL', 'https://2zw74dh6lj.ufs.sh/f/R8NxhbQ5cV9ZgD9MTR6aGUxHQND2At9nRbFB0wk1yzS65Wrd', 'other', false)
 on conflict (id) do update set title = excluded.title, image = excluded.image, category = excluded.category, is_favorite = excluded.is_favorite;
 
 insert into public.project_translations (project_id, locale, description)

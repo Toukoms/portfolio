@@ -52,7 +52,8 @@ insert into public.skill_groups (id, profile_id, section, sort_order)
 values
   ('frontend', 'primary', 'frontend', 1),
   ('backend', 'primary', 'backend', 2),
-  ('tools', 'primary', 'tools', 3)
+  ('tools', 'primary', 'quality_assurance', 3),
+  ('developer-tools', 'primary', 'developer_tools', 4)
 on conflict (id) do update set profile_id = excluded.profile_id, section = excluded.section, sort_order = excluded.sort_order;
 
 insert into public.skill_group_translations (skill_group_id, locale, category)
@@ -62,7 +63,9 @@ values
   ('backend', 'en', 'Data & payments'),
   ('backend', 'fr', 'Données et paiements'),
   ('tools', 'en', 'Quality assurance'),
-  ('tools', 'fr', 'Assurance qualité')
+  ('tools', 'fr', 'Assurance qualité'),
+  ('developer-tools', 'en', 'Developer tools'),
+  ('developer-tools', 'fr', 'Outils de développement')
 on conflict (skill_group_id, locale) do update set category = excluded.category;
 
 insert into public.skills (id, skill_group_id, sort_order)
@@ -75,8 +78,12 @@ values
   ('backend-2', 'backend', 2),
   ('backend-3', 'backend', 3),
   ('tools-1', 'tools', 1),
-  ('tools-2', 'tools', 2),
-  ('tools-3', 'tools', 3)
+  ('tools-6', 'tools', 2),
+  ('tools-7', 'tools', 3),
+  ('tools-2', 'developer-tools', 1),
+  ('tools-3', 'developer-tools', 2),
+  ('tools-4', 'developer-tools', 3),
+  ('tools-5', 'developer-tools', 4)
 on conflict (id) do update set skill_group_id = excluded.skill_group_id, sort_order = excluded.sort_order;
 
 insert into public.skill_translations (skill_id, locale, name)
@@ -97,10 +104,18 @@ values
   ('backend-3', 'fr', 'Stripe'),
   ('tools-1', 'en', 'TestComplete'),
   ('tools-1', 'fr', 'TestComplete'),
+  ('tools-6', 'en', 'Playwright'),
+  ('tools-6', 'fr', 'Playwright'),
+  ('tools-7', 'en', 'Vitest'),
+  ('tools-7', 'fr', 'Vitest'),
   ('tools-2', 'en', 'Azure DevOps'),
   ('tools-2', 'fr', 'Azure DevOps'),
   ('tools-3', 'en', 'TFVC'),
-  ('tools-3', 'fr', 'TFVC')
+  ('tools-3', 'fr', 'TFVC'),
+  ('tools-4', 'en', 'GitHub'),
+  ('tools-4', 'fr', 'GitHub'),
+  ('tools-5', 'en', 'Docker'),
+  ('tools-5', 'fr', 'Docker')
 on conflict (skill_id, locale) do update set name = excluded.name;
 
 insert into public.distinctions (id, profile_id, organization, date_label, sort_order)

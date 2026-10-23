@@ -44,7 +44,11 @@ export interface ResumeContent {
     end: string;
   }>;
   skills: Array<{
-    section: "frontend" | "backend" | "tools";
+    section:
+      | "frontend"
+      | "backend"
+      | "developer_tools"
+      | "quality_assurance";
     category: LocalizedText;
     items: LocalizedText[];
   }>;

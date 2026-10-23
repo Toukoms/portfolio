@@ -1,58 +1,30 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import { useScopedI18n } from "@/locales/client";
 import { ProjectProps } from "@/types/project";
 import Link from "next/link";
-import React from "react";
 import { useInView } from "react-intersection-observer";
 import ProjectCard from "../../../../components/ProjectCard";
 
-interface ProjectsProps {
-  className?: string;
-  projects: ProjectProps[];
-}
-
-const Projects: React.FC<ProjectsProps> = ({ className, projects }) => {
+const Projects = ({ projects }: { projects: ProjectProps[] }) => {
   const t = useScopedI18n("projects");
-
-  const [headerRef, headerInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
   const [projectsRef, projectsInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const [ctaRef, ctaInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
   return (
-    <section id="projects" className={cn("py-20", className)}>
+    <section id="projects" className="py-16">
       <div className="container mx-auto px-4 md:px-6">
-        <div
-          ref={headerRef}
-          className={cn(
-            "space-y-2 text-center mb-12 transition-all duration-700 transform",
-            headerInView
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          )}
-        >
-          <p className="text-sm font-mono text-primary">{t("eyebrow")}</p>
-          <h2 className="text-3xl md:text-4xl font-bold">{t("title")}</h2>
-          <div className="h-1 w-20 bg-primary rounded-full mx-auto"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
-            {t("description")}
-          </p>
+        <div className="mx-auto mb-10 max-w-2xl space-y-4 text-center">
+          <p className="font-mono text-sm text-primary">{t("eyebrow")}</p>
+          <h2 className="text-2xl font-bold md:text-3xl">{t("title")}</h2>
+          <p className="text-muted-foreground">{t("description")}</p>
         </div>
-
         <div
           ref={projectsRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {projects.map((project, index) => (
             <ProjectCard
@@ -63,18 +35,10 @@ const Projects: React.FC<ProjectsProps> = ({ className, projects }) => {
             />
           ))}
         </div>
-
-        <div
-          ref={ctaRef}
-          className={cn(
-            "mt-12 text-center transition-all duration-700 transform",
-            ctaInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          )}
-        >
+        <div className="mt-10 text-center">
           <Link
             href="/project"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-300 bg-primary hover:bg-secondary text-primary-foreground"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-secondary"
           >
             {t("more")}
           </Link>

@@ -1,4 +1,5 @@
 "use client";
+import { Bitbar, Playwright, Vitest } from "@dev.icons/react/mono";
 import { cn } from "@/lib/utils";
 import { PROFILE_IMAGE_PATH } from "@/data";
 import { useCurrentLocale, useScopedI18n } from "@/locales/client";
@@ -11,8 +12,9 @@ import React from "react";
 import { FaReact } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import { VscAzureDevops, VscSourceControl } from "react-icons/vsc";
-import { ClipboardCheck } from "lucide-react";
 import {
+  SiDocker,
+  SiGithub,
   SiPostgresql,
   SiStripe,
   SiSupabase,
@@ -29,15 +31,23 @@ const skillIcons: Record<string, React.ReactNode> = {
   Supabase: <SiSupabase className="h-6 w-6 text-primary" />,
   Stripe: <SiStripe className="h-6 w-6 text-primary" />,
   PostgreSQL: <SiPostgresql className="h-6 w-6 text-primary" />,
-  TestComplete: <ClipboardCheck className="h-6 w-6 text-primary" />,
+  TestComplete: <Bitbar size={24} />,
   "Azure DevOps": <VscAzureDevops className="h-6 w-6 text-primary" />,
   TFVC: <VscSourceControl className="h-6 w-6 text-primary" />,
+  GitHub: <SiGithub className="h-6 w-6 text-primary" />,
+  Docker: <SiDocker className="h-6 w-6 text-primary" />,
+  Playwright: <Playwright size={24} />,
+  Vitest: <Vitest size={24} />,
 };
 
 interface SkillProps {
   name: string;
   icon: React.ReactNode;
-  category: "frontend" | "backend" | "tools";
+  category:
+    | "frontend"
+    | "backend"
+    | "developer_tools"
+    | "quality_assurance";
 }
 
 interface ExperienceProps {
@@ -126,7 +136,12 @@ const About: React.FC<AboutProps> = ({ className, experiences, resume }) => {
     threshold: 0.1,
   });
 
-  const [toolsRef, toolsInView] = useInView({
+  const [developerToolsRef, developerToolsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const [qualityAssuranceRef, qualityAssuranceInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -297,27 +312,27 @@ const About: React.FC<AboutProps> = ({ className, experiences, resume }) => {
 
           {/* Tools Skills - Spans 1 column on mobile, 1 column on md, and 1 column on lg */}
           <div
-            ref={toolsRef}
+            ref={developerToolsRef}
             className={cn(
               "glass-panel p-6 md:col-span-1 lg:col-span-1 rounded-xl transition-all duration-700",
-              toolsInView
+              developerToolsInView
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             )}
             style={{ transitionDelay: "500ms" }}
           >
             <h3 className="font-mono text-lg mb-4 uppercase">
-              {tSkills("tools")}
+              {tSkills("developerTools")}
             </h3>
             <div className="grid grid-cols-2 gap-3">
               {skills
-                .filter((skill) => skill.category === "tools")
+                .filter((skill) => skill.category === "developer_tools")
                 .map((skill, index) => (
                   <div
                     key={skill.name}
                     className={cn(
                       "flex flex-col items-center justify-center p-3 bg-muted/30 rounded-md hover:bg-muted/50 transition-all duration-500",
-                      toolsInView
+                      developerToolsInView
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-5"
                     )}
@@ -329,6 +344,42 @@ const About: React.FC<AboutProps> = ({ className, experiences, resume }) => {
                     </span>
                   </div>
                 ))}
+            </div>
+          </div>
+
+          <div
+            ref={qualityAssuranceRef}
+            className={cn(
+                "glass-panel p-6 md:col-span-1 lg:col-span-1 rounded-xl transition-all duration-700",
+                qualityAssuranceInView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+            )}
+            style={{ transitionDelay: "550ms" }}
+          >
+            <h3 className="font-mono text-lg mb-4 uppercase">
+                {tSkills("qualityAssurance")}
+            </h3>
+            <div className="grid grid-cols-2 gap-3">
+                {skills
+                  .filter((skill) => skill.category === "quality_assurance")
+                  .map((skill, index) => (
+                    <div
+                      key={skill.name}
+                      className={cn(
+                        "flex flex-col items-center justify-center p-3 bg-muted/30 rounded-md hover:bg-muted/50 transition-all duration-500",
+                        qualityAssuranceInView
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-5"
+                      )}
+                      style={{ transitionDelay: `${650 + index * 100}ms` }}
+                    >
+                      <span aria-hidden="true">{skill.icon}</span>
+                      <span className="mt-2 text-sm font-medium">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
             </div>
           </div>
 

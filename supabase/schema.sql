@@ -132,7 +132,14 @@ create table public.educations (
 create table public.skill_groups (
   id text primary key,
   profile_id text not null references public.profiles(id) on delete cascade,
-  section text not null check (section in ('frontend', 'backend', 'tools')),
+  section text not null check (
+    section in (
+      'frontend',
+      'backend',
+      'developer_tools',
+      'quality_assurance'
+    )
+  ),
   sort_order integer not null
 );
 

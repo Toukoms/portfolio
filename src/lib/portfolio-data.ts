@@ -109,7 +109,11 @@ interface ProfileRow {
     sort_order: number;
   }>;
   skill_groups: Array<{
-    section: "frontend" | "backend" | "tools";
+    section:
+      | "frontend"
+      | "backend"
+      | "developer_tools"
+      | "quality_assurance";
     sort_order: number;
     skill_group_translations: Array<{
       locale: PortfolioLocale;
