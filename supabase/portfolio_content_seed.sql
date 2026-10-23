@@ -1,5 +1,23 @@
 -- Profile and case-study content, stored in scope-specific relational tables.
 
+alter table public.skill_groups
+  drop constraint if exists skill_groups_section_check;
+
+update public.skill_groups
+set section = 'quality_assurance'
+where section = 'tools';
+
+alter table public.skill_groups
+  add constraint skill_groups_section_check
+  check (
+    section in (
+      'frontend',
+      'backend',
+      'developer_tools',
+      'quality_assurance'
+    )
+  );
+
 insert into public.profiles (id, name, birthday)
 values
   ('primary', 'RAHAJANIRINA Fanomezantsoa Tokiniaina', '2005-06-09')
