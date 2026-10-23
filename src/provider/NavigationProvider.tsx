@@ -5,7 +5,7 @@ import SplashScreen from "@/components/SplashScreen";
 import { cn } from "@/lib/utils";
 import { useCurrentLocale } from "@/locales/client";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function NavigationProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
@@ -14,9 +14,9 @@ function NavigationProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("home");
 
-  const handleSplashComplete = () => {
+  const handleSplashComplete = useCallback(() => {
     setLoading(false);
-  };
+  }, []);
 
   const handleNavigation = (section: string) => {
     router.push(`/${locale}#${section}`);

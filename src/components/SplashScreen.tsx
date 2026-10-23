@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useScopedI18n } from "@/locales/client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -17,14 +17,17 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
   const [loadingText, setLoadingText] = useState("Initializing...");
   const [showSplash, setShowSplash] = useState(true);
 
-  const loadingTexts = [
-    t("init"),
-    t("load"),
-    t("connect"),
-    t("render"),
-    t("optimize"),
-    t("prepare"),
-  ];
+  const loadingTexts = useMemo(
+    () => [
+      t("init"),
+      t("load"),
+      t("connect"),
+      t("render"),
+      t("optimize"),
+      t("prepare"),
+    ],
+    [t]
+  );
 
   useEffect(() => {
     let currentIndex = 0;
@@ -51,7 +54,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({
     }, 100);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [loadingTexts, onComplete]);
 
   return (
     <div
